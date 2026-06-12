@@ -13,11 +13,11 @@
             --gold-gradient: linear-gradient(135deg, #E8D6A8 0%, #D9C28A 50%, #B8A06E 100%); 
             --bg-primary: #0B0B0E; --bg-elev-1: #14141A; --bg-sidebar: #0E0E12; 
             --text-primary: #F5F5F7; --text-secondary: #8E8E93; --text-muted: #6B6B70; 
-            --frozen-red: #E06464; 
+            --frozen-red: #E06464; --ice: #9DCDDB;
             --glass-bg-strong: rgba(14, 14, 18, 0.86); 
             --glass-border: rgba(255, 255, 255, 0.06); 
             --glass-blur: saturate(180%) blur(28px); 
-            --header-h: 56px; --bottomnav-h: 64px; --sidebar-w: 260px; --radius-card: 16px; --radius-md: 16px;
+            --header-h: 56px; --bottomnav-h: 64px; --sidebar-w: 280px; --radius-card: 16px; --radius-md: 12px;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: "Manrope", sans-serif; background-color: var(--bg-primary); color: var(--text-primary); font-size: 15px; overflow-x: hidden; }
@@ -43,9 +43,26 @@
         .sidebar-label { font-weight: 600; font-size: 15px; }
 
         .main-content { margin-top: var(--header-h); margin-bottom: var(--bottomnav-h); padding: 16px; min-height: 100vh; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
-        .product-card { background: var(--bg-elev-1); border-radius: var(--radius-card); border: 1px solid var(--glass-border); overflow: hidden; transition: transform 0.2s; }
-        .product-card:hover { transform: translateY(-4px); }
+        .view { display: none; animation: fadeIn 0.25s ease-out; }
+        .view.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Banners */
+        .promo-banner { background: linear-gradient(135deg, #1a1812 0%, #2a251a 100%); border: 1px solid var(--gold-dim); border-radius: var(--radius-card); padding: 16px; margin-bottom: 16px; position: relative; overflow: hidden; }
+        .promo-banner h3 { color: var(--gold); font-size: 16px; margin-bottom: 4px; }
+        .promo-banner p { color: var(--text-secondary); font-size: 13px; margin-bottom: 12px; }
+        .promo-btn { background: var(--gold-gradient); color: var(--bg-primary); font-weight: 700; padding: 8px 16px; border-radius: 20px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
+        
+        .checkin-banner { background: var(--bg-elev-1); border: 1px solid var(--glass-border); border-radius: var(--radius-card); padding: 16px; margin-bottom: 16px; }
+        .checkin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .checkin-days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; }
+        .checkin-day { min-width: 40px; height: 50px; background: var(--bg-primary); border: 1px solid var(--glass-border); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 12px; color: var(--text-muted); }
+        .checkin-day.active { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+        .checkin-day .reward { font-weight: 700; font-size: 14px; color: var(--text-primary); }
+
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+        .product-card { background: var(--bg-elev-1); border-radius: var(--radius-card); border: 1px solid var(--glass-border); overflow: hidden; transition: transform 0.2s; cursor: pointer; }
+        .product-card:active { transform: scale(0.98); }
         .product-card.out-of-stock { opacity: 0.6; }
         .card-media { position: relative; aspect-ratio: 1 / 1; background: #1a1a20; display: flex; align-items: center; justify-content: center; }
         .card-badges { position: absolute; top: 8px; left: 8px; }
@@ -57,10 +74,47 @@
         .card-bottom { display: flex; align-items: center; justify-content: space-between; }
         .card-price { font-size: 18px; font-weight: 700; }
         .card-price-unit { font-size: 11px; color: var(--text-secondary); font-weight: 500; }
-        .card-add-btn { width: 32px; height: 32px; border-radius: 50%; background: var(--gold); color: var(--bg-primary); display: flex; align-items: center; justify-content: center; transition: transform 0.1s; }
+        .card-add-btn { width: 32px; height: 32px; border-radius: 50%; background: var(--gold); color: var(--bg-primary); display: flex; align-items: center; justify-content: center; transition: transform 0.1s; z-index: 2; position: relative; }
         .card-add-btn:active { transform: scale(0.9); }
         .card-add-btn:disabled { background: var(--bg-primary); color: var(--text-muted); cursor: not-allowed; border: 1px solid var(--glass-border); }
         .card-add-btn svg { stroke: currentColor; stroke-width: 2; fill: none; width: 16px; height: 16px; }
+
+        /* Product Detail View */
+        .detail-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 0 16px; }
+        .back-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+        .back-btn svg { width: 24px; height: 24px; stroke: var(--text-primary); stroke-width: 2; fill: none; }
+        .detail-title { font-weight: 700; color: var(--gold); letter-spacing: 0.1em; }
+        .fav-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+        .fav-btn svg { width: 24px; height: 24px; stroke: var(--text-primary); stroke-width: 1.5; fill: none; }
+        
+        .detail-image { width: 100%; aspect-ratio: 1/1; background: var(--bg-elev-1); border-radius: var(--radius-card); display: flex; align-items: center; justify-content: center; font-size: 80px; margin-bottom: 20px; border: 1px solid var(--glass-border); }
+        .detail-info h1 { font-size: 24px; font-weight: 800; margin-bottom: 4px; }
+        .detail-subtitle { color: var(--gold); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 8px; }
+        .detail-price { font-size: 28px; font-weight: 800; color: var(--gold); margin-bottom: 16px; }
+        .detail-tags { display: flex; gap: 8px; margin-bottom: 20px; }
+        .tag { background: var(--bg-elev-1); border: 1px solid var(--glass-border); padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+        .tag.in-stock { border-color: #4ade80; color: #4ade80; background: rgba(74, 222, 128, 0.1); }
+        .detail-desc { color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; font-size: 14px; }
+        .detail-type-box { display: flex; align-items: center; gap: 12px; background: var(--bg-elev-1); padding: 12px 16px; border-radius: var(--radius-md); margin-bottom: 24px; border: 1px solid var(--glass-border); }
+        .detail-type-box span:first-child { color: var(--text-muted); font-size: 13px; }
+        .detail-type-box span:last-child { color: var(--text-primary); font-weight: 600; font-size: 15px; }
+        
+        .detail-qty { margin-bottom: 24px; }
+        .detail-qty label { display: block; font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .qty-selector { display: flex; align-items: center; justify-content: space-between; background: var(--bg-elev-1); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 16px; }
+        .qty-selector .qty { font-weight: 700; font-size: 18px; }
+        .qty-selector .price { color: var(--gold); font-weight: 700; font-size: 18px; }
+
+        .detail-reviews { margin-bottom: 80px; }
+        .detail-reviews h3 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+        .no-reviews { background: var(--bg-elev-1); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 16px; text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 12px; }
+        .review-btn { width: 100%; padding: 12px; background: transparent; border: 1px solid var(--gold); color: var(--gold); border-radius: var(--radius-md); font-weight: 600; font-size: 14px; }
+
+        .detail-bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; height: 70px; background: var(--glass-bg-strong); backdrop-filter: var(--glass-blur); border-top: 1px solid var(--glass-border); display: flex; align-items: center; padding: 0 16px; gap: 16px; z-index: 100; padding-bottom: env(safe-area-inset-bottom, 0px); }
+        .cart-icon-btn { width: 48px; height: 48px; background: var(--bg-elev-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--glass-border); }
+        .cart-icon-btn svg { width: 20px; height: 20px; stroke: var(--text-primary); stroke-width: 1.5; fill: none; }
+        .add-to-cart-btn { flex: 1; height: 48px; background: var(--gold-gradient); color: var(--bg-primary); border-radius: 24px; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .add-to-cart-btn:active { transform: scale(0.98); }
 
         .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; height: var(--bottomnav-h); background: var(--glass-bg-strong); backdrop-filter: var(--glass-blur); border-top: 1px solid var(--glass-border); display: flex; justify-content: space-around; align-items: center; z-index: 100; }
         .nav-btn { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--text-muted); flex: 1; height: 100%; justify-content: center; transition: color 0.2s; }
@@ -81,7 +135,6 @@
 
     <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
     <aside class="sidebar" id="sidebar">
-        <!-- EXACTEMENT LES ÉLÉMENTS DE TON FICHIER D'ORIGINE -->
         <div class="sidebar-item" data-category="smokeshop"><div class="sidebar-icon"><svg viewBox="0 0 24 24"><path d="M12 2C10 6 4 8 4 14a8 8 0 0016 0c0-6-6-8-8-12z"></path></svg></div><span class="sidebar-label">Accessoires</span></div>
         <div class="sidebar-item" data-category="herbvape"><div class="sidebar-icon"><svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"></path></svg></div><span class="sidebar-label">HerbVape</span></div>
         <div class="sidebar-item" data-category="mostwanted"><div class="sidebar-icon"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></div><span class="sidebar-label">Most Wanted</span></div>
@@ -94,89 +147,193 @@
         <div class="sidebar-item" data-category="IceOlator"><div class="sidebar-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div><span class="sidebar-label">Ice O'Lator</span></div>
         <div class="sidebar-item" data-category="Beldia"><div class="sidebar-icon"><svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></div><span class="sidebar-label">Beldia</span></div>
         <div class="sidebar-item" data-category="Weed"><div class="sidebar-icon"><svg viewBox="0 0 24 24"><path d="M12 22V8"></path><path d="M12 8C10 4 6 2 2 2c4 2 7 5 10 6z"></path><path d="M12 8c2-4 6-6 10-6c-4 2-7 5-10 6z"></path><path d="M9 21h6"></path></svg></div><span class="sidebar-label">Weed</span></div>
+        <div class="sidebar-item" data-category="meetup" style="margin-top: 10px; border-top: 1px solid var(--glass-border);"><div class="sidebar-icon">👥</div><span class="sidebar-label">Meet Up Rabat</span></div>
     </aside>
 
     <main class="main-content">
-        <div class="products-grid">
-            <div class="product-card out-of-stock">
-                <div class="card-media"><span style="font-size:48px">⚡️⚡️</span><div class="card-badges"><div class="stock-dot"><span class="dot"></span>Out</div></div></div>
-                <div class="card-info"><div class="card-category-tag">Beldia</div><div class="card-title">Tekmache</div><div class="card-bottom"><span class="card-price">24<span class="card-price-unit"> DH/g</span></span><button class="card-add-btn" disabled><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div></div>
+        <!-- VUE 1 : HOME -->
+        <section id="view-home" class="view active">
+            <div class="promo-banner">
+                <h3>Hold TRC, économise jusqu'à –20%</h3>
+                <p>Dès $5 hold → tier Bronze –5% à vie sur chaque commande</p>
+                <button class="promo-btn">Activer mon tier en 30 secondes →</button>
             </div>
-            <div class="product-card out-of-stock">
-                <div class="card-media"><span style="font-size:48px">🌰🏔️</span><div class="card-badges"><div class="stock-dot"><span class="dot"></span>Out</div></div></div>
-                <div class="card-info"><div class="card-category-tag">Beldia</div><div class="card-title">Beldiya Issagen</div><div class="card-bottom"><span class="card-price">30<span class="card-price-unit"> DH/g</span></span><button class="card-add-btn" disabled><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div></div>
+            
+            <div class="checkin-banner">
+                <div class="checkin-header">
+                    <span style="font-weight:700">Check-in quotidien</span>
+                    <span style="color:var(--gold);font-size:13px">1 jours 🔥</span>
+                </div>
+                <div class="checkin-days">
+                    <div class="checkin-day active"><span>J1</span><span class="reward">✅</span></div>
+                    <div class="checkin-day"><span>J2</span><span class="reward">20</span></div>
+                    <div class="checkin-day"><span>J3</span><span class="reward">30</span></div>
+                    <div class="checkin-day"><span>J4</span><span class="reward">40</span></div>
+                    <div class="checkin-day"><span>J5</span><span class="reward">50</span></div>
+                </div>
+                <button class="promo-btn" style="width:100%;justify-content:center;margin-top:12px">Récupérer 20 TRC</button>
             </div>
-            <div class="product-card">
-                <div class="card-media"><span style="font-size:48px">🏔️</span></div>
-                <div class="card-info"><div class="card-category-tag">Drysift</div><div class="card-title">Premium Drysift</div><div class="card-bottom"><span class="card-price">60<span class="card-price-unit"> DH/g</span></span><button class="card-add-btn"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div></div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Les produits seront injectés ici par JS -->
             </div>
-            <div class="product-card">
-                <div class="card-media"><span style="font-size:48px">🧊</span></div>
-                <div class="card-info"><div class="card-category-tag">Frozen</div><div class="card-title">Frozen Gelato</div><div class="card-bottom"><span class="card-price">80<span class="card-price-unit"> DH/g</span></span><button class="card-add-btn"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div></div>
+        </section>
+
+        <!-- VUE 2 : SEARCH -->
+        <section id="view-search" class="view">
+            <div style="padding:20px 0">
+                <input type="text" placeholder="Rechercher un produit..." style="width:100%;padding:14px 16px;border-radius:var(--radius-md);border:1px solid var(--glass-border);background:var(--bg-elev-1);color:var(--text-primary);font-size:15px;outline:none;font-family:inherit">
             </div>
-        </div>
+        </section>
+
+        <!-- VUE 3 : FAVORIS -->
+        <section id="view-favoris" class="view">
+            <div style="text-align:center;padding:48px 20px;color:var(--text-muted);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:50vh">
+                <div style="font-size:48px;margin-bottom:12px;opacity:0.5">🤍</div>
+                <div style="font-size:17px;font-weight:600;color:var(--text-primary);margin-bottom:6px">Aucun favori pour l'instant</div>
+                <div style="font-size:13px;color:var(--text-secondary)">Appuie sur le ❤️ d'un produit pour l'ajouter ici</div>
+            </div>
+        </section>
+
+        <!-- VUE 4 : PRODUCT DETAIL -->
+        <section id="view-product" class="view">
+            <div class="detail-header">
+                <button class="back-btn" onclick="switchView('home')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <span class="detail-title">DETAILS</span>
+                <button class="fav-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+            </div>
+            <div class="detail-image" id="detailImage">🔥</div>
+            <div class="detail-info">
+                <h1 id="detailTitle">BRIQUET CUISINE</h1>
+                <span class="detail-subtitle" id="detailSubtitle">SMOKE ACCESSORY</span>
+                <div class="detail-price" id="detailPrice">13 DH</div>
+                <div class="detail-tags">
+                    <span class="tag" id="detailCategory">Accessoires TYPE</span>
+                    <span class="tag in-stock" id="detailStock">In Stock STOCK</span>
+                </div>
+                <p class="detail-desc" id="detailDesc">Essential smoking accessories — lighters, rolling papers, grinders, and more. Quality gear for the everyday smoker.</p>
+                <div class="detail-type-box">
+                    <span>📦 TYPE</span>
+                    <span id="detailType">Accessoire</span>
+                </div>
+                <div class="detail-qty">
+                    <label>SÉLECTIONNER LA QUANTITÉ</label>
+                    <div class="qty-selector">
+                        <span class="qty">×1</span>
+                        <span class="price" id="detailQtyPrice">13 DH</span>
+                    </div>
+                </div>
+                <div class="detail-reviews">
+                    <h3>Avis clients</h3>
+                    <div class="no-reviews">Aucun avis pour ce produit</div>
+                    <button class="review-btn">Laisser un commentaire</button>
+                </div>
+            </div>
+            <div class="detail-bottom-bar">
+                <button class="cart-icon-btn"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg></button>
+                <button class="add-to-cart-btn" id="detailAddToCart">ADD TO CART · <span id="detailBtnPrice">13 DH</span></button>
+            </div>
+        </section>
     </main>
 
-    <nav class="bottom-nav">
-        <button class="nav-btn active"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg><span class="nav-btn-label">Home</span></button>
-        <button class="nav-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><span class="nav-btn-label">Search</span></button>
-        <button class="nav-btn"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg><span class="nav-btn-label">Favoris</span></button>
-        <button class="nav-btn"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="nav-btn-label">Profile</span></button>
+    <nav class="bottom-nav" id="bottomNav">
+        <button class="nav-btn active" data-view="home"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg><span class="nav-btn-label">Home</span></button>
+        <button class="nav-btn" data-view="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><span class="nav-btn-label">Search</span></button>
+        <button class="nav-btn" data-view="favoris"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg><span class="nav-btn-label">Favoris</span></button>
+        <button class="nav-btn" data-view="home"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="nav-btn-label">Profile</span></button>
     </nav>
 
     <script>
-        // 1. Gestion du Menu Latéral
-        const menuBtn = document.getElementById('menuBtn');
-        const sidebar = document.getElementById('sidebar');
-        const backdrop = document.getElementById('sidebarBackdrop');
-        
-        menuBtn.addEventListener('click', () => {
-            sidebar.classList.add('active');
-            backdrop.classList.add('active');
-        });
-        backdrop.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-            backdrop.classList.remove('active');
-        });
+        // Données des produits
+        const products = [
+            { id: 1, name: "BRIQUET CUISINE", category: "Accessoires", type: "Accessoire", price: 13, image: "🔥", stock: "in", subtitle: "SMOKE ACCESSORY", desc: "Essential smoking accessories — lighters, rolling papers, grinders, and more. Quality gear for the everyday smoker." },
+            { id: 2, name: "Tekmache", category: "Beldia", type: "Weed", price: 24, image: "⚡️⚡️", stock: "out", subtitle: "PREMIUM STRAIN", desc: "High quality Beldia strain, carefully selected for the best experience." },
+            { id: 3, name: "Premium Drysift", category: "Drysift", type: "Extract", price: 60, image: "🏔️", stock: "in", subtitle: "PURE EXTRACT", desc: "Traditional dry sift, rich in terpenes and trichomes." },
+            { id: 4, name: "Frozen Gelato", category: "Frozen", type: "Concentrate", price: 80, image: "🧊", stock: "in", subtitle: "FROZEN EXTRACT", desc: "Cold-extracted concentrate preserving all delicate terpenes." }
+        ];
 
-        // Fermer le menu quand on clique sur un élément
-        document.querySelectorAll('.sidebar-item').forEach(item => {
-            item.addEventListener('click', function() {
-                document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
-                this.classList.add('active');
-                sidebar.classList.remove('active');
-                backdrop.classList.remove('active');
-            });
-        });
+        let cartCount = 0;
 
-        // 2. Gestion des boutons "+" (Ajout au panier)
-        document.querySelectorAll('.card-add-btn:not(:disabled)').forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Animation du bouton
-                this.style.transform = 'scale(0.85)';
-                setTimeout(() => { this.style.transform = 'scale(1)'; }, 150);
-                
-                // Mise à jour du compteur
-                let cartCount = document.getElementById('cartCount');
-                let currentCount = parseInt(cartCount.innerText) || 0;
-                currentCount++;
-                cartCount.innerText = currentCount;
-                cartCount.style.display = 'flex';
-                
-                // Message de confirmation
-                showToast("Produit ajouté au panier !");
-            });
-        });
+        // Rendu de la grille de produits
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = products.map(p => `
+                <div class="product-card ${p.stock === 'out' ? 'out-of-stock' : ''}" onclick="openProductDetail(${p.id})">
+                    <div class="card-media">
+                        <span style="font-size:48px">${p.image}</span>
+                        ${p.stock === 'out' ? '<div class="card-badges"><div class="stock-dot"><span class="dot"></span>Out</div></div>' : ''}
+                    </div>
+                    <div class="card-info">
+                        <div class="card-category-tag">${p.category}</div>
+                        <div class="card-title">${p.name}</div>
+                        <div class="card-bottom">
+                            <span class="card-price">${p.price}<span class="card-price-unit"> DH</span></span>
+                            <button class="card-add-btn" ${p.stock === 'out' ? 'disabled' : ''} onclick="event.stopPropagation(); addToCart(${p.price})">
+                                <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Navigation entre les vues
+        function switchView(viewName) {
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.getElementById('view-' + viewName).classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.querySelector(`.nav-btn[data-view="${viewName}"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            document.getElementById('sidebar').classList.remove('active');
+            document.getElementById('sidebarBackdrop').classList.remove('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Ouvrir le détail produit
+        function openProductDetail(id) {
+            const p = products.find(prod => prod.id === id);
+            if (!p) return;
+
+            document.getElementById('detailImage').textContent = p.image;
+            document.getElementById('detailTitle').textContent = p.name;
+            document.getElementById('detailSubtitle').textContent = p.subtitle;
+            document.getElementById('detailPrice').textContent = p.price + ' DH';
+            document.getElementById('detailCategory').textContent = p.category + ' TYPE';
+            document.getElementById('detailStock').textContent = p.stock === 'in' ? 'In Stock STOCK' : 'Out of Stock';
+            document.getElementById('detailStock').className = 'tag ' + (p.stock === 'in' ? 'in
+            document.getElementById('detailDesc').textContent = p.desc;
+            document.getElementById('detailType').textContent = p.type;
+            document.getElementById('detailQtyPrice').textContent = p.price + ' DH';
+            document.getElementById('detailBtnPrice').textContent = p.price + ' DH';
+            
+            // Configurer le bouton d'ajout au panier de la page détail
+            const detailBtn = document.getElementById('detailAddToCart');
+            detailBtn.onclick = () => {
+                detailBtn.style.transform = 'scale(0.95)';
+                setTimeout(() => { detailBtn.style.transform = 'scale(1)'; }, 150);
+                addToCart(p.price);
+            };
+
+            switchView('product');
+        }
+
+        // Ajouter au panier
+        function addToCart(price) {
+            cartCount++;
+            const cartEl = document.getElementById('cartCount');
+            cartEl.textContent = cartCount;
+            cartEl.style.display = 'flex';
+            
+            // Animation et toast
+            showToast("Produit ajouté au panier !");
+        }
 
         function showToast(message) {
             let toast = document.createElement('div');
             toast.innerText = message;
-            toast.style.cssText = `
-                position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
-                background: var(--gold); color: var(--bg-primary); padding: 10px 20px;
-                border-radius: 20px; font-weight: 700; font-size: 14px; z-index: 1000;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.4); animation: fadeIn 0.3s ease;
-            `;
+            toast.style.cssText = `position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--bg-primary); padding: 10px 20px; border-radius: 20px; font-weight: 700; font-size: 14px; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.4); animation: fadeIn 0.3s ease;`;
             document.body.appendChild(toast);
             setTimeout(() => {
                 toast.style.opacity = '0';
@@ -185,7 +342,33 @@
             }, 2000);
         }
 
-        // 3. Initialisation Telegram
+        // Écouteurs d'événements
+        document.getElementById('menuBtn').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.add('active');
+            document.getElementById('sidebarBackdrop').classList.add('active');
+        });
+        document.getElementById('sidebarBackdrop').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.remove('active');
+            document.getElementById('sidebarBackdrop').classList.remove('active');
+        });
+
+        document.querySelectorAll('.sidebar-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById('sidebar').classList.remove('active');
+                document.getElementById('sidebarBackdrop').classList.remove('active');
+            });
+        });
+
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchView(btn.getAttribute('data-view'));
+            });
+        });
+
+        // Initialisation
+        renderProducts();
         if (window.Telegram && window.Telegram.WebApp) { 
             window.Telegram.WebApp.ready(); 
             window.Telegram.WebApp.expand(); 
