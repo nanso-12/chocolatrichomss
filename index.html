@@ -5,24 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#0B0B0E">
     <title>ChocolaTrichomes & Terps</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    
     <style>
-        /* --- DESIGN COMPLET INTÉGRÉ --- */
-        :root {
-            --gold: #D9C28A; --gold-light: #E8D6A8; --gold-dim: rgba(217, 194, 138, 0.14);
-            --gold-gradient: linear-gradient(135deg, #E8D6A8 0%, #D9C28A 50%, #B8A06E 100%);
-            --bg-primary: #0B0B0E; --bg-elev-1: #14141A; --bg-sidebar: #0E0E12;
-            --text-primary: #F5F5F7; --text-secondary: #8E8E93; --text-muted: #6B6B70;
-            --frozen-red: #E06464;
-            --glass-bg-strong: rgba(14, 14, 18, 0.86);
-            --glass-border: rgba(255, 255, 255, 0.06);
-            --glass-blur: saturate(180%) blur(28px);
-            --header-h: 56px; --bottomnav-h: 64px; --sidebar-w: 260px;
-            --radius-card: 16px; --radius-sm: 8px;
+        :root { 
+            --gold: #D9C28A; --gold-light: #E8D6A8; --gold-dim: rgba(217, 194, 138, 0.14); 
+            --gold-gradient: linear-gradient(135deg, #E8D6A8 0%, #D9C28A 50%, #B8A06E 100%); 
+            --bg-primary: #0B0B0E; --bg-elev-1: #14141A; --bg-sidebar: #0E0E12; 
+            --text-primary: #F5F5F7; --text-secondary: #8E8E93; --text-muted: #6B6B70; 
+            --frozen-red: #E06464; 
+            --glass-bg-strong: rgba(14, 14, 18, 0.86); 
+            --glass-border: rgba(255, 255, 255, 0.06); 
+            --glass-blur: saturate(180%) blur(28px); 
+            --header-h: 56px; --bottomnav-h: 64px; --sidebar-w: 260px; --radius-card: 16px; --radius-md: 16px;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: "Manrope", sans-serif; background-color: var(--bg-primary); color: var(--text-primary); font-size: 15px; overflow-x: hidden; }
@@ -47,11 +42,13 @@
         .sidebar-icon { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
         .sidebar-icon svg { stroke: currentColor; stroke-width: 1.5; fill: none; }
 
-        /* Main Content & Grid */
+        /* Views & Main Content */
         .main-content { margin-top: var(--header-h); margin-bottom: var(--bottomnav-h); padding: 16px; min-height: 100vh; }
+        .view { display: none; animation: fadeIn 0.2s ease-in-out; }
+        .view.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
         .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
-        
-        /* Product Cards */
         .product-card { background: var(--bg-elev-1); border-radius: var(--radius-card); border: 1px solid var(--glass-border); overflow: hidden; transition: transform 0.2s; }
         .product-card:hover { transform: translateY(-4px); }
         .product-card.out-of-stock { opacity: 0.6; }
@@ -69,160 +66,142 @@
         .card-add-btn:disabled { background: var(--bg-primary); color: var(--text-muted); cursor: not-allowed; border: 1px solid var(--glass-border); }
         .card-add-btn svg { stroke: currentColor; stroke-width: 2; fill: none; width: 16px; height: 16px; }
 
+        /* Search View */
+        .search-container { padding: 10px 0; }
+        .search-input { width: 100%; padding: 14px 16px; border-radius: var(--radius-md); border: 1px solid var(--glass-border); background: var(--bg-elev-1); color: var(--text-primary); font-size: 15px; outline: none; font-family: inherit; }
+        .search-input:focus { border-color: var(--gold); }
+
+        /* Favoris View */
+        .empty-state { text-align: center; padding: 48px 20px; color: var(--text-muted); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 50vh; }
+        .empty-state-icon { font-size: 48px; margin-bottom: 12px; opacity: 0.5; }
+        .empty-state-text { font-size: 17px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+        .empty-state-sub { font-size: 13px; color: var(--text-secondary); }
+
         /* Bottom Nav */
         .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; height: var(--bottomnav-h); background: var(--glass-bg-strong); backdrop-filter: var(--glass-blur); border-top: 1px solid var(--glass-border); display: flex; justify-content: space-around; align-items: center; z-index: 100; }
-        .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--text-muted); flex: 1; height: 100%; justify-content: center; }
-        .nav-item svg { width: 24px; height: 24px; stroke: currentColor; stroke-width: 1.5; fill: none; }
-        .nav-item-label { font-size: 10px; font-weight: 600; }
-        .nav-item.active { color: var(--gold); }
+        .nav-btn { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--text-muted); flex: 1; height: 100%; justify-content: center; transition: color 0.2s; }
+        .nav-btn svg { width: 24px; height: 24px; stroke: currentColor; stroke-width: 1.5; fill: none; }
+        .nav-btn-label { font-size: 10px; font-weight: 600; }
+        .nav-btn.active { color: var(--gold); }
     </style>
 </head>
 <body>
-    <div id="app">
-        <header class="app-header">
-            <button class="menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
-            <div class="header-brand">ChocolaTrichomes</div>
-            <button class="header-cart-btn">
-                <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg>
-            </button>
-        </header>
+    <header class="app-header">
+        <button class="menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
+        <div class="header-brand" id="headerTitle">ChocolaTrichomes</div>
+        <button class="header-cart-btn"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg></button>
+    </header>
 
-        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-item active" data-category="all">
-                <div class="sidebar-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg></div>
-                <span>Tout voir</span>
-            </div>
-            <div class="sidebar-item" data-category="Beldia">
-                <div class="sidebar-icon"><svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></div>
-                <span>Beldia</span>
-            </div>
-            <div class="sidebar-item" data-category="Drysift">
-                <div class="sidebar-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></div>
-                <span>Drysift</span>
-            </div>
-            <div class="sidebar-item" data-category="Frozen">
-                <div class="sidebar-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg></div>
-                <span>Frozen</span>
-            </div>
-        </aside>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-item active" onclick="switchView('home')"><div class="sidebar-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg></div><span>Tout voir</span></div>
+        <div class="sidebar-item" onclick="switchView('home')"><div class="sidebar-icon"><svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></div><span>Beldia</span></div>
+        <div class="sidebar-item" onclick="switchView('home')"><div class="sidebar-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></div><span>Drysift</span></div>
+    </aside>
 
-        <main class="main-content">
+    <main class="main-content">
+        <!-- VUE 1 : HOME (Produits) -->
+        <section id="view-home" class="view active">
             <div class="products-grid">
-                <!-- Produit 1 -->
                 <div class="product-card out-of-stock">
-                    <div class="card-media">
-                        <span style="font-size:48px">⚡️⚡️</span>
-                        <div class="card-badges"><div class="stock-dot"><span class="dot"></span>Out</div></div>
-                    </div>
-                    <div class="card-info">
-                        <div class="card-category-tag">Beldia</div>
-                        <div class="card-title">Tekmache</div>
-                        <div class="card-bottom">
-                            <span class="card-price">24<span class="card-price-unit"> DH/g</span></span>
-                            <button class="card-add-btn" disabled><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
-                        </div>
-                    </div>
+                    <div class="card-media"><span style="font-size:48px">⚡️⚡️</span><div class="card-badges"><div class="stock-dot"><span class="dot"></span>Out</div></div></div>
+                    <div class="card-info"><div class="card-category-tag">Beldia</div><div class="card-title">Tekmache</div><div class="card-bottom"><span class="card-price">24<span class="card-price-unit"> DH/g</span></span><button class="card-add-btn" disabled><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div></div>
                 </div>
-                <!-- Produit 2 -->
                 <div class="product-card out-of-stock">
-                    <div class="card-media">
-                        <span style="font-size:48px">🌰🏔️</span>
-                        <div class="card-badges"><div class="stock-dot"><span class="dot"></span>Out</div></div>
-                    </div>
-                    <div class="card-info">
-                        <div class="card-category-tag">Beldia</div>
-                        <div class="card-title">Beldiya Issagen</div>
-                        <div class="card-bottom">
-                            <span class="card-price">30<span class="card-price-unit"> DH/g</span></span>
-                            <button class="card-add-btn" disabled><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
-                        </div>
-                    </div>
+                    <div class="card-media"><span style="font-size:48px">🌰🏔️</span><div class="card-badges"><div class="stock-dot"><span class="dot"></span>Out</div></div></div>
+                    <div class="card-info"><div class="card-category-tag">Beldia</div><div class="card-title">Beldiya Issagen</div><div class="card-bottom"><span class="card-price">30<span class="card-price-unit"> DH/g</span></span><button class="card-add-btn" disabled><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div></div>
                 </div>
-                <!-- Produit 3 -->
                 <div class="product-card">
                     <div class="card-media"><span style="font-size:48px">🏔️</span></div>
-                    <div class="card-info">
-                        <div class="card-category-tag">Drysift</div>
-                        <div class="card-title">Premium Drysift</div>
-                        <div class="card-bottom">
-                            <span class="card-price">60<span class="card-price-unit"> DH/g</span></span>
-                            <button class="card-add-btn"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
-                        </div>
-                    </div>
+                    <div class="card-info"><div class="card-category-tag">Drysift</div><div class="card-title">Premium Drysift</div><div class="card-bottom"><span class="card-price">60<span class="card-price-unit"> DH/g</span></span><button class="card-add-btn"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div></div>
                 </div>
-                <!-- Produit 4 -->
                 <div class="product-card">
                     <div class="card-media"><span style="font-size:48px">🧊</span></div>
-                    <div class="card-info">
-                        <div class="card-category-tag">Frozen</div>
-                        <div class="card-title">Frozen Gelato</div>
-                        <div class="card-bottom">
-                            <span class="card-price">80<span class="card-price-unit"> DH/g</span></span>
-                            <button class="card-add-btn"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
-                        </div>
-                    </div>
+                    <div class="card-info"><div class="card-category-tag">Frozen</div><div class="card-title">Frozen Gelato</div><div class="card-bottom"><span class="card-price">80<span class="card-price-unit"> DH/g</span></span><button class="card-add-btn"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></div></div>
                 </div>
             </div>
-        </main>
+        </section>
 
-        <nav class="bottom-nav">
-            <button class="nav-item active">
-                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
-                <span class="nav-item-label">Home</span>
-            </button>
-            <button class="nav-item">
-                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span class="nav-item-label">Search</span>
-            </button>
-            <button class="nav-item">
-                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg>
-                <span class="nav-item-label">Favoris</span>
-            </button>
-            <button class="nav-item">
-                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                <span class="nav-item-label">Profile</span>
-            </button>
-        </nav>
-    </div>
+        <!-- VUE 2 : SEARCH -->
+        <section id="view-search" class="view">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Rechercher un produit (ex: Beldia, Drysift...)">
+            </div>
+        </section>
+
+        <!-- VUE 3 : FAVORIS -->
+        <section id="view-favoris" class="view">
+            <div class="empty-state">
+                <div class="empty-state-icon">🤍</div>
+                <div class="empty-state-text">Aucun favori pour l'instant</div>
+                <div class="empty-state-sub">Appuie sur le ❤️ d'un produit pour l'ajouter ici</div>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <button class="nav-btn active" data-view="home">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
+            <span class="nav-btn-label">Home</span>
+        </button>
+        <button class="nav-btn" data-view="search">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span class="nav-btn-label">Search</span>
+        </button>
+        <button class="nav-btn" data-view="favoris">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg>
+            <span class="nav-btn-label">Favoris</span>
+        </button>
+        <button class="nav-btn" data-view="home">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span class="nav-btn-label">Profile</span>
+        </button>
+    </nav>
 
     <script>
-        // Script ultra-simple et fiable pour le menu
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuBtn = document.getElementById('menuBtn');
-            const sidebar = document.getElementById('sidebar');
-            const backdrop = document.getElementById('sidebarBackdrop');
-            const navItems = document.querySelectorAll('.nav-item');
-            const sideItems = document.querySelectorAll('.sidebar-item');
+        // Fonction pour changer de vue instantanément
+        function switchView(viewName) {
+            // 1. Cacher toutes les vues
+            document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
+            // 2. Afficher la vue demandée
+            document.getElementById('view-' + viewName).classList.add('active');
+            
+            // 3. Mettre à jour les boutons du bas
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.querySelector(`.nav-btn[data-view="${viewName}"]`);
+            if (activeBtn) activeBtn.classList.add('active');
 
-            function toggleMenu() {
-                sidebar.classList.toggle('active');
-                backdrop.classList.toggle('active');
-            }
+            // 4. Mettre à jour le titre du header
+            const titles = { 'home': 'ChocolaTrichomes', 'search': 'Recherche', 'favoris': 'Favoris' };
+            document.getElementById('headerTitle').textContent = titles[viewName] || 'ChocolaTrichomes';
 
-            menuBtn.addEventListener('click', toggleMenu);
-            backdrop.addEventListener('click', toggleMenu);
+            // 5. Fermer le menu latéral si on clique depuis le menu
+            document.getElementById('sidebar').classList.remove('active');
+            document.getElementById('sidebarBackdrop').classList.remove('active');
+        }
 
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    navItems.forEach(n => n.classList.remove('active'));
-                    item.classList.add('active');
-                });
+        // Écouteurs d'événements pour les boutons du bas
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchView(btn.getAttribute('data-view'));
             });
-
-            sideItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    sideItems.forEach(n => n.classList.remove('active'));
-                    item.classList.add('active');
-                    toggleMenu();
-                });
-            });
-
-            if (window.Telegram && window.Telegram.WebApp) {
-                window.Telegram.WebApp.ready();
-                window.Telegram.WebApp.expand();
-            }
         });
+
+        // Gestion du menu latéral
+        document.getElementById('menuBtn').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.add('active');
+            document.getElementById('sidebarBackdrop').classList.add('active');
+        });
+        document.getElementById('sidebarBackdrop').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.remove('active');
+            document.getElementById('sidebarBackdrop').classList.remove('active');
+        });
+
+        // Initialisation Telegram
+        if (window.Telegram && window.Telegram.WebApp) { 
+            window.Telegram.WebApp.ready(); 
+            window.Telegram.WebApp.expand(); 
+        }
     </script>
 </body>
 </html>
