@@ -3,6 +3,18 @@
  * Handles UI interactions, navigation, and dynamic content loading.
  */
 
+// --- Mock Database (Extrait de vos fichiers HTML d'origine) ---
+const productsDB = [
+    { id: 1, name: "Tekmache", category: "Beldia", price: "24 DH/g", image: "⚡️⚡️", stock: "out" },
+    { id: 2, name: "Beldiya Issagen", category: "Beldia", price: "30 DH/g", image: "🌰🏔️", stock: "out" },
+    { id: 3, name: "Premium Drysift", category: "Drysift", price: "60 DH/g", image: "🏔️", stock: "in" },
+    { id: 4, name: "Frozen Gelato", category: "Frozen", price: "80 DH/g", image: "🧊", stock: "in" },
+    { id: 5, name: "Static Haze", category: "Static", price: "70 DH/g", image: "⚡", stock: "in" },
+    { id: 6, name: "Ice O'Lator Special", category: "IceOlator", price: "90 DH/g", image: "💧", stock: "in" },
+    { id: 7, name: "Kit de Culture", category: "garden", price: "150 DH", image: "🌱", stock: "in" },
+    { id: 8, name: "Vaporisateur Herbal", category: "herbvape", price: "350 DH", image: "💨", stock: "in" }
+];
+
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize Telegram Web App (if running inside Telegram)
     if (window.Telegram && window.Telegram.WebApp) {
@@ -72,23 +84,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Content Loading Handlers ---
+    function renderProducts(productsToRender) {
+        if (productsToRender.length === 0) {
+            return `
+                <div class="empty-state" style="grid-column:1/-1;text-align:center;padding:48px 20px">
+                    <div class="empty-state-icon" style="font-size:40px">🔍</div>
+                    <div class="empty-state-text">Aucun produit trouvé</div>
+                </div>
+            `;
+        }
+
+        return productsToRender.map(product => {
+            const stockClass = product.stock === 'out' ? 'out-of-stock' : '';
+            const stockBadge = product.stock === 'out' ? '<div class="card-badges"><div class="stock-dot out"><span class="dot"></span>Out</div></div>' : '';
+            const btnDisabled = product.stock === 'out' ? 'disabled' : '';
+            
+            return `
+                <div class="product-card theme-dark ${stockClass}" style="animation-delay:0s">
+                    <div class="card-media">
+                        <div class="card-media-inner">
+                            <span class="card-emoji-poster" style="font-size:48px;display:flex;align-items:center;justify-content:center;height:100%">${product.image}</span>
+                        </div>
+                        ${stockBadge}
+                    </div>
+                    <div class="card-info">
+                        <span class="card-category-tag">${product.category}</span>
+                        <div class="card-title">${product.name}</div>
+                        <div class="card-bottom">
+                            <span class="card-price">${product.price}</span>
+                            <button class="card-add-btn" ${btnDisabled}>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
     function handlePageChange(page) {
         console.log(`Navigating to page: ${page}`);
         
-        // Reset main content
-        mainContent.innerHTML = '';
-        
         switch(page) {
             case 'home':
-                mainContent.innerHTML = `
-                    <div class="products-grid" id="productsGrid">
-                        <div class="empty-state" style="grid-column:1/-1;text-align:center;padding:48px 20px">
-                            <div class="empty-state-icon" style="font-size:40px">🏠</div>
-                            <div class="empty-state-text">Bienvenue sur ChocolaTrichomes</div>
-                            <div style="font-size:12px;color:var(--text-secondary);margin-top:6px">Sélectionnez une catégorie dans le menu</div>
-                        </div>
-                    </div>
-                `;
+                mainContent.innerHTML = `<div class="products-grid" id="productsGrid">${renderProducts(productsDB)}</div>`;
                 break;
             case 'search':
                 mainContent.innerHTML = `
@@ -121,16 +163,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function loadCategoryContent(category) {
         console.log(`Loading category: ${category}`);
-        mainContent.innerHTML = `
-            <div class="empty-state" style="grid-column:1/-1;text-align:center;padding:48px 20px">
-                <div class="empty-state-icon" style="font-size:40px">📦</div>
-                <div class="empty-state-text">Chargement de la catégorie : ${category}</div>
-                <div style="font-size:12px;color:var(--text-secondary);margin-top:6px">Les produits apparaîtront ici</div>
-            </div>
-        `;
         
-        // TODO: Fetch actual product data from API based on category
-        // fetch(`/api/products?category=${category}`)...
+        let filteredProducts = productsDB;
+        if (category !== 'all') {
+            filteredProducts = productsDB.filter(p => p.category.toLowerCase() === category.toLowerCase());
+        }
+        
+        mainContent.innerHTML = `<div class="products-grid" id="productsGrid">${renderProducts(filteredProducts)}</div>`;
     }
 
     // Initialize default view
