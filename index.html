@@ -218,7 +218,7 @@
     .cart-total-lbl{font-size:0.88rem;color:#888;}
     .cart-total-val{font-size:1.2rem;font-weight:800;color:#c9a84c;}
     
-    /* DESIGN DU BOUTON CHECKOUT CORRIGÉ (Toujours doré et beau) */
+    /* DESIGN DU BOUTON CHECKOUT CORRIGÉ (Toujours doré) */
     .btn-checkout{
       width:100%;
       background:linear-gradient(135deg,#c9a84c,#e8c97a);
@@ -279,34 +279,34 @@
 </head>
 <body>
 
-<div class="overlay" id="overlay" onclick="window.closeAll()"></div>
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
 
 <div class="side-menu" id="sideMenu">
   <div class="side-menu-hdr">
     <div class="side-menu-logo">CHOCOLATRICHOMES</div>
     <div class="side-menu-sub">ChocolaTrichoms&Terps</div>
   </div>
-  <div class="menu-item active" onclick="window.filterCat('Accessoires', this);window.closeAll()"><div class="menu-icon">💧</div><div class="menu-lbl">Accessoires</div></div>
-  <div class="menu-item" onclick="window.filterCat('HerbVape', this);window.closeAll()"><div class="menu-icon">⚡</div><div class="menu-lbl">HerbVape</div></div>
-  <div class="menu-item" onclick="window.filterCat('Most Wanted', this);window.closeAll()"><div class="menu-icon">⭐</div><div class="menu-lbl">Most Wanted</div></div>
-  <div class="menu-item" onclick="window.openAvis();window.closeAll()"><div class="menu-icon">💬</div><div class="menu-lbl">Avis</div></div>
-  <div class="menu-item" onclick="window.filterCat('TRC-Garden', this);window.closeAll()"><div class="menu-icon">🌱</div><div class="menu-lbl">TRC-Garden</div></div>
-  <div class="menu-item" onclick="window.filterCat('All', this);window.closeAll()"><div class="menu-icon">⊞</div><div class="menu-lbl">All</div></div>
-  <div class="menu-item" onclick="window.filterCat('Drysift', this);window.closeAll()"><div class="menu-icon">🕐</div><div class="menu-lbl">Drysift</div></div>
-  <div class="menu-item" onclick="window.filterCat('Frozen', this);window.closeAll()"><div class="menu-icon">❄️</div><div class="menu-lbl">Frozen</div></div>
-  <div class="menu-item" onclick="window.filterCat('Static', this);window.closeAll()"><div class="menu-icon">⚡</div><div class="menu-lbl">Static</div></div>
-  <div class="menu-item" onclick="window.filterCat('Ice O\'Lator', this);window.closeAll()"><div class="menu-icon">⭐</div><div class="menu-lbl">Ice O'Lator</div></div>
-  <div class="menu-item" onclick="window.filterCat('Beldia', this);window.closeAll()"><div class="menu-icon">🏠</div><div class="menu-lbl">Beldia</div></div>
-  <div class="menu-item" onclick="window.filterCat('Weed', this);window.closeAll()"><div class="menu-icon">🌿</div><div class="menu-lbl">Weed</div></div>
-  <div class="menu-item" onclick="window.filterCat('Meet Up Rabat', this);window.closeAll()"><div class="menu-icon">👥</div><div class="menu-lbl">Meet Up Rabat</div></div>
+  <div class="menu-item active" onclick="filterCat('Accessoires', this);closeAll()"><div class="menu-icon">💧</div><div class="menu-lbl">Accessoires</div></div>
+  <div class="menu-item" onclick="filterCat('HerbVape', this);closeAll()"><div class="menu-icon">⚡</div><div class="menu-lbl">HerbVape</div></div>
+  <div class="menu-item" onclick="filterCat('Most Wanted', this);closeAll()"><div class="menu-icon">⭐</div><div class="menu-lbl">Most Wanted</div></div>
+  <div class="menu-item" onclick="openAvis();closeAll()"><div class="menu-icon">💬</div><div class="menu-lbl">Avis</div></div>
+  <div class="menu-item" onclick="filterCat('TRC-Garden', this);closeAll()"><div class="menu-icon">🌱</div><div class="menu-lbl">TRC-Garden</div></div>
+  <div class="menu-item" onclick="filterCat('All', this);closeAll()"><div class="menu-icon">⊞</div><div class="menu-lbl">All</div></div>
+  <div class="menu-item" onclick="filterCat('Drysift', this);closeAll()"><div class="menu-icon">🕐</div><div class="menu-lbl">Drysift</div></div>
+  <div class="menu-item" onclick="filterCat('Frozen', this);closeAll()"><div class="menu-icon">❄️</div><div class="menu-lbl">Frozen</div></div>
+  <div class="menu-item" onclick="filterCat('Static', this);closeAll()"><div class="menu-icon">⚡</div><div class="menu-lbl">Static</div></div>
+  <div class="menu-item" onclick="filterCat('Ice O\'Lator', this);closeAll()"><div class="menu-icon">⭐</div><div class="menu-lbl">Ice O'Lator</div></div>
+  <div class="menu-item" onclick="filterCat('Beldia', this);closeAll()"><div class="menu-icon">🏠</div><div class="menu-lbl">Beldia</div></div>
+  <div class="menu-item" onclick="filterCat('Weed', this);closeAll()"><div class="menu-icon">🌿</div><div class="menu-lbl">Weed</div></div>
+  <div class="menu-item" onclick="filterCat('Meet Up Rabat', this);closeAll()"><div class="menu-icon">👥</div><div class="menu-lbl">Meet Up Rabat</div></div>
 </div>
 
 <div class="header">
-  <div class="header-left"><span class="hamburger" onclick="window.openMenu()">☰</span></div>
+  <div class="header-left"><span class="hamburger" onclick="openMenu()">☰</span></div>
   <div class="header-logo">CHOCOLATRICHOMES</div>
   <div class="header-right">
     <div class="btn-rabat">Rabat</div>
-    <div class="btn-cart-h" onclick="window.toggleCart(event)">🛍<div class="cart-badge" id="headerBadge"></div></div>
+    <div class="btn-cart-h" onclick="toggleCart()">🛍<div class="cart-badge" id="headerBadge"></div></div>
   </div>
 </div>
 
@@ -335,7 +335,7 @@
     <div class="day-box"><span class="day-lbl">J6</span><span>75</span></div>
     <div class="day-box"><span class="day-lbl">J7</span><span>100</span></div>
   </div>
-  <button class="btn-claim" onclick="window.claimTRC()">Recuperer 20 TRC</button>
+  <button class="btn-claim" onclick="claimTRC()">Recuperer 20 TRC</button>
 </div>
 
 <div class="tier-section">
@@ -360,10 +360,10 @@
     </div>
   </div>
   <div class="dots" id="tierDots">
-    <div class="dot active" onclick="window.showTier(0)"></div>
-    <div class="dot" onclick="window.showTier(1)"></div>
-    <div class="dot" onclick="window.showTier(2)"></div>
-    <div class="dot" onclick="window.showTier(3)"></div>
+    <div class="dot active" onclick="showTier(0)"></div>
+    <div class="dot" onclick="showTier(1)"></div>
+    <div class="dot" onclick="showTier(2)"></div>
+    <div class="dot" onclick="showTier(3)"></div>
   </div>
   <button class="btn-activate">✨ Activer mon tier</button>
   <a href="https://t.me/chocolatrichome_bot" target="_blank" class="trc-coin-link">C'est quoi TrichomeCoin ? →</a>
@@ -373,10 +373,10 @@
   <div class="garden-title">🌱 Bienvenue dans TRC-Garden</div>
   <div class="garden-sub">Choisis ta strain — elle te suivra jusqu'au niveau 200</div>
   <div class="garden-grid">
-    <div class="garden-item" onclick="window.showToast('OG Kush selectionnee! 🔥')"><span class="garden-item-emoji">🔥</span><div class="garden-item-name">OG Kush</div></div>
-    <div class="garden-item" onclick="window.showToast('Amnesia selectionnee! 🧠')"><span class="garden-item-emoji">🧠</span><div class="garden-item-name">Amnesia</div></div>
-    <div class="garden-item" onclick="window.showToast('Cheese selectionnee! 🧀')"><span class="garden-item-emoji">🧀</span><div class="garden-item-name">Cheese</div></div>
-    <div class="garden-item" onclick="window.showToast('Lemon Haze selectionnee! 🍋')"><span class="garden-item-emoji">🍋</span><div class="garden-item-name">Lemon Haze</div></div>
+    <div class="garden-item" onclick="showToast('OG Kush selectionnee! 🔥')"><span class="garden-item-emoji">🔥</span><div class="garden-item-name">OG Kush</div></div>
+    <div class="garden-item" onclick="showToast('Amnesia selectionnee! 🧠')"><span class="garden-item-emoji">🧠</span><div class="garden-item-name">Amnesia</div></div>
+    <div class="garden-item" onclick="showToast('Cheese selectionnee! 🧀')"><span class="garden-item-emoji">🧀</span><div class="garden-item-name">Cheese</div></div>
+    <div class="garden-item" onclick="showToast('Lemon Haze selectionnee! 🍋')"><span class="garden-item-emoji">🍋</span><div class="garden-item-name">Lemon Haze</div></div>
   </div>
 </div>
 
@@ -388,12 +388,12 @@
 <div class="section-hdr" id="sectionTitle"><span>🛒</span> ACCESSOIRES</div>
 <div class="products-grid" id="productsGrid"></div>
 
-<div class="float-cart" onclick="window.toggleCart(event)">🛍<div class="float-badge" id="floatBadge"></div></div>
+<div class="float-cart" onclick="toggleCart()">🛍<div class="float-badge" id="floatBadge"></div></div>
 <div class="toast" id="toast"></div>
 
 <div id="detailPage">
   <div class="detail-topbar">
-    <div class="detail-back" onclick="window.closeDetail()">‹</div>
+    <div class="detail-back" onclick="closeDetail()">‹</div>
     <div class="detail-topbar-title">DETAILS</div>
     <div class="detail-fav">🤍</div>
   </div>
@@ -405,19 +405,26 @@
     </div>
     <div class="detail-type-label" id="detailTypeLabel"></div>
     <div class="detail-tags" id="detailTags"></div>
-    <div-title-sm">Avis clients</div>
+    <div class="detail-desc" id="detailDesc"></div>
+    <div class="detail-type-row"><div class="detail-type-icon">📦</div><div><div class="detail-type-meta">TYPE</div><div class="detail-type-val" id="detailTypeName">Accessoire</div></div></div>
+    <div class="qty-label">SELECTIONNER LA QUANTITE</div>
+    <div class="qty-selector" id="qtySelector" onclick="changeDetailQty()">
+      <div class="qty-x" id="detailQtyX">×1</div>
+      <div class="qty-dh" id="detailQtyDh"></div>
+    </div>
+    <div class="avis-title-sm">Avis clients</div>
     <div class="avis-empty">Aucun avis pour ce produit</div>
     <div class="avis-link">Laisser un commentaire</div>
   </div>
   <div class="detail-bottom">
-    <div class="detail-cart-icon" onclick="window.toggleCart(event)">🛍<div class="cart-badge" id="detailBadge" style="position:absolute;top:-5px;right:-5px;background:#c9a84c;color:#111;font-size:0.55rem;font-weight:800;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center;"></div></div>
-    <button class="btn-add-to-cart" id="btnAddToCart" onclick="window.addFromDetail()">ADD TO CART</button>
+    <div class="detail-cart-icon" onclick="toggleCart()">🛍<div class="cart-badge" id="detailBadge" style="position:absolute;top:-5px;right:-5px;background:#c9a84c;color:#111;font-size:0.55rem;font-weight:800;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center;"></div></div>
+    <button class="btn-add-to-cart" id="btnAddToCart" onclick="addFromDetail()">ADD TO CART</button>
   </div>
 </div>
 
 <div id="profilePage">
   <div class="profile-topbar">
-    <div class="profile-back" onclick="window.closeProfile()">‹</div>
+    <div class="profile-back" onclick="closeProfile()">‹</div>
     <div class="profile-topbar-title">PROFILE</div>
     <div class="profile-settings">⚙️</div>
   </div>
@@ -454,7 +461,7 @@
 
 <div id="avisPage">
   <div class="detail-topbar">
-    <div class="detail-back" onclick="window.closeAvis()">‹</div>
+    <div class="detail-back" onclick="closeAvis()">‹</div>
     <div class="detail-topbar-title">AVIS CLIENTS</div>
     <div style="width:36px"></div>
   </div>
@@ -463,7 +470,7 @@
       <div class="avis-hero-title">Avis de nos clients</div>
       <div class="avis-stars-big">★★★★★</div>
       <div class="avis-score">5.0 / 5 · 15 avis</div>
-      <div class="btn-avis" onclick="window.showToast('Merci pour votre avis!')">Laisser un avis</div>
+      <div class="btn-avis" onclick="showToast('Merci pour votre avis!')">Laisser un avis</div>
     </div>
     <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">20 mai 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Best experience in this country by far. The static by Zak is 👌</div></div>
     <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">15 mai 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">🌍👍🪄</div></div>
@@ -478,11 +485,14 @@
     <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">17 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Best quality for the best price ! Merci ctt</div></div>
     <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">16 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Excellent service, hash super qualite ( THC - Saveur ). Les meilleurs au maroc ✌️💪✅</div></div>
     <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">16 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Je viens de France et cest le top en locker et qualiter du produit et les prix top plein de reduc 🏆❤️</div></div>
-    <div class</div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">16 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">1000/10 ✅</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">16 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Excellent service , excellente fume</div></div>
+  </div>
+</div>
 
 <div class="cart-drawer" id="cartDrawer">
   <div class="cart-handle"></div>
-  <div class="cart-hdr"><div class="cart-title">🛍 My Cart</div><div class="cart-close" onclick="window.toggleCart(event)">✕</div></div>
+  <div class="cart-hdr"><div class="cart-title">🛍 My Cart</div><div class="cart-close" onclick="toggleCart()">✕</div></div>
   <div class="cart-items" id="cartItems"></div>
   <div class="cart-min-warning" id="cartMinWarning" style="display:none;">
     <div class="cart-min-text" id="cartMinText">Minimum 1,000 DH<br>You need 700 DH more</div>
@@ -494,7 +504,7 @@
   </div>
   <div class="cart-footer" id="cartFooter">
     <div class="cart-total"><div class="cart-total-lbl">Total</div><div class="cart-total-val" id="cartTotal">0 DH</div></div>
-    <button class="btn-checkout" id="btnCheckout" onclick="window.openPaymentModal()">Checkout</button>
+    <button class="btn-checkout" id="btnCheckout" onclick="openPaymentModal()">Checkout</button>
   </div>
 </div>
 
@@ -502,16 +512,16 @@
   <div class="modal-content">
     <div class="modal-header">
       <div class="modal-title">Payment</div>
-      <div class="cart-close" onclick="window.closePaymentModal()">✕</div>
+      <div class="cart-close" onclick="closePaymentModal()">✕</div>
     </div>
-    <div class="payment-option" onclick="window.openCheckoutForm()">
+    <div class="payment-option" onclick="openCheckoutForm()">
       <div class="payment-icon">🏦</div>
       <div class="payment-info">
         <div class="payment-name">Mise à Disposition</div>
         <div class="payment-desc">Bank transfer via disposition code</div>
       </div>
     </div>
-    <div class="payment-option" onclick="window.showToast('Crypto payment coming soon!')">
+    <div class="payment-option" onclick="showToast('Crypto payment coming soon!')">
       <div class="payment-icon">₿</div>
       <div class="payment-info">
         <div class="payment-name">Crypto <span class="badge-discount">-10%</span></div>
@@ -528,13 +538,13 @@
   <div class="modal-content">
     <div class="modal-header">
       <div class="modal-title">Mise à Disposition</div>
-      <div class="cart-close" onclick="window.closeCheckoutModal()">✕</div>
+      <div class="cart-close" onclick="closeCheckoutModal()">✕</div>
     </div>
     <div class="cart-total" style="margin-bottom:20px"><div class="cart-total-lbl">Total à payer</div><div class="cart-total-val" id="checkoutTotal">0 DH</div></div>
     <div class="checkout-form">
       <div class="form-group">
         <label class="form-label">Ville</label>
-        <select class="form-select" id="citySelect" onchange="window.updatePickupPoints()">
+        <select class="form-select" id="citySelect" onchange="updatePickupPoints()">
           <option value="">Sélectionner une ville</option>
           <option value="Rabat">Rabat</option>
           <option value="Casablanca">Casablanca</option>
@@ -549,12 +559,12 @@
       </div>
       <div class="form-group">
         <label class="form-label">Point de retrait</label>
-        <select class="form-select" id="pickupSelect" onchange="window.checkFormValidity()">
+        <select class="form-select" id="pickupSelect" onchange="checkFormValidity()">
           <option value="">Sélectionner un point de retrait</option>
         </select>
         <div class="availability-text" id="availabilityText">🕒 24h/24 7J/7</div>
       </div>
-      <button class="btn-confirm" id="btnConfirmOrder" onclick="window.confirmOrder()">Confirm Order</button>
+      <button class="btn-confirm" id="btnConfirmOrder" onclick="confirmOrder()">Confirm Order</button>
     </div>
   </div>
 </div>
@@ -565,16 +575,16 @@
       <div class="success-icon">✅</div>
       <div class="success-title">Commande Confirmée !</div>
       <div class="success-text">Votre commande a été enregistrée avec succès. Vous recevrez votre code de disposition par Telegram sous peu.</div>
-      <button class="btn-checkout" onclick="window.closeAll(); window.location.reload();">Retour à l'accueil</button>
+      <button class="btn-checkout" onclick="closeAll(); window.location.reload();">Retour à l'accueil</button>
     </div>
   </div>
 </div>
 
 <div class="bottom-nav">
-  <div class="nav-item active" id="nav-home" onclick="window.showHome()"><div class="nav-icon">⊞</div><div class="nav-lbl">Home</div><div class="nav-active-dot"></div></div>
+  <div class="nav-item active" id="nav-home" onclick="showHome()"><div class="nav-icon">⊞</div><div class="nav-lbl">Home</div><div class="nav-active-dot"></div></div>
   <div class="nav-item" id="nav-search"><div class="nav-icon">🔍</div><div class="nav-lbl">Search</div></div>
-  <div class="nav-item" id="nav-cart" onclick="window.toggleCart(event)"><div class="nav-icon">🤍</div><div class="nav-lbl">Cart</div></div>
-  <div class="nav-item" id="nav-profile" onclick="window.openProfile()"><div class="nav-icon">👤</div><div class="nav-lbl">Profile</div></div>
+  <div class="nav-item" id="nav-cart" onclick="toggleCart()"><div class="nav-icon">🤍</div><div class="nav-lbl">Cart</div></div>
+  <div class="nav-item" id="nav-profile" onclick="openProfile()"><div class="nav-icon">👤</div><div class="nav-lbl">Profile</div></div>
 </div>
 
 <script>
@@ -640,8 +650,7 @@ const PRODUCTS = [
   {id:'tutti_frutti_73', cat:'Drysift', name:'TUTTI FRUTTI 73', price:25, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
   {id:'papunch_120u', cat:'Drysift', name:'P.A.PUNCH 120U', price:34.2, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'ffruit_120u', cat:'Drysift', name:'F.FRUIT 120U', price:40, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
-  {id:'candy_truffle_120u', cat:'Frozen', name:'CANDY TRUFFLE 120U', price:42, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'miami_mami_90u', cat:'Frozen', name:'MIAMI MAMI 90U', price:32, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'candy_truffle_120u', cat:'Frozen', name:'CANDY TRUFFLE 120U', price:42, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},:'miami_mami_90u', cat:'Frozen', name:'MIAMI MAMI 90U', price:32, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'alien_og_120u', cat:'Frozen', name:'ALIEN OG 120U', price:38, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'peach_ozz_120u', cat:'Frozen', name:'PEACH OZZ 120U', price:52, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
   {id:'frost_flakes_90u', cat:'Frozen', name:'FROST FLAKES 90U', price:32, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
@@ -658,7 +667,7 @@ const PRODUCTS = [
   {id:'kinky_pam', cat:'Ice O\'Lator', name:'KINKY PAM 160-73U', price:180, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'tekmache', cat:'Beldia', name:'TEKMACHE', price:24, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'beldiya_issagen', cat:'Beldia', name:'BELDIYA ISSAGEN', price:30, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'beldia_issagen_1', cat:'Beldia', name:'BELDIA ISSAGEN #1', price:30, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'beldia_issagen_1', cat:'Beldia', name:'BELDIA ISS price:30, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
   {id:'mango_haze', cat:'Weed', name:'MANGO HAZE', price:90, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'chemdawg', cat:'Weed', name:'CHEMDAWG', price:80, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true}
 ];
@@ -682,7 +691,7 @@ const pickupPoints = {
   "Kénitra": ["Ville Haute", "Médina", "Mimosas"]
 };
 
-window.renderProducts = function(cat) {
+function renderProducts(cat) {
   const grid = document.getElementById('productsGrid');
   const title = document.getElementById('sectionTitle');
   let list;
@@ -709,7 +718,7 @@ window.renderProducts = function(cat) {
     const isLast = p.stock === 'last';
     const inCart = cart[p.id] || 0;
     return `
-    <div class="product-card${isOut ? ' out-of-stock' : ''}" onclick="window.openDetail('${p.id}')">
+    <div class="product-card${isOut ? ' out-of-stock' : ''}" onclick="openDetail('${p.id}')">
       <div class="product-img-wrap">
         <img src="${p.thumb}" alt="${p.name}" loading="lazy"/>
         <div class="badge-stock${isOut ? ' out' : ''}">
@@ -722,16 +731,19 @@ window.renderProducts = function(cat) {
         <div class="product-name">${p.name}</div>
         <div class="product-footer">
           <div class="product-price">${p.price} <span class="unit">${p.unit}</span></div>
-          <div class="btn-add${inCart ? ' added' : ''}${isOut ? ' disabled' : ''}" id="btn-${p.id}" onclick="event.stopPropagation(); window.quickAdd('${p.id}')">${inCart || '+'}</div>
+          <div class="btn-add${inCart ? ' added' : ''}${isOut ? ' disabled' : ''}" id="btn-${p.id}" onclick="event.stopPropagation(); quickAdd('${p.id}')">${inCart || '+'}</div>
         </div>
       </div>
     </div>`;
   }).join('');
 }
 
-window.openDetail = function(id) {
+function openDetail(id) {
   const p = PRODUCTS.find(x => x.id === id);
-  if (!p) return.getElementById('detailImg').src = p.detail || p.thumb;
+  if (!p) return;
+  detailProduct = p;
+  detailQty = 1;
+  document.getElementById('detailImg').src = p.detail || p.thumb;
   document.getElementById('detailName').textContent = p.name;
   document.getElementById('detailPriceTop').textContent = p.price + ' ' + p.unit;
   
@@ -762,24 +774,24 @@ window.openDetail = function(id) {
   document.getElementById('detailTags').innerHTML = `
     <div class="detail-tag">${type} <span class="tag-meta">TYPE</span></div>
     <div class="detail-tag">${p.stock === 'out' ? 'Out of Stock' : p.stock === 'last' ? 'Limited' : 'In Stock'} <span class="tag-meta">STOCK</span></div>`;
-  window.updateDetailQty();
-  window.updateDetailCartBtn();
+  updateDetailQty();
+  updateDetailCartBtn();
   const page = document.getElementById('detailPage');
   page.classList.add('open');
   page.scrollTop = 0;
 }
 
-window.closeDetail = function() { document.getElementById('detailPage').classList.remove('open'); }
-window.updateDetailQty = function() {
+function closeDetail() { document.getElementById('detailPage').classList.remove('open'); }
+function updateDetailQty() {
   if (!detailProduct) return;
   document.getElementById('detailQtyX').textContent = 'x' + detailQty;
   document.getElementById('detailQtyDh').textContent = (detailProduct.price * detailQty).toFixed(2) + ' ' + detailProduct.unit;
 }
-window.changeDetailQty = function() {
+function changeDetailQty() {
   detailQty = detailQty < 10 ? detailQty + 1 : 1;
-  window.updateDetailQty();
+  updateDetailQty();
 }
-window.updateDetailCartBtn = function() {
+function updateDetailCartBtn() {
   if (!detailProduct) return;
   const btn = document.getElementById('btnAddToCart');
   const inCart = cart[detailProduct.id] || 0;
@@ -794,23 +806,23 @@ window.updateDetailCartBtn = function() {
     btn.textContent = 'ADD TO CART - ' + detailProduct.price + ' ' + detailProduct.unit;
   }
 }
-window.addFromDetail = function() {
+function addFromDetail() {
   if (!detailProduct || detailProduct.stock === 'out') return;
   cart[detailProduct.id] = (cart[detailProduct.id] || 0) + detailQty;
-  window.updateBadges();
-  window.updateDetailCartBtn();
-  window.showToast(detailProduct.name + ' ajoute!');
-  window.renderProducts(currentCat);
+  updateBadges();
+  updateDetailCartBtn();
+  showToast(detailProduct.name + ' ajoute!');
+  renderProducts(currentCat);
 }
-window.quickAdd = function(id) {
+function quickAdd(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p || p.stock === 'out') return;
   cart[id] = (cart[id] || 0) + 1;
-  window.updateBadges();
-  window.showToast(p.name + ' ajoute!');
-  window.renderProducts(currentCat);
+  updateBadges();
+  showToast(p.name + ' ajoute!');
+  renderProducts(currentCat);
 }
-window.updateBadges = function() {
+function updateBadges() {
   const total = Object.values(cart).reduce((a,b) => a+b, 0);
   ['headerBadge','floatBadge'].forEach(id => {
     const el = document.getElementById(id);
@@ -818,33 +830,27 @@ window.updateBadges = function() {
   });
 }
 
-window.toggleCart = function(e) {
-  if(e) e.preventDefault();
+function toggleCart() {
   const d = document.getElementById('cartDrawer');
   const o = document.getElementById('overlay');
-  if (!d || !o) return;
-  
   if (d.classList.contains('open')) { 
     d.classList.remove('open'); 
     o.classList.remove('open'); 
   } else { 
-    window.renderCart(); 
+    renderCart(); 
     d.classList.add('open'); 
     o.classList.add('open'); 
   }
 }
 
-window.renderCart = function() {
+function renderCart() {
   const items = document.getElementById('cartItems');
   const footer = document.getElementById('cartFooter');
   const totalEl = document.getElementById('cartTotal');
   const minWarning = document.getElementById('cartMinWarning');
   const minText = document.getElementById('cartMinText');
   const progressBar = document.getElementById('progressBarFill');
-  const btnCheckout = document.getElementById('btnCheckout');
   
-  if(!items || !footer || !totalEl) return;
-
   const keys = Object.keys(cart).filter(k => cart[k] > 0);
   if (!keys.length) { 
     items.innerHTML='<div class="cart-empty">🛒 Votre panier est vide</div>'; 
@@ -861,9 +867,9 @@ window.renderCart = function() {
       <img src="${p.thumb}" alt="${p.name}"/>
       <div class="cart-item-info"><div class="cart-item-name">${p.name}</div><div class="cart-item-price">${(p.price * cart[id]).toFixed(2)} ${p.unit}</div></div>
       <div class="cart-qty-ctrl">
-        <div class="qty-btn" onclick="window.changeQty('${id}',-1)">−</div>
+        <div class="qty-btn" onclick="changeQty('${id}',-1)">−</div>
         <div class="qty-num">${cart[id]}</div>
-        <div class="qty-btn" onclick="window.changeQty('${id}',1)">+</div>
+        <div class="qty-btn" onclick="changeQty('${id}',1)">+</div>
       </div></div>`;
   }).join('');
   
@@ -883,35 +889,33 @@ window.renderCart = function() {
   }
 }
 
-window.changeQty = function(id, d) {
+function changeQty(id, d) {
   cart[id] = (cart[id]||0) + d;
   if (cart[id] <= 0) delete cart[id];
-  window.updateBadges(); 
-  window.renderCart(); 
-  window.renderProducts(currentCat);
-  if (detailProduct && detailProduct.id === id) window.updateDetailCartBtn();
+  updateBadges(); renderCart(); renderProducts(currentCat);
+  if (detailProduct && detailProduct.id === id) updateDetailCartBtn();
 }
 
-window.openPaymentModal = function() {
+function openPaymentModal() {
   const keys = Object.keys(cart).filter(k => cart[k] > 0);
   if (!keys.length) return;
   const total = keys.reduce((a,id)=>a+PRODUCTS.find(x=>x.id===id).price*cart[id],0);
   if (total < 1000) {
-    window.showToast("Minimum 1,000 DH requis pour commander");
+    showToast("Minimum 1,000 DH requis pour commander");
     return;
   }
   document.getElementById('paymentModal').classList.add('open');
 }
-').classList.remove('open'); }
+function closePaymentModal() { document.getElementById('paymentModal').classList.remove('open'); }
 
-window.openCheckoutForm = function() {
-  window.closePaymentModal();
+function openCheckoutForm() {
+  closePaymentModal();
   const keys = Object.keys(cart).filter(k => cart[k] > 0);
   const total = keys.reduce((a,id)=>a+PRODUCTS.find(x=>x.id===id).price*cart[id],0);
   document.getElementById('checkoutTotal').textContent = total.toFixed(2) + ' DH';
   document.getElementById('checkoutModal').classList.add('open');
 }
-window.closeCheckoutModal = function() { 
+function closeCheckoutModal() { 
   document.getElementById('checkoutModal').classList.remove('open'); 
   document.getElementById('citySelect').value = "";
   document.getElementById('pickupSelect').innerHTML = '<option value="">Sélectionner un point de retrait</option>';
@@ -919,7 +923,7 @@ window.closeCheckoutModal = function() {
   document.getElementById('btnConfirmOrder').className = 'btn-confirm';
 }
 
-window.updatePickupPoints = function() {
+function updatePickupPoints() {
   const city = document.getElementById('citySelect').value;
   const pickupSelect = document.getElementById('pickupSelect');
   pickupSelect.innerHTML = '<option value="">Sélectionner un point de retrait</option>';
@@ -936,7 +940,7 @@ window.updatePickupPoints = function() {
   }
 }
 
-window.checkFormValidity = function() {
+function checkFormValidity() {
   const city = document.getElementById('citySelect').value;
   const pickup = document.getElementById('pickupSelect').value;
   const availText = document.getElementById('availabilityText');
@@ -951,27 +955,27 @@ window.checkFormValidity = function() {
   }
 }
 
-window.confirmOrder = function() {
+function confirmOrder() {
   const city = document.getElementById('citySelect').value;
   const pickup = document.getElementById('pickupSelect').value;
   if (!city || !pickup) return;
   
-  window.closeCheckoutModal();
+  closeCheckoutModal();
   document.getElementById('successModal').classList.add('open');
   cart = {};
-  window.updateBadges();
-  window.renderProducts(currentCat);
+  updateBadges();
+  renderProducts(currentCat);
 }
 
-window.showTier = function(n) {
+function showTier(n) {
   document.querySelectorAll('.tier-card').forEach((c,i) => c.classList.toggle('active', i===n));
   document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i===n));
   currentTier = n;
 }
-setInterval(() => window.showTier((currentTier+1)%4), 3000);
+setInterval(() => showTier((currentTier+1)%4), 3000);
 
-window.openMenu = function() { document.getElementById('sideMenu').classList.add('open'); document.getElementById('overlay').classList.add('open'); }
-window.closeAll = function() {
+function openMenu() { document.getElementById('sideMenu').classList.add('open'); document.getElementById('overlay').classList.add('open'); }
+function closeAll() {
   document.getElementById('sideMenu').classList.remove('open');
   document.getElementById('cartDrawer').classList.remove('open');
   document.getElementById('paymentModal').classList.remove('open');
@@ -979,41 +983,37 @@ window.closeAll = function() {
   document.getElementById('successModal').classList.remove('open');
   document.getElementById('overlay').classList.remove('open');
 }
-window.filterCat = function(cat, el) { 
+function filterCat(cat, el) { 
   currentCat = cat; 
-  window.renderProducts(cat); 
+  renderProducts(cat); 
   document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
   if(el) el.classList.add('active');
 }
 
-window.openProfile = function() { document.getElementById('profilePage').classList.add('open'); window.setNavActive('nav-profile'); }
-window.closeProfile = function() { document.getElementById('profilePage').classList.remove('open'); window.setNavActive('nav-home'); }
-window.openAvis = function() { document.getElementById('avisPage').classList.add('open'); }
-window.closeAvis = function() { document.getElementById('avisPage').classList.remove('open'); }
-window.showHome = function() {
+function openProfile() { document.getElementById('profilePage').classList.add('open'); setNavActive('nav-profile'); }
+function closeProfile() { document.getElementById('profilePage').classList.remove('open'); setNavActive('nav-home'); }
+function openAvis() { document.getElementById('avisPage').classList.add('open'); }
+function closeAvis() { document.getElementById('avisPage').classList.remove('open'); }
+function showHome() {
   document.getElementById('profilePage').classList.remove('open');
   document.getElementById('avisPage').classList.remove('open');
-  window.setNavActive('nav-home');
+  setNavActive('nav-home');
 }
-window.setNavActive = function(id) {
+function setNavActive(id) {
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   const el = document.getElementById(id);
   if (el) el.classList.add('active');
 }
-window.claimTRC = function() {
+function claimTRC() {
   trcBalance += 20;
-  window.showToast('20 TRC recuperes! Total: ' + trcBalance + ' TRC');
+  showToast('20 TRC recuperes! Total: ' + trcBalance + ' TRC');
 }
-window.showToast = function(msg) {
-  const t=document.getElementById('toast'); 
-  if(t) {
-    t.textContent=msg; 
-    t.classList.add('show');
-    setTimeout(()=>t.classList.remove('show'),2500);
-  }
+function showToast(msg) {
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
 }
 
-window.renderProducts('Accessoires');
+renderProducts('Accessoires');
 </script>
 </body>
 </html>
