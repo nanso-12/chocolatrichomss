@@ -8,8 +8,6 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
     html,body{background:#111310;color:#fff;font-family:'Inter',sans-serif;max-width:430px;margin:0 auto;min-height:100vh;overflow-x:hidden;}
-
-    /* HEADER */
     .header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;position:sticky;top:0;z-index:200;background:#111310;border-bottom:1px solid rgba(255,255,255,0.05);}
     .header-logo{font-size:0.78rem;font-weight:700;letter-spacing:0.15em;color:#c9a84c;text-transform:uppercase;flex:1;text-align:center;}
     .header-left,.header-right{display:flex;align-items:center;gap:10px;min-width:60px;}
@@ -18,9 +16,7 @@
     .btn-cart-h{background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;position:relative;}
     .cart-badge{position:absolute;top:-5px;right:-5px;background:#c9a84c;color:#111;font-size:0.55rem;font-weight:800;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center;}
     .hamburger{font-size:1.2rem;cursor:pointer;color:#c9a84c;}
-
-    /* OVERLAY + SIDE MENU */
-    .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:300;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:300;opacity:0;pointer-events:none;transition:opacity 0.3s;}
     .overlay.open{opacity:1;pointer-events:all;}
     .side-menu{position:fixed;top:0;left:-100%;width:75%;max-width:300px;height:100%;background:#0f1a0d;z-index:400;transition:left 0.3s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;border-right:1px solid rgba(201,168,76,0.15);}
     .side-menu.open{left:0;}
@@ -33,8 +29,6 @@
     .menu-icon{width:32px;height:32px;background:rgba(255,255,255,0.06);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
     .menu-item.active .menu-icon{background:rgba(201,168,76,0.15);}
     .menu-lbl{font-size:0.88rem;font-weight:500;color:#ccc;}
-
-    /* TRC BLOCK */
     .trc-block{margin:12px 12px 0;background:linear-gradient(135deg,#1a2010,#0f1a0d);border:1px solid rgba(201,168,76,0.25);border-radius:16px;padding:14px 16px;position:relative;overflow:hidden;}
     .trc-block::before{content:'CHOCOLATRICHOMES';position:absolute;font-size:4rem;font-weight:900;color:rgba(255,255,255,0.03);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;}
     .trc-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
@@ -48,8 +42,6 @@
     .trc-stat-lbl{font-size:0.62rem;color:#666;margin-top:2px;}
     .trc-link{font-size:0.78rem;color:#888;text-align:center;cursor:pointer;display:block;}
     .trc-link span{color:#c9a84c;}
-
-    /* CHECKIN */
     .checkin-card{margin:10px 12px 0;background:#1a1e18;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:14px 16px;}
     .checkin-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
     .checkin-title{font-size:0.88rem;font-weight:600;}
@@ -62,8 +54,6 @@
     .day-lbl{font-size:0.55rem;color:#555;}
     .day-box.done .day-lbl,.day-box.active .day-lbl{color:rgba(255,255,255,0.6);}
     .btn-claim{width:100%;background:linear-gradient(135deg,#4CAF50,#8BC34A);border:none;border-radius:12px;padding:14px;font-size:0.92rem;font-weight:700;color:white;cursor:pointer;}
-
-    /* TIER SECTION */
     .tier-section{margin:10px 12px 0;background:#1a1e18;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:14px 16px;}
     .tier-lbl{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:#c9a84c;font-weight:700;margin-bottom:4px;}
     .tier-desc{font-size:0.78rem;color:#888;margin-bottom:14px;}
@@ -85,8 +75,6 @@
     .dot.active{background:#c9a84c;}
     .btn-activate{width:100%;background:linear-gradient(135deg,#6f4fcf,#9b59b6);border:none;border-radius:12px;padding:14px;font-size:0.92rem;font-weight:700;color:white;cursor:pointer;margin-bottom:10px;}
     .trc-coin-link{font-size:0.78rem;color:#888;text-align:center;display:block;cursor:pointer;text-decoration:none;}
-
-    /* TRC GARDEN */
     .garden-block{margin:10px 12px 0;background:linear-gradient(135deg,#0f1a0d,#1a2e18);border:1px solid rgba(74,140,63,0.3);border-radius:16px;padding:20px 16px;}
     .garden-title{font-size:1.1rem;font-weight:700;margin-bottom:6px;}
     .garden-sub{font-size:0.78rem;color:#888;margin-bottom:16px;}
@@ -95,16 +83,12 @@
     .garden-item:hover{background:rgba(74,140,63,0.15);}
     .garden-item-emoji{font-size:2rem;margin-bottom:8px;display:block;}
     .garden-item-name{font-size:0.85rem;font-weight:600;}
-
-    /* PROMO BANNERS */
     .promo-banners{margin:14px 12px 0;display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;}
     .promo-banners::-webkit-scrollbar{display:none;}
     .promo-banner{min-width:260px;height:90px;border-radius:14px;flex-shrink:0;border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;padding:14px 16px;gap:12px;}
     .promo-icon{font-size:1.4rem;flex-shrink:0;}
     .promo-title{font-size:0.82rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;}
     .promo-sub{font-size:0.7rem;color:#ccc;margin-top:3px;}
-
-    /* PRODUCTS */
     .section-hdr{display:flex;align-items:center;gap:8px;padding:18px 12px 10px;font-size:0.78rem;font-weight:700;color:#888;letter-spacing:0.1em;text-transform:uppercase;}
     .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 12px 120px;}
     .product-card{background:#1a1e18;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);cursor:pointer;transition:transform 0.15s;}
@@ -117,22 +101,16 @@
     .dot-green{width:6px;height:6px;border-radius:50%;background:#4CAF50;flex-shrink:0;}
     .dot-red{width:6px;height:6px;border-radius:50%;background:#f44336;flex-shrink:0;}
     .dot-orange{width:6px;height:6px;border-radius:50%;background:#ff9800;flex-shrink:0;}
-    .badge-discount{position:absolute;top:8px;right:8px;background:#e53935;color:white;font-size:0.62rem;font-weight:800;padding:3px 8px;border-radius:6px;z-index:2;}
-    .badge-last{position:absolute;top:8px;right:8px;background:rgba(255,152,0,0.9);color:white;font-size:0.62rem;font-weight:700;padding:3px 8px;border-radius:6px;z-index:2;}
-    .play-btn{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.5);color:white;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;z-index:2;}
     .product-info{padding:10px 10px 12px;}
     .product-cat{font-size:0.6rem;color:#c9a84c;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:3px;}
     .product-name{font-size:0.82rem;font-weight:700;color:#fff;margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
     .product-footer{display:flex;align-items:center;justify-content:space-between;}
     .product-price{font-size:1rem;font-weight:800;color:#fff;}
-    .product-price-old{font-size:0.72rem;color:#888;text-decoration:line-through;margin-right:4px;}
     .product-price .unit{font-size:0.72rem;font-weight:500;color:#888;margin-left:3px;}
     .btn-add{width:32px;height:32px;background:rgba(201,168,76,0.2);border:1px solid rgba(201,168,76,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#c9a84c;cursor:pointer;flex-shrink:0;transition:all 0.2s;}
     .btn-add:active{transform:scale(0.85);}
     .btn-add.added{background:#c9a84c;color:#111;border-color:#c9a84c;}
     .btn-add.disabled{opacity:0.3;cursor:not-allowed;}
-
-    /* AVIS */
     .avis-section{padding:0 12px 20px;}
     .avis-hero{background:linear-gradient(135deg,#1a1e18,#111310);border:1px solid rgba(201,168,76,0.2);border-radius:16px;padding:24px 20px;text-align:center;margin-bottom:16px;}
     .avis-hero-title{font-size:1.1rem;font-weight:700;margin-bottom:8px;}
@@ -145,7 +123,7 @@
     .review-date{font-size:0.7rem;color:#666;}
     .review-stars{color:#c9a84c;font-size:0.9rem;letter-spacing:2px;margin-bottom:8px;}
     .review-text{font-size:0.85rem;color:#ccc;line-height:1.5;}
-
+    
     /* DETAIL PAGE */
     #detailPage{position:fixed;inset:0;background:#111310;z-index:600;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);max-width:430px;margin:0 auto;}
     #detailPage.open{transform:translateX(0);}
@@ -181,12 +159,12 @@
     .btn-add-to-cart.added{background:linear-gradient(135deg,#2d5a27,#4a8c3f);color:white;}
     .btn-add-to-cart.out{background:#333;color:#666;cursor:not-allowed;}
 
-    /* PROFILE PAGE */
-    #profilePage{position:fixed;inset:0;background:#111310;z-index:600;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);max-width:430px;margin:0 auto;}
-    #profilePage.open{transform:translateX(0);}
-    .profile-topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.05);}
-    .profile-back{width:36px;height:36px;background:rgba(255,255,255,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;}
-    .profile-topbar-title{font-size:0.78rem;font-weight:700;letter-spacing:0.15em;color:#c9a84c;text-transform:uppercase;}
+    /* PROFILE & AVIS & CART */
+    #profilePage, #avisPage{position:fixed;inset:0;background:#111310;z-index:600;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);max-width:430px;margin:0 auto;}
+    #profilePage.open, #avisPage.open{transform:translateX(0);}
+    .profile-topbar, .detail-topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.05);}
+    .profile-back, .detail-back{width:36px;height:36px;background:rgba(255,255,255,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;}
+    .profile-topbar-title, .detail-topbar-title{font-size:0.78rem;font-weight:700;letter-spacing:0.15em;color:#c9a84c;text-transform:uppercase;}
     .profile-settings{width:36px;height:36px;background:rgba(255,255,255,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;}
     .profile-body{padding:24px 16px;}
     .profile-avatar{width:80px;height:80px;background:rgba(255,255,255,0.06);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 12px;}
@@ -212,12 +190,8 @@
     .lang-btn{flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:10px;text-align:center;font-size:0.82rem;font-weight:600;cursor:pointer;}
     .lang-btn.active{background:rgba(201,168,76,0.15);border-color:rgba(201,168,76,0.4);color:#c9a84c;}
 
-    /* AVIS PAGE */
-    #avisPage{position:fixed;inset:0;background:#111310;z-index:600;overflow-y:auto;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);max-width:430px;margin:0 auto;}
-    #avisPage.open{transform:translateX(0);}
-
-    /* CART DRAWER */
-    .cart-drawer{position:fixed;bottom:-100%;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#1a1e18;border-radius:24px 24px 0 0;z-index:700;transition:bottom 0.35s cubic-bezier(0.4,0,0.2,1);border-top:1px solid rgba(201,168,76,0.2);max-height:80vh;overflow-y:auto;}
+    /* CART DRAWER & PROGRESS */
+    .cart-drawer{position:fixed;bottom:-100%;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#1a1e18;border-radius:24px 24px 0 0;z-index:700;transition:bottom 0.35s cubic-bezier(0.4,0,0.2,1);border-top:1px solid rgba(201,168,76,0.2);max-height:85vh;overflow-y:auto;}
     .cart-drawer.open{bottom:0;}
     .cart-handle{width:36px;height:4px;background:rgba(255,255,255,0.2);border-radius:2px;margin:12px auto 0;}
     .cart-hdr{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06);}
@@ -233,11 +207,52 @@
     .qty-btn{width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:#fff;font-size:0.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
     .qty-num{font-size:0.85rem;font-weight:700;min-width:16px;text-align:center;}
     .cart-empty{padding:40px 20px;text-align:center;color:#666;font-size:0.9rem;}
+    
+    .cart-min-warning{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:12px;padding:12px 16px;margin:12px 16px 0;}
+    .cart-min-text{font-size:0.82rem;font-weight:600;color:#c9a84c;margin-bottom:8px;}
+    .progress-bar-bg{width:100%;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;}
+    .progress-bar-fill{height:100%;background:#c9a84c;border-radius:3px;transition:width 0.3s ease;}
+    
+    .cart-reward{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(255,255,255,0.03);margin:12px 16px;border-radius:12px;}
+    .cart-reward span{font-size:0.82rem;color:#c9a84c;font-weight:600;}
+    
     .cart-footer{padding:16px 20px 30px;border-top:1px solid rgba(255,255,255,0.06);}
     .cart-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
     .cart-total-lbl{font-size:0.88rem;color:#888;}
     .cart-total-val{font-size:1.2rem;font-weight:800;color:#c9a84c;}
-    .btn-checkout{width:100%;background:linear-gradient(135deg,#c9a84c,#e8c97a);border:none;border-radius:14px;padding:16px;font-size:0.95rem;font-weight:700;color:#111;cursor:pointer;}
+    .btn-checkout{width:100%;background:#333;color:#666;border:none;border-radius:14px;padding:16px;font-size:0.95rem;font-weight:700;cursor:not-allowed;transition:all 0.3s;}
+    .btn-checkout.active{background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#111;cursor:pointer;}
+
+    /* PAYMENT & CHECKOUT MODALS */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:800;display:none;align-items:flex-end;justify-content:center;}
+    .modal-overlay.open{display:flex;}
+    .modal-content{background:#1a1e18;width:100%;max-width:430px;border-radius:24px 24px 0 0;padding:24px 20px 40px;max-height:90vh;overflow-y:auto;animation:slideUp 0.3s ease;}
+    @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+    .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+    .modal-title{font-size:1.1rem;font-weight:700;}
+    .payment-option{display:flex;align-items:center;gap:16px;background:#111310;border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:16px;margin-bottom:12px;cursor:pointer;transition:border-color 0.2s;}
+    .payment-option:hover{border-color:#c9a84c;}
+    .payment-icon{width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+    .payment-info{flex:1;}
+    .payment-name{font-size:0.95rem;font-weight:600;display:flex;align-items:center;gap:8px;}
+    .payment-desc{font-size:0.75rem;color:#888;margin-top:2px;}
+    .badge-discount{background:#4CAF50;color:#fff;font-size:0.65rem;font-weight:700;padding:2px 6px;border-radius:4px;}
+    .trc-info-box{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:12px;margin-top:16px;font-size:0.75rem;color:#ccc;line-height:1.5;}
+    
+    .checkout-form{display:flex;flex-direction:column;gap:16px;}
+    .form-group{display:flex;flex-direction:column;gap:6px;}
+    .form-label{font-size:0.75rem;color:#888;text-transform:uppercase;letter-spacing:0.05em;}
+    .form-select, .form-input{background:#111310;border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px;color:#fff;font-size:0.9rem;font-family:inherit;outline:none;}
+    .form-select:focus, .form-input:focus{border-color:#c9a84c;}
+    .availability-text{font-size:0.75rem;color:#4CAF50;font-weight:600;display:none;margin-top:4px;}
+    .availability-text.show{display:block;}
+    .btn-confirm{width:100%;background:#333;color:#666;border:none;border-radius:14px;padding:16px;font-size:0.95rem;font-weight:700;cursor:not-allowed;margin-top:8px;transition:all 0.3s;}
+    .btn-confirm.active{background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#111;cursor:pointer;}
+    
+    .success-screen{text-align:center;padding:40px 20px;}
+    .success-icon{font-size:4rem;margin-bottom:16px;}
+    .success-title{font-size:1.3rem;font-weight:700;margin-bottom:8px;color:#4CAF50;}
+    .success-text{font-size:0.9rem;color:#888;line-height:1.6;margin-bottom:24px;}
 
     /* FLOAT + TOAST + NAV */
     .float-cart{position:fixed;bottom:80px;right:calc(50% - 215px + 10px);width:52px;height:52px;background:#c9a84c;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 20px rgba(201,168,76,0.4);cursor:pointer;z-index:50;transition:transform 0.2s;}
@@ -256,31 +271,28 @@
 </head>
 <body>
 
-<!-- OVERLAY -->
 <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
-<!-- SIDE MENU -->
 <div class="side-menu" id="sideMenu">
   <div class="side-menu-hdr">
     <div class="side-menu-logo">CHOCOLATRICHOMES</div>
     <div class="side-menu-sub">ChocolaTrichoms&Terps</div>
   </div>
-  <div class="menu-item active" onclick="filterCat('Accessoires');closeAll()"><div class="menu-icon">💧</div><div class="menu-lbl">Accessoires</div></div>
-  <div class="menu-item" onclick="filterCat('HerbVape');closeAll()"><div class="menu-icon">⚡</div><div class="menu-lbl">HerbVape</div></div>
-  <div class="menu-item" onclick="filterCat('Most Wanted');closeAll()"><div class="menu-icon">⭐</div><div class="menu-lbl">Most Wanted</div></div>
+  <div class="menu-item active" onclick="filterCat('Accessoires', this);closeAll()"><div class="menu-icon">💧</div><div class="menu-lbl">Accessoires</div></div>
+  <div class="menu-item" onclick="filterCat('HerbVape', this);closeAll()"><div class="menu-icon">⚡</div><div class="menu-lbl">HerbVape</div></div>
+  <div class="menu-item" onclick="filterCat('Most Wanted', this);closeAll()"><div class="menu-icon">⭐</div><div class="menu-lbl">Most Wanted</div></div>
   <div class="menu-item" onclick="openAvis();closeAll()"><div class="menu-icon">💬</div><div class="menu-lbl">Avis</div></div>
-  <div class="menu-item" onclick="filterCat('TRC-Garden');closeAll()"><div class="menu-icon">🌱</div><div class="menu-lbl">TRC-Garden</div></div>
-  <div class="menu-item" onclick="filterCat('All');closeAll()"><div class="menu-icon">⊞</div><div class="menu-lbl">All</div></div>
-  <div class="menu-item" onclick="filterCat('Drysift');closeAll()"><div class="menu-icon">🕐</div><div class="menu-lbl">Drysift</div></div>
-  <div class="menu-item" onclick="filterCat('Frozen');closeAll()"><div class="menu-icon">❄️</div><div class="menu-lbl">Frozen</div></div>
-  <div class="menu-item" onclick="filterCat('Static');closeAll()"><div class="menu-icon">⚡</div><div class="menu-lbl">Static</div></div>
-  <div class="menu-item" onclick="filterCat('Ice O\'Lator');closeAll()"><div class="menu-icon">⭐</div><div class="menu-lbl">Ice O'Lator</div></div>
-  <div class="menu-item" onclick="filterCat('Beldia');closeAll()"><div class="menu-icon">🏠</div><div class="menu-lbl">Beldia</div></div>
-  <div class="menu-item" onclick="filterCat('Weed');closeAll()"><div class="menu-icon">🌿</div><div class="menu-lbl">Weed</div></div>
-  <div class="menu-item" onclick="filterCat('Meet Up Rabat');closeAll()"><div class="menu-icon">👥</div><div class="menu-lbl">Meet Up Rabat</div></div>
+  <div class="menu-item" onclick="filterCat('TRC-Garden', this);closeAll()"><div class="menu-icon">🌱</div><div class="menu-lbl">TRC-Garden</div></div>
+  <div class="menu-item" onclick="filterCat('All', this);closeAll()"><div class="menu-icon">⊞</div><div class="menu-lbl">All</div></div>
+  <div class="menu-item" onclick="filterCat('Drysift', this);closeAll()"><div class="menu-icon">🕐</div><div class="menu-lbl">Drysift</div></div>
+  <div class="menu-item" onclick="filterCat('Frozen', this);closeAll()"><div class="menu-icon">❄️</div><div class="menu-lbl">Frozen</div></div>
+  <div class="menu-item" onclick="filterCat('Static', this);closeAll()"><div class="menu-icon">⚡</div><div class="menu-lbl">Static</div></div>
+  <div class="menu-item" onclick="filterCat('Ice O\'Lator', this);closeAll()"><div class="menu-icon">⭐</div><div class="menu-lbl">Ice O'Lator</div></div>
+  <div class="menu-item" onclick="filterCat('Beldia', this);closeAll()"><div class="menu-icon">🏠</div><div class="menu-lbl">Beldia</div></div>
+  <div class="menu-item" onclick="filterCat('Weed', this);closeAll()"><div class="menu-icon">🌿</div><div class="menu-lbl">Weed</div></div>
+  <div class="menu-item" onclick="filterCat('Meet Up Rabat', this);closeAll()"><div class="menu-icon">👥</div><div class="menu-lbl">Meet Up Rabat</div></div>
 </div>
 
-<!-- HEADER -->
 <div class="header">
   <div class="header-left"><span class="hamburger" onclick="openMenu()">☰</span></div>
   <div class="header-logo">CHOCOLATRICHOMES</div>
@@ -290,7 +302,6 @@
   </div>
 </div>
 
-<!-- TRC BLOCK -->
 <div class="trc-block">
   <div class="trc-hdr">
     <div class="trc-icon">🌿</div>
@@ -305,7 +316,6 @@
   <div class="trc-link">Activer mon tier en 30 secondes <span>→</span></div>
 </div>
 
-<!-- CHECKIN -->
 <div class="checkin-card">
   <div class="checkin-hdr"><div class="checkin-title">📅 Check-in quotidien</div><div class="checkin-streak" id="streakDisplay">1 jours 🔥</div></div>
   <div class="checkin-days">
@@ -320,7 +330,6 @@
   <button class="btn-claim" onclick="claimTRC()">Recuperer 20 TRC</button>
 </div>
 
-<!-- TIER SECTION -->
 <div class="tier-section">
   <div class="tier-lbl">🔴 Systeme TRC Cardholder</div>
   <div class="tier-desc">Hold du TRC, economise jusqu'a <span>-20%</span> a vie sur chaque commande</div>
@@ -349,10 +358,9 @@
     <div class="dot" onclick="showTier(3)"></div>
   </div>
   <button class="btn-activate">✨ Activer mon tier</button>
-  <a href="httpsocolatrichome_bot" target="_blank" class="trc-coin-link">C'est quoi TrichomeCoin ? →</a>
+  <a href="https://t.me/chocolatrichome_bot" target="_blank" class="trc-coin-link">C'est quoi TrichomeCoin ? →</a>
 </div>
 
-<!-- TRC GARDEN -->
 <div class="garden-block">
   <div class="garden-title">🌱 Bienvenue dans TRC-Garden</div>
   <div class="garden-sub">Choisis ta strain — elle te suivra jusqu'au niveau 200</div>
@@ -364,7 +372,6 @@
   </div>
 </div>
 
-<!-- PROMO BANNERS -->
 <div class="promo-banners">
   <div class="promo-banner" style="background:linear-gradient(135deg,#1a1208,#2a1a08)"><div class="promo-icon">📦</div><div><div class="promo-title">Postal Delivery</div><div class="promo-sub">Try the new experience - get 10% off.</div></div></div>
   <div class="promo-banner" style="background:linear-gradient(135deg,#0a0f1a,#0f1a2a)"><div class="promo-icon">💎</div><div><div class="promo-title">Hold TRC</div><div class="promo-sub">Get -5% discount on every order.</div></div></div>
@@ -373,7 +380,6 @@
 <div class="section-hdr" id="sectionTitle"><span>🛒</span> ACCESSOIRES</div>
 <div class="products-grid" id="productsGrid"></div>
 
-<!-- FLOAT CART -->
 <div class="float-cart" onclick="toggleCart()">🛍<div class="float-badge" id="floatBadge"></div></div>
 <div class="toast" id="toast"></div>
 
@@ -392,7 +398,7 @@
     </div>
     <div class="detail-type-label" id="detailTypeLabel"></div>
     <div class="detail-tags" id="detailTags"></div>
-    <div class="detail-desc" id="detailDesc">Essential smoking accessories — lighters, rolling papers, grinders, and more. Quality gear for the everyday smoker.</div>
+    <div class="detail-desc" id="detailDesc"></div>
     <div class="detail-type-row"><div class="detail-type-icon">📦</div><div><div class="detail-type-meta">TYPE</div><div class="detail-type-val" id="detailTypeName">Accessoire</div></div></div>
     <div class="qty-label">SELECTIONNER LA QUANTITE</div>
     <div class="qty-selector" id="qtySelector" onclick="changeDetailQty()">
@@ -404,7 +410,7 @@
     <div class="avis-link">Laisser un commentaire</div>
   </div>
   <div class="detail-bottom">
-    <div class="detail-cart-icon" onclick="toggleCart()">🛍<div class="cart-badge" id="detailBadge" style="position:absolute;top:-5px;right:-5px;background:#c9a84c;color:#111;font-size:0.55rem;font-weight:800;width:16px;height:16px0%;display:none;align-items:center;justify-content:center;"></div></div>
+    <div class="detail-cart-icon" onclick="toggleCart()">🛍<div class="cart-badge" id="detailBadge" style="position:absolute;top:-5px;right:-5px;background:#c9a84c;color:#111;font-size:0.55rem;font-weight:800;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center;"></div></div>
     <button class="btn-add-to-cart" id="btnAddToCart" onclick="addFromDetail()">ADD TO CART</button>
   </div>
 </div>
@@ -461,138 +467,115 @@
       <div class="avis-score">5.0 / 5 · 15 avis</div>
       <div class="btn-avis" onclick="showToast('Merci pour votre avis!')">Laisser un avis</div>
     </div>
-    
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">20 mai 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">Best experience in this country by far. The static by Zak is 👌</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">15 mai 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">🌍👍🪄</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">30 avr. 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">🍗🔥🔥🔥</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">27 avr. 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">Incroyable!!! Thx guys</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">26 avr. 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">Awesome service</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">25 avr. 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">Best quality, best service , best team 📣</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">25 avr. 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">Confince ✅✅💪</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">19 avr. 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">Weed De tres bonne qualite la meilleure au Maroc top top</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">19 avr. 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">Amazing work perfectly extracted heads so delicious 😏</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">19 avr. 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">Best Terps ever tasted for a long time. 🙏 Thank you !</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">17 avr. 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">Best quality for the best price ! Merci ctt</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">16 avr. 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">Excellent service, hash super qualite ( THC - Saveur ). Les meilleurs au maroc ✌️💪✅</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">16 avr. 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">Je viens de France et cest le top en locker et qualiter du produit et les prix top plein de reduc 🏆❤️</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="6 avr. 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">1000/10 ✅</div>
-    </div>
-    <div class="review-card">
-      <div class="review-header">
-        <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">16 avr. 2026</span>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">Excellent service , excellente fume</div>
-    </div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">20 mai 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Best experience in this country by far. The static by Zak is 👌</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">15 mai 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">🌍👍🪄</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">30 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">🍗🔥🔥🔥</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">27 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Incroyable!!! Thx guys</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">26 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Awesome service</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">25 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Best quality, best service , best team 📣</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">25 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Confince ✅✅💪</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">19 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Weed De tres bonne qualite la meilleure au Maroc top top</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">19 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Amazing work perfectly extracted heads so delicious 😏</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">19 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Best Terps ever tasted for a long time. 🙏 Thank you !</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">17 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Best quality for the best price ! Merci ctt</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">16 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Excellent service, hash super qualite ( THC - Saveur ). Les meilleurs au maroc ✌️💪✅</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">16 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Je viens de France et cest le top en locker et qualiter du produit et les prix top plein de reduc 🏆❤️</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">16 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">1000/10 ✅</div></div>
+    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">16 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Excellent service , excellente fume</div></div>
   </div>
 </div>
 
 <!-- CART DRAWER -->
 <div class="cart-drawer" id="cartDrawer">
   <div class="cart-handle"></div>
-  <div class="cart-hdr"><div class="cart-title">🛍 Mon Panier</div><div class="cart-close" onclick="toggleCart()">✕</div></div>
+  <div class="cart-hdr"><div class="cart-title">🛍 My Cart</div><div class="cart-close" onclick="toggleCart()">✕</div></div>
   <div class="cart-items" id="cartItems"></div>
-  <div class="cart-footer" id="cartFooter" style="display:none">
+  <div class="cart-min-warning" id="cartMinWarning" style="display:none;">
+    <div class="cart-min-text" id="cartMinText">Minimum 1,000 DH<br>You need 700 DH more</div>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBarFill" style="width:30%"></div></div>
+  </div>
+  <div class="cart-reward">
+    <span>🌕 TRC Reward</span>
+    <span style="margin-left:auto">+1,500 TRC</span>
+  </div>
+  <div class="cart-footer">
     <div class="cart-total"><div class="cart-total-lbl">Total</div><div class="cart-total-val" id="cartTotal">0 DH</div></div>
-    <button class="btn-checkout" onclick="checkout()">Commander via Telegram →</button>
+    <button class="btn-checkout" id="btnCheckout" onclick="openPaymentModal()">Checkout</button>
+  </div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="modal-overlay" id="paymentModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title">Payment</div>
+      <div class="cart-close" onclick="closePaymentModal()">✕</div>
+    </div>
+    <div class="payment-option" onclick="openCheckoutForm()">
+      <div class="payment-icon">🏦</div>
+      <div class="payment-info">
+        <div class="payment-name">Mise à Disposition</div>
+        <div class="payment-desc">Bank transfer via disposition code</div>
+      </div>
+    </div>
+    <div class="payment-option" onclick="showToast('Crypto payment coming soon!')">
+      <div class="payment-icon">₿</div>
+      <div class="payment-info">
+        <div class="payment-name">Crypto <span class="badge-discount">-10%</span></div>
+        <div class="payment-desc">BTC / ETH / USDT / SOL</div>
+      </div>
+    </div>
+    <div class="trc-info-box">
+      💡 Pas de paiement en TRC. À la place, <strong>détiens</strong> du TRC sur ton wallet pour une réduction à vie appliquée à <strong>tous</strong> les modes de paiement. Le TRC du jeu sert au Grow Game.
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT FORM MODAL -->
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title">Mise à Disposition</div>
+      <div class="cart-close" onclick="closeCheckoutModal()">✕</div>
+    </div>
+    <div class="cart-total" style="margin-bottom:20px"><div class="cart-total-lbl">Total à payer</div><div class="cart-total-val" id="checkoutTotal">0 DH</div></div>
+    <div class="checkout-form">
+      <div class="form-group">
+        <label class="form-label">Ville</label>
+        <select class="form-select" id="citySelect" onchange="updatePickupPoints()">
+          <option value="">Sélectionner une ville</option>
+          <option value="Rabat">Rabat</option>
+          <option value="Casablanca">Casablanca</option>
+          <option value="Marrakech">Marrakech</option>
+          <option value="Fès">Fès</option>
+          <option value="Tanger">Tanger</option>
+          <option value="Agadir">Agadir</option>
+          <option value="Meknès">Meknès</option>
+          <option value="Oujda">Oujda</option>
+          <option value="Kénitra">Kénitra</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Point de retrait</label>
+        <select class="form-select" id="pickupSelect" onchange="checkFormValidity()">
+          <option value="">Sélectionner un point de retrait</option>
+        </select>
+        <div class="availability-text" id="availabilityText">🕒 24h/24 7J/7</div>
+      </div>
+      <button class="btn-confirm" id="btnConfirmOrder" onclick="confirmOrder()">Confirm Order</button>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal-content">
+    <div class="success-screen">
+      <div class="success-icon">✅</div>
+      <div class="success-title">Commande Confirmée !</div>
+      <div class="success-text">Votre commande a été enregistrée avec succès. Vous recevrez votre code de disposition par Telegram sous peu.</div>
+      <button class="btn-checkout active" onclick="closeAll(); window.location.reload();">Retour à l'accueil</button>
+    </div>
   </div>
 </div>
 
@@ -666,17 +649,43 @@ const PRODUCTS = [
   {id:'xmax_v2_pro', cat:'HerbVape', name:'XMAX V2 PRO', price:1080, unit:'DH', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'xmax_v3_pro', cat:'HerbVape', name:'XMAX V3 PRO', price:1824, unit:'DH', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
 
-  // --- DRY SIFT & FROZEN ---
-  {id:'ffruit_73u', cat:'Drysift', name:'F.FRUIT. 73U', price:29.92, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ffruit_120u', cat:'Drysift', name:'F.FRUIT 120U', price:40, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'icc_120u', cat:'Frozen', name:'I.C.C 120U', price:40, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'rbelt_120u', cat:'Frozen', name:'R.BELT. 120U', price:40.92, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'lcake_120u', cat:'Frozen', name:'L.CAKE. 120U', price:41.8, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'mtrezz_90u', cat:'Frozen', name:'M.TREZZ. 90U', price:44, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  // --- DRY SIFT ---
+  {id:'ffruit_73u', cat:'Drysift', name:'F.FRUIT. 73U', price:29.92, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'passion_fruit_z', cat:'Drysift', name:'PASSION FRUIT Z', price:28, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'tutti_frutti_73', cat:'Drysift', name:'TUTTI FRUTTI 73', price:25, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'papunch_120u', cat:'Drysift', name:'P.A.PUNCH 120U', price:34.2, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'ffruit_120u', cat:'Drysift', name:'F.FRUIT 120U', price:40, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
 
-  // --- BELDIA & WEED ---
-  {id:'beldia_issagen', cat:'Beldia', name:'BELDIA ISSAGEN#1', price:30, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'chemdawg', cat:'Weed', name:'CHEMDAWG', price:80, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'}
+  // --- FROZEN ---
+  {id:'candy_truffle_120u', cat:'Frozen', name:'CANDY TRUFFLE 120U', price:42, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'miami_mami_90u', cat:'Frozen', name:'MIAMI MAMI 90U', price:32, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'alien_og_120u', cat:'Frozen', name:'ALIEN OG 120U', price:38, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'peach_ozz_120u', cat:'Frozen', name:'PEACH OZZ 120U', price:52, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'frost_flakes_90u', cat:'Frozen', name:'FROST FLAKES 90U', price:32, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'cheeta_piss_120u', cat:'Frozen', name:'CHEETAH PISS 120U', price:38, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'sherblato_120u', cat:'Frozen', name:'SHERBLATO 120U', price:42, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'icc_120u', cat:'Frozen', name:'I.C.C 120U', price:40, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'rbelt_120u', cat:'Frozen', name:'R.BELT. 120U', price:40.92, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'lcake_120u', cat:'Frozen', name:'L.CAKE. 120U', price:41.8, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'mtrezz_90u', cat:'Frozen', name:'M.TREZZ. 90U', price:44, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+
+  // --- STATIC ---
+  {id:'honey_roasted', cat:'Static', name:'HONEY ROASTED PEANUTT BY ZAKA', price:60, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'dirty_joy', cat:'Static', name:'DIRTY JOY STATIC BY ZKR', price:55, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'honey_nutz', cat:'Static', name:'HONEY NUTZ STATIC BY ZKR', price:55, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'forbidden_joy', cat:'Static', name:'FORBIDDEN JOY BY ZAKA', price:60, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+
+  // --- ICE O'LATOR ---
+  {id:'kinky_pam', cat:'Ice O\'Lator', name:'KINKY PAM 160-73U', price:180, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+
+  // --- BELDIA ---
+  {id:'tekmache', cat:'Beldia', name:'TEKMACHE', price:24, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'beldiya_issagen', cat:'Beldia', name:'BELDIYA ISSAGEN', price:30, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'beldia_issagen_1', cat:'Beldia', name:'BELDIA ISSAGEN #1', price:30, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+
+  // --- WEED ---
+  {id:'mango_haze', cat:'Weed', name:'MANGO HAZE', price:90, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'chemdawg', cat:'Weed', name:'CHEMDAWG', price:80, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true}
 ];
 
 let cart = {};
@@ -686,17 +695,31 @@ let detailQty = 1;
 let currentTier = 0;
 let trcBalance = 10;
 
-// RENDER GRID
+const pickupPoints = {
+  "Rabat": ["Agdal", "Hassan", "Océan", "Hay Riad"],
+  "Casablanca": ["Maarif", "Ain Diab", "Sidi Maarouf", "Derb Ghallef"],
+  "Marrakech": ["Guéliz", "Médina", "Hivernage", "Menara"],
+  "Fès": ["Ville Nouvelle", "Médina", "Zouagha"],
+  "Tanger": ["Centre Ville", "Malabata", "Irada"],
+  "Agadir": ["Marina", "Talborjt", "Founty"],
+  "Meknès": ["Ville Nouvelle", "Médina", "Hamria"],
+  "Oujda": ["Centre Ville", "Lazaret", "Al Qods"],
+  "Kénitra": ["Ville Haute", "Médina", "Mimosas"]
+};
+
 function renderProducts(cat) {
   const grid = document.getElementById('productsGrid');
   const title = document.getElementById('sectionTitle');
   let list;
   if (cat === 'All') list = PRODUCTS;
+  else if (cat === 'Most Wanted') list = PRODUCTS.filter(p => p.mostWanted);
   else if (cat === 'Drysift') list = PRODUCTS.filter(p => p.cat === 'Drysift');
   else if (cat === 'Frozen') list = PRODUCTS.filter(p => p.cat === 'Frozen');
   else if (cat === 'Beldia') list = PRODUCTS.filter(p => p.cat === 'Beldia');
   else if (cat === 'Weed') list = PRODUCTS.filter(p => p.cat === 'Weed');
   else if (cat === 'HerbVape') list = PRODUCTS.filter(p => p.cat === 'HerbVape');
+  else if (cat === 'Static') list = PRODUCTS.filter(p => p.cat === 'Static');
+  else if (cat === 'Ice O\'Lator') list = PRODUCTS.filter(p => p.cat === 'Ice O\'Lator');
   else list = PRODUCTS.filter(p => p.cat === cat);
   
   title.innerHTML = `<span>🛒</span> ${cat.toUpperCase()}`;
@@ -716,7 +739,7 @@ function renderProducts(cat) {
         <img src="${p.thumb}" alt="${p.name}" loading="lazy"/>
         <div class="badge-stock${isOut ? ' out' : ''}">
           <div class="${isOut ? 'dot-red' : isLast ? 'dot-orange' : 'dot-green'}"></div>
-          ${isOut ? 'OUT' : isLast ? '' : 'IN STOCK'}
+          ${isOut ? 'OUT' : isLast ? 'LAST' : 'IN STOCK'}
         </div>
       </div>
       <div class="product-info">
@@ -731,7 +754,6 @@ function renderProducts(cat) {
   }).join('');
 }
 
-// DETAIL
 function openDetail(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return;
@@ -740,15 +762,34 @@ function openDetail(id) {
   document.getElementById('detailImg').src = p.detail || p.thumb;
   document.getElementById('detailName').textContent = p.name;
   document.getElementById('detailPriceTop').textContent = p.price + ' ' + p.unit;
-  document.getElementById('detailTypeLabel').textContent = 'SMOKE ACCESSORY';
-  document.getElementById('detailTypeName').textContent = p.cat;
   
-  // CORRECTION : Force l'affichage de la description demandée
-  document.getElementById('detailDesc').textContent = "Essential smoking accessories — lighters, rolling papers, grinders, and more. Quality gear for the everyday smoker.";
+  let desc = "Essential smoking accessories — lighters, rolling papers, grinders, and more. Quality gear for the everyday smoker.";
+  let type = p.cat;
+  
+  if (p.cat === 'HerbVape') {
+    desc = "Premium portable herb vaporizers from top brands. Clean, efficient, and flavorful vaporization for dry herbs.";
+    type = "HerbVape";
+  } else if (p.cat === 'Drysift') {
+    desc = "Premium dry-sift, carefully hand-processed through fine mesh screens. Rich terpene profile with complex aromatic layers and exceptional purity.";
+    type = "Dry sift";
+  } else if (p.cat === 'Frozen') {
+    desc = "Fresh-frozen extraction preserving the full spectrum of live terpenes. Intense flavor profile with unmatched aromatic complexity.";
+    type = "Frozen";
+  } else if (p.cat === 'Static') {
+    desc = "Ultra-refined static tech extraction yielding the highest concentration. Pure, potent, and exceptionally smooth for the connoisseur.";
+    type = "Static";
+  } else if (p.cat === 'Ice O\'Lator') {
+    desc = "Kinky Pam 160u-73u WPF";
+    type = "ICE O'LATOR";
+  }
+  
+  document.getElementById('detailTypeLabel').textContent = type.toUpperCase() + ' TYPE';
+  document.getElementById('detailTypeName').textContent = type;
+  document.getElementById('detailDesc').textContent = desc;
   
   document.getElementById('detailTags').innerHTML = `
-    <div class="detail-tag">${p.cat} <span class="tag-meta">TYPE</span></div>
-    <div class="detail-tag">${p.stock === 'out' ? 'Out of Stock' : p.stock === 'last' ? 'Last Items' : 'In Stock'} <span class="tag-meta">STOCK</span></div>`;
+    <div class="detail-tag">${type} <span class="tag-meta">TYPE</span></div>
+    <div class="detail-tag">${p.stock === 'out' ? 'Out of Stock' : p.stock === 'last' ? 'Limited' : 'In Stock'} <span class="tag-meta">STOCK</span></div>`;
   updateDetailQty();
   updateDetailCartBtn();
   const page = document.getElementById('detailPage');
@@ -757,18 +798,15 @@ function openDetail(id) {
 }
 
 function closeDetail() { document.getElementById('detailPage').classList.remove('open'); }
-
 function updateDetailQty() {
   if (!detailProduct) return;
   document.getElementById('detailQtyX').textContent = 'x' + detailQty;
   document.getElementById('detailQtyDh').textContent = (detailProduct.price * detailQty).toFixed(2) + ' ' + detailProduct.unit;
 }
-
 function changeDetailQty() {
   detailQty = detailQty < 10 ? detailQty + 1 : 1;
   updateDetailQty();
 }
-
 function updateDetailCartBtn() {
   if (!detailProduct) return;
   const btn = document.getElementById('btnAddToCart');
@@ -784,7 +822,6 @@ function updateDetailCartBtn() {
     btn.textContent = 'ADD TO CART - ' + detailProduct.price + ' ' + detailProduct.unit;
   }
 }
-
 function addFromDetail() {
   if (!detailProduct || detailProduct.stock === 'out') return;
   cart[detailProduct.id] = (cart[detailProduct.id] || 0) + detailQty;
@@ -793,7 +830,6 @@ function addFromDetail() {
   showToast(detailProduct.name + ' ajoute!');
   renderProducts(currentCat);
 }
-
 function quickAdd(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p || p.stock === 'out') return;
@@ -802,8 +838,6 @@ function quickAdd(id) {
   showToast(p.name + ' ajoute!');
   renderProducts(currentCat);
 }
-
-// BADGES
 function updateBadges() {
   const total = Object.values(cart).reduce((a,b) => a+b, 0);
   ['headerBadge','floatBadge'].forEach(id => {
@@ -812,7 +846,6 @@ function updateBadges() {
   });
 }
 
-// CART
 function toggleCart() {
   const d = document.getElementById('cartDrawer');
   const o = document.getElementById('overlay');
@@ -824,8 +857,19 @@ function renderCart() {
   const items = document.getElementById('cartItems');
   const footer = document.getElementById('cartFooter');
   const totalEl = document.getElementById('cartTotal');
+  const minWarning = document.getElementById('cartMinWarning');
+  const minText = document.getElementById('cartMinText');
+  const progressBar = document.getElementById('progressBarFill');
+  const btnCheckout = document.getElementById('btnCheckout');
+  
   const keys = Object.keys(cart).filter(k => cart[k] > 0);
-  if (!keys.length) { items.innerHTML='<div class="cart-empty">🛒 Votre panier est vide</div>'; footer.style.display='none'; return; }
+  if (!keys.length) { 
+    items.innerHTML='<div class="cart-empty">🛒 Votre panier est vide</div>'; 
+    footer.style.display='none'; 
+    minWarning.style.display='none';
+    return; 
+  }
+  
   let total = 0;
   items.innerHTML = keys.map(id => {
     const p = PRODUCTS.find(x => x.id===id);
@@ -839,8 +883,23 @@ function renderCart() {
         <div class="qty-btn" onclick="changeQty('${id}',1)">+</div>
       </div></div>`;
   }).join('');
+  
   totalEl.textContent = total.toFixed(2) + ' DH';
   footer.style.display = 'block';
+  
+  const minOrder = 1000;
+  const remaining = Math.max(0, minOrder - total);
+  const progress = Math.min(100, (total / minOrder) * 100);
+  
+  if (total < minOrder) {
+    minWarning.style.display = 'block';
+    minText.innerHTML = `Minimum 1,000 DH<br>You need ${remaining.toFixed(2)} DH more`;
+    progressBar.style.width = progress + '%';
+    btnCheckout.className = 'btn-checkout';
+  } else {
+    minWarning.style.display = 'none';
+    btnCheckout.className = 'btn-checkout active';
+  }
 }
 
 function changeQty(id, d) {
@@ -850,69 +909,118 @@ function changeQty(id, d) {
   if (detailProduct && detailProduct.id === id) updateDetailCartBtn();
 }
 
-function checkout() {
-  const keys = Object.keys(cart).filter(k => cart[k]>0);
+function openPaymentModal() {
+  const keys = Object.keys(cart).filter(k => cart[k] > 0);
   if (!keys.length) return;
-  let msg = 'Bonjour, je souhaite commander:%0A';
-  keys.forEach(id => { const p=PRODUCTS.find(x=>x.id===id); msg+=`- ${p.name} x${cart[id]} = ${(p.price*cart[id]).toFixed(2)} ${p.unit}%0A`; });
   const total = keys.reduce((a,id)=>a+PRODUCTS.find(x=>x.id===id).price*cart[id],0);
-  msg += `%0ATotal: ${total.toFixed(2)} DH`;
-  window.open(`https://t.me/chocolatrichome_bot?text=${msg}`,'_blank');
+  if (total < 1000) {
+    showToast("Minimum 1,000 DH requis pour commander");
+    return;
+  }
+  document.getElementById('paymentModal').classList.add('open');
+}
+function closePaymentModal() { document.getElementById('paymentModal').classList.remove('open'); }
+
+function openCheckoutForm() {
+  closePaymentModal();
+  const keys = Object.keys(cart).filter(k => cart[k] > 0);
+  const total = keys.reduce((a,id)=>a+PRODUCTS.find(x=>x.id===id).price*cart[id],0);
+  document.getElementById('checkoutTotal').textContent = total.toFixed(2) + ' DH';
+  document.getElementById('checkoutModal').classList.add('open');
+}
+function closeCheckoutModal() { 
+  document.getElementById('checkoutModal').classList.remove('open'); 
+  document.getElementById('citySelect').value = "";
+  document.getElementById('pickupSelect').innerHTML = '<option value="">Sélectionner un point de retrait</option>';
+  document.getElementById('availabilityText').classList.remove('show');
+  document.getElementById('btnConfirmOrder').className = 'btn-confirm';
 }
 
-// TIER CAROUSEL
+function updatePickupPoints() {
+  const city = document.getElementById('citySelect').value;
+  const pickupSelect = document.getElementById('pickupSelect');
+  pickupSelect.innerHTML = '<option value="">Sélectionner un point de retrait</option>';
+  document.getElementById('availabilityText').classList.remove('show');
+  document.getElementById('btnConfirmOrder').className = 'btn-confirm';
+  
+  if (city && pickupPoints[city]) {
+    pickupPoints[city].forEach(point => {
+      const option = document.createElement('option');
+      option.value = point;
+      option.textContent = point;
+      pickupSelect.appendChild(option);
+    });
+  }
+}
+
+function checkFormValidity() {
+  const city = document.getElementById('citySelect').value;
+  const pickup = document.getElementById('pickupSelect').value;
+  const availText = document.getElementById('availabilityText');
+  const btn = document.getElementById('btnConfirmOrder');
+  
+  if (city && pickup) {
+    availText.classList.add('show');
+    btn.className = 'btn-confirm active';
+  } else {
+    availText.classList.remove('show');
+    btn.className = 'btn-confirm';
+  }
+}
+
+function confirmOrder() {
+  const city = document.getElementById('citySelect').value;
+  const pickup = document.getElementById('pickupSelect').value;
+  if (!city || !pickup) return;
+  
+  closeCheckoutModal();
+  document.getElementById('successModal').classList.add('open');
+  cart = {};
+  updateBadges();
+  renderProducts(currentCat);
+}
+
 function showTier(n) {
   document.querySelectorAll('.tier-card').forEach((c,i) => c.classList.toggle('active', i===n));
   document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i===n));
   currentTier = n;
 }
-
-// Auto-rotate tiers
 setInterval(() => showTier((currentTier+1)%4), 3000);
 
-// PAGES
 function openMenu() { document.getElementById('sideMenu').classList.add('open'); document.getElementById('overlay').classList.add('open'); }
 function closeAll() {
   document.getElementById('sideMenu').classList.remove('open');
   document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('paymentModal').classList.remove('open');
+  document.getElementById('checkoutModal').classList.remove('open');
+  document.getElementById('successModal').classList.remove('open');
   document.getElementById('overlay').classList.remove('open');
 }
-function filterCat(cat) { currentCat=cat; renderProducts(cat); }
-
-function openProfile() {
-  document.getElementById('profilePage').classList.add('open');
-  setNavActive('nav-profile');
-}
-function closeProfile() {
-  document.getElementById('profilePage').classList.remove('open');
-  setNavActive('nav-home');
+function filterCat(cat, el) { 
+  currentCat = cat; 
+  renderProducts(cat); 
+  document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+  if(el) el.classList.add('active');
 }
 
-function openAvis() {
-  document.getElementById('avisPage').classList.add('open');
-}
-function closeAvis() {
-  document.getElementById('avisPage').classList.remove('open');
-}
-
+function openProfile() { document.getElementById('profilePage').classList.add('open'); setNavActive('nav-profile'); }
+function closeProfile() { document.getElementById('profilePage').classList.remove('open'); setNavActive('nav-home'); }
+function openAvis() { document.getElementById('avisPage').classList.add('open'); }
+function closeAvis() { document.getElementById('avisPage').classList.remove('open'); }
 function showHome() {
   document.getElementById('profilePage').classList.remove('open');
   document.getElementById('avisPage').classList.remove('open');
   setNavActive('nav-home');
 }
-
 function setNavActive(id) {
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   const el = document.getElementById(id);
   if (el) el.classList.add('active');
 }
-
-// CHECKIN
 function claimTRC() {
   trcBalance += 20;
   showToast('20 TRC recuperes! Total: ' + trcBalance + ' TRC');
 }
-
 function showToast(msg) {
   const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2500);
