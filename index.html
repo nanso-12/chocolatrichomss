@@ -218,7 +218,6 @@
     .cart-total-lbl{font-size:0.88rem;color:#888;}
     .cart-total-val{font-size:1.2rem;font-weight:800;color:#c9a84c;}
     
-    /* DESIGN DU BOUTON CHECKOUT CORRIGÉ (Toujours doré) */
     .btn-checkout{
       width:100%;
       background:linear-gradient(135deg,#c9a84c,#e8c97a);
@@ -279,34 +278,34 @@
 </head>
 <body>
 
-<div class="overlay" id="overlay" onclick="closeAll()"></div>
+<div class="overlay" id="overlay" onclick="window.closeAll()"></div>
 
 <div class="side-menu" id="sideMenu">
   <div class="side-menu-hdr">
     <div class="side-menu-logo">CHOCOLATRICHOMES</div>
     <div class="side-menu-sub">ChocolaTrichoms&Terps</div>
   </div>
-  <div class="menu-item active" onclick="filterCat('Accessoires', this);closeAll()"><div class="menu-icon">💧</div><div class="menu-lbl">Accessoires</div></div>
-  <div class="menu-item" onclick="filterCat('HerbVape', this);closeAll()"><div class="menu-icon">⚡</div><div class="menu-lbl">HerbVape</div></div>
-  <div class="menu-item" onclick="filterCat('Most Wanted', this);closeAll()"><div class="menu-icon">⭐</div><div class="menu-lbl">Most Wanted</div></div>
-  <div class="menu-item" onclick="openAvis();closeAll()"><div class="menu-icon">💬</div><div class="menu-lbl">Avis</div></div>
-  <div class="menu-item" onclick="filterCat('TRC-Garden', this);closeAll()"><div class="menu-icon">🌱</div><div class="menu-lbl">TRC-Garden</div></div>
-  <div class="menu-item" onclick="filterCat('All', this);closeAll()"><div class="menu-icon">⊞</div><div class="menu-lbl">All</div></div>
-  <div class="menu-item" onclick="filterCat('Drysift', this);closeAll()"><div class="menu-icon">🕐</div><div class="menu-lbl">Drysift</div></div>
-  <div class="menu-item" onclick="filterCat('Frozen', this);closeAll()"><div class="menu-icon">❄️</div><div class="menu-lbl">Frozen</div></div>
-  <div class="menu-item" onclick="filterCat('Static', this);closeAll()"><div class="menu-icon">⚡</div><div class="menu-lbl">Static</div></div>
-  <div class="menu-item" onclick="filterCat('Ice O\'Lator', this);closeAll()"><div class="menu-icon">⭐</div><div class="menu-lbl">Ice O'Lator</div></div>
-  <div class="menu-item" onclick="filterCat('Beldia', this);closeAll()"><div class="menu-icon">🏠</div><div class="menu-lbl">Beldia</div></div>
-  <div class="menu-item" onclick="filterCat('Weed', this);closeAll()"><div class="menu-icon">🌿</div><div class="menu-lbl">Weed</div></div>
-  <div class="menu-item" onclick="filterCat('Meet Up Rabat', this);closeAll()"><div class="menu-icon">👥</div><div class="menu-lbl">Meet Up Rabat</div></div>
+  <div class="menu-item active" onclick="window.filterCat('Accessoires', this);window.closeAll()"><div class="menu-icon">💧</div><div class="menu-lbl">Accessoires</div></div>
+  <div class="menu-item" onclick="window.filterCat('HerbVape', this);window.closeAll()"><div class="menu-icon">⚡</div><div class="menu-lbl">HerbVape</div></div>
+  <div class="menu-item" onclick="window.filterCat('Most Wanted', this);window.closeAll()"><div class="menu-icon">⭐</div><div class="menu-lbl">Most Wanted</div></div>
+  <div class="menu-item" onclick="window.openAvis();window.closeAll()"><div class="menu-icon">💬</div><div class="menu-lbl">Avis</div></div>
+  <div class="menu-item" onclick="window.filterCat('TRC-Garden', this);window.closeAll()"><div class="menu-icon">🌱</div><div class="menu-lbl">TRC-Garden</div></div>
+  <div class="menu-item" onclick="window.filterCat('All', this);window.closeAll()"><div class="menu-icon">⊞</div><div class="menu-lbl">All</div></div>
+  <div class="menu-item" onclick="window.filterCat('Drysift', this);window.closeAll()"><div class="menu-icon">🕐</div><div class="menu-lbl">Drysift</div></div>
+  <div class="menu-item" onclick="window.filterCat('Frozen', this);window.closeAll()"><div class="menu-icon">❄️</div><div class="menu-lbl">Frozen</div></div>
+  <div class="menu-item" onclick="window.filterCat('Static', this);window.closeAll()"><div class="menu-icon">⚡</div><div class="menu-lbl">Static</div></div>
+  <div class="menu-item" onclick="window.filterCat('Ice O\'Lator', this);window.closeAll()"><div class="menu-icon">⭐</div><div class="menu-lbl">Ice O'Lator</div></div>
+  <div class="menu-item" onclick="window.filterCat('Beldia', this);window.closeAll()"><div class="menu-icon">🏠</div><div class="menu-lbl">Beldia</div></div>
+  <div class="menu-item" onclick="window.filterCat('Weed', this);window.closeAll()"><div class="menu-icon">🌿</div><div class="menu-lbl">Weed</div></div>
+  <div class="menu-item" onclick="window.filterCat('Meet Up Rabat', this);window.closeAll()"><div class="menu-icon">👥</div><div class="menu-lbl">Meet Up Rabat</div></div>
 </div>
 
 <div class="header">
-  <div class="header-left"><span class="hamburger" onclick="openMenu()">☰</span></div>
+  <div class="header-left"><span class="hamburger" onclick="window.openMenu()">☰</span></div>
   <div class="header-logo">CHOCOLATRICHOMES</div>
   <div class="header-right">
     <div class="btn-rabat">Rabat</div>
-    <div class="btn-cart-h" onclick="toggleCart()">🛍<div class="cart-badge" id="headerBadge"></div></div>
+    <div class="btn-cart-h" onclick="window.toggleCart()">🛍<div class="cart-badge" id="headerBadge"></div></div>
   </div>
 </div>
 
@@ -335,7 +334,7 @@
     <div class="day-box"><span class="day-lbl">J6</span><span>75</span></div>
     <div class="day-box"><span class="day-lbl">J7</span><span>100</span></div>
   </div>
-  <button class="btn-claim" onclick="claimTRC()">Recuperer 20 TRC</button>
+  <button class="btn-claim" onclick="window.claimTRC()">Recuperer 20 TRC</button>
 </div>
 
 <div class="tier-section">
@@ -360,10 +359,10 @@
     </div>
   </div>
   <div class="dots" id="tierDots">
-    <div class="dot active" onclick="showTier(0)"></div>
-    <div class="dot" onclick="showTier(1)"></div>
-    <div class="dot" onclick="showTier(2)"></div>
-    <div class="dot" onclick="showTier(3)"></div>
+    <div class="dot active" onclick="window.showTier(0)"></div>
+    <div class="dot" onclick="window.showTier(1)"></div>
+    <div class="dot" onclick="window.showTier(2)"></div>
+    <div class="dot" onclick="window.showTier(3)"></div>
   </div>
   <button class="btn-activate">✨ Activer mon tier</button>
   <a href="https://t.me/chocolatrichome_bot" target="_blank" class="trc-coin-link">C'est quoi TrichomeCoin ? →</a>
@@ -373,10 +372,10 @@
   <div class="garden-title">🌱 Bienvenue dans TRC-Garden</div>
   <div class="garden-sub">Choisis ta strain — elle te suivra jusqu'au niveau 200</div>
   <div class="garden-grid">
-    <div class="garden-item" onclick="showToast('OG Kush selectionnee! 🔥')"><span class="garden-item-emoji">🔥</span><div class="garden-item-name">OG Kush</div></div>
-    <div class="garden-item" onclick="showToast('Amnesia selectionnee! 🧠')"><span class="garden-item-emoji">🧠</span><div class="garden-item-name">Amnesia</div></div>
-    <div class="garden-item" onclick="showToast('Cheese selectionnee! 🧀')"><span class="garden-item-emoji">🧀</span><div class="garden-item-name">Cheese</div></div>
-    <div class="garden-item" onclick="showToast('Lemon Haze selectionnee! 🍋')"><span class="garden-item-emoji">🍋</span><div class="garden-item-name">Lemon Haze</div></div>
+    <div class="garden-item" onclick="window.showToast('OG Kush selectionnee! 🔥')"><span class="garden-item-emoji">🔥</span><div class="garden-item-name">OG Kush</div></div>
+    <div class="garden-item" onclick="window.showToast('Amnesia selectionnee! 🧠')"><span class="garden-item-emoji">🧠</span><div class="garden-item-name">Amnesia</div></div>
+    <div class="garden-item" onclick="window.showToast('Cheese selectionnee! 🧀')"><span class="garden-item-emoji">🧀</span><div class="garden-item-name">Cheese</div></div>
+    <div class="garden-item" onclick="window.showToast('Lemon Haze selectionnee! 🍋')"><span class="garden-item-emoji">🍋</span><div class="garden-item-name">Lemon Haze</div></div>
   </div>
 </div>
 
@@ -388,12 +387,12 @@
 <div class="section-hdr" id="sectionTitle"><span>🛒</span> ACCESSOIRES</div>
 <div class="products-grid" id="productsGrid"></div>
 
-<div class="float-cart" onclick="toggleCart()">🛍<div class="float-badge" id="floatBadge"></div></div>
+<div class="float-cart" onclick="window.toggleCart()">🛍<div class="float-badge" id="floatBadge"></div></div>
 <div class="toast" id="toast"></div>
 
 <div id="detailPage">
   <div class="detail-topbar">
-    <div class="detail-back" onclick="closeDetail()">‹</div>
+    <div class="detail-back" onclick="window.closeDetail()">‹</div>
     <div class="detail-topbar-title">DETAILS</div>
     <div class="detail-fav">🤍</div>
   </div>
@@ -408,7 +407,7 @@
     <div class="detail-desc" id="detailDesc"></div>
     <div class="detail-type-row"><div class="detail-type-icon">📦</div><div><div class="detail-type-meta">TYPE</div><div class="detail-type-val" id="detailTypeName">Accessoire</div></div></div>
     <div class="qty-label">SELECTIONNER LA QUANTITE</div>
-    <div class="qty-selector" id="qtySelector" onclick="changeDetailQty()">
+    <div class="qty-selector" id="qtySelector" onclick="window.changeDetailQty()">
       <div class="qty-x" id="detailQtyX">×1</div>
       <div class="qty-dh" id="detailQtyDh"></div>
     </div>
@@ -417,14 +416,14 @@
     <div class="avis-link">Laisser un commentaire</div>
   </div>
   <div class="detail-bottom">
-    <div class="detail-cart-icon" onclick="toggleCart()">🛍<div class="cart-badge" id="detailBadge" style="position:absolute;top:-5px;right:-5px;background:#c9a84c;color:#111;font-size:0.55rem;font-weight:800;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center;"></div></div>
-    <button class="btn-add-to-cart" id="btnAddToCart" onclick="addFromDetail()">ADD TO CART</button>
+    <div class="detail-cart-icon" onclick="window.toggleCart()">🛍<div class="cart-badge" id="detailBadge" style="position:absolute;top:-5px;right:-5px;background:#c9a84c;color:#111;font-size:0.55rem;font-weight:800;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center;"></div></div>
+    <button class="btn-add-to-cart" id="btnAddToCart" onclick="window.addFromDetail()">ADD TO CART</button>
   </div>
 </div>
 
 <div id="profilePage">
   <div class="profile-topbar">
-    <div class="profile-back" onclick="closeProfile()">‹</div>
+    <div class="profile-back" onclick="window.closeProfile()">‹</div>
     <div class="profile-topbar-title">PROFILE</div>
     <div class="profile-settings">⚙️</div>
   </div>
@@ -461,67 +460,11 @@
 
 <div id="avisPage">
   <div class="detail-topbar">
-    <div class="detail-back" onclick="closeAvis()">‹</div>
+    <div class="detail-back" onclick="window.closeAvis()">‹</div>
     <div class="detail-topbar-title">AVIS CLIENTS</div>
     <div style="width:36px"></div>
-  </div>
-  <div class="avis-section" style="padding-top:16px">
-    <div class="avis-hero">
-      <div class="avis-hero-title">Avis de nos clients</div>
-      <div class="avis-stars-big">★★★★★</div>
-      <div class="avis-score">5.0 / 5 · 15 avis</div>
-      <div class="btn-avis" onclick="showToast('Merci pour votre avis!')">Laisser un avis</div>
-    </div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">20 mai 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Best experience in this country by far. The static by Zak is 👌</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">15 mai 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">🌍👍🪄</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">30 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">🍗🔥🔥🔥</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">27 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Incroyable!!! Thx guys</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">26 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Awesome service</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">25 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Best quality, best service , best team 📣</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">25 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Confince ✅✅💪</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">19 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Weed De tres bonne qualite la meilleure au Maroc top top</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">19 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Amazing work perfectly extracted heads so delicious 😏</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">19 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Best Terps ever tasted for a long time. 🙏 Thank you !</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">17 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Best quality for the best price ! Merci ctt</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">16 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Excellent service, hash super qualite ( THC - Saveur ). Les meilleurs au maroc ✌️💪✅</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">16 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Je viens de France et cest le top en locker et qualiter du produit et les prix top plein de reduc 🏆❤️</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">16 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">1000/10 ✅</div></div>
-    <div class="review-card"><div class="review-header"><span class="review-verified">CLIENT VERIFIE</span><span class="review-date">16 avr. 2026</span></div><div class="review-stars">★★★★★</div><div class="review-text">Excellent service , excellente fume</div></div>
-  </div>
-</div>
-
-<div class="cart-drawer" id="cartDrawer">
-  <div class="cart-handle"></div>
-  <div class="cart-hdr"><div class="cart-title">🛍 My Cart</div><div class="cart-close" onclick="toggleCart()">✕</div></div>
-  <div class="cart-items" id="cartItems"></div>
-  <div class="cart-min-warning" id="cartMinWarning" style="display:none;">
-    <div class="cart-min-text" id="cartMinText">Minimum 1,000 DH<br>You need 700 DH more</div>
-    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBarFill" style="width:30%"></div></div>
-  </div>
-  <div class="cart-reward">
-    <span>🌕 TRC Reward</span>
-    <span style="margin-left:auto">+1,500 TRC</span>
-  </div>
-  <div class="cart-footer" id="cartFooter">
-    <div class="cart-total"><div class="cart-total-lbl">Total</div><div class="cart-total-val" id="cartTotal">0 DH</div></div>
-    <button class="btn-checkout" id="btnCheckout" onclick="openPaymentModal()">Checkout</button>
-  </div>
-</div>
-
-<div class="modal-overlay" id="paymentModal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <div class="modal-title">Payment</div>
-      <div class="cart-close" onclick="closePaymentModal()">✕</div>
-    </div>
-    <div class="payment-option" onclick="openCheckoutForm()">
-      <div class="payment-icon">🏦</div>
-      <div class="payment-info">
-        <div class="payment-name">Mise à Disposition</div>
-        <div class="payment-desc">Bank transfer via disposition code</div>
-      </div>
-    </div>
-    <div class="payment-option" onclick="showToast('Crypto payment coming soon!')">
+ >
+    <div class="payment-option" onclick="window.showToast('Crypto payment coming soon!')">
       <div class="payment-icon">₿</div>
       <div class="payment-info">
         <div class="payment-name">Crypto <span class="badge-discount">-10%</span></div>
@@ -538,13 +481,13 @@
   <div class="modal-content">
     <div class="modal-header">
       <div class="modal-title">Mise à Disposition</div>
-      <div class="cart-close" onclick="closeCheckoutModal()">✕</div>
+      <div class="cart-close" onclick="window.closeCheckoutModal()">✕</div>
     </div>
     <div class="cart-total" style="margin-bottom:20px"><div class="cart-total-lbl">Total à payer</div><div class="cart-total-val" id="checkoutTotal">0 DH</div></div>
     <div class="checkout-form">
       <div class="form-group">
         <label class="form-label">Ville</label>
-        <select class="form-select" id="citySelect" onchange="updatePickupPoints()">
+        <select class="form-select" id="citySelect" onchange="window.updatePickupPoints()">
           <option value="">Sélectionner une ville</option>
           <option value="Rabat">Rabat</option>
           <option value="Casablanca">Casablanca</option>
@@ -559,12 +502,12 @@
       </div>
       <div class="form-group">
         <label class="form-label">Point de retrait</label>
-        <select class="form-select" id="pickupSelect" onchange="checkFormValidity()">
+        <select class="form-select" id="pickupSelect" onchange="window.checkFormValidity()">
           <option value="">Sélectionner un point de retrait</option>
         </select>
         <div class="availability-text" id="availabilityText">🕒 24h/24 7J/7</div>
       </div>
-      <button class="btn-confirm" id="btnConfirmOrder" onclick="confirmOrder()">Confirm Order</button>
+      <button class="btn-confirm" id="btnConfirmOrder" onclick="window.confirmOrder()">Confirm Order</button>
     </div>
   </div>
 </div>
@@ -575,102 +518,66 @@
       <div class="success-icon">✅</div>
       <div class="success-title">Commande Confirmée !</div>
       <div class="success-text">Votre commande a été enregistrée avec succès. Vous recevrez votre code de disposition par Telegram sous peu.</div>
-      <button class="btn-checkout" onclick="closeAll(); window.location.reload();">Retour à l'accueil</button>
+      <button class="btn-checkout" onclick="window.closeAll(); window.location.reload();">Retour à l'accueil</button>
     </div>
   </div>
 </div>
 
 <div class="bottom-nav">
-  <div class="nav-item active" id="nav-home" onclick="showHome()"><div class="nav-icon">⊞</div><div class="nav-lbl">Home</div><div class="nav-active-dot"></div></div>
+  <div class="nav-item active" id="nav-home" onclick="window.showHome()"><div class="nav-icon">⊞</div><div class="nav-lbl">Home</div><div class="nav-active-dot"></div></div>
   <div class="nav-item" id="nav-search"><div class="nav-icon">🔍</div><div class="nav-lbl">Search</div></div>
-  <div class="nav-item" id="nav-cart" onclick="toggleCart()"><div class="nav-icon">🤍</div><div class="nav-lbl">Cart</div></div>
-  <div class="nav-item" id="nav-profile" onclick="openProfile()"><div class="nav-icon">👤</div><div class="nav-lbl">Profile</div></div>
+  <div class="nav-item" id="nav-cart" onclick="window.toggleCart()"><div class="nav-icon">🤍</div><div class="nav-lbl">Cart</div></div>
+  <div class="nav-item" id="nav-profile" onclick="window.openProfile()"><div class="nav-icon">👤</div><div class="nav-lbl">Profile</div></div>
 </div>
 
 <script>
+console.log("Script starting...");
+
 const PRODUCTS = [
-  {id:'bol_mix', cat:'Accessoires', name:'BOL A MIX', price:70, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'raw_organic_ks', cat:'Accessoires', name:'RAW ORGANIC KING SIZE', price:13, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'raw_organic_hemp', cat:'Accessoires', name:'RAW ORGANIC HEMP 1 1/4', price:11, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'glass_ks', cat:'Accessoires', name:'GLASS KING SIZE', price:25, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'raw_classic_14', cat:'Accessoires', name:'RAW CLASSIC 1 1/4', price:11, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'raw_tips_200', cat:'Accessoires', name:'RAW TIPS 200', price:130, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'raw_14_32f', cat:'Accessoires', name:'RAW 1 1/4 32 FEUILLES', price:11, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'raw_filtres', cat:'Accessoires', name:'RAW FILTRES CARTON PERFORE', price:25, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'raw_slim_ki', cat:'Accessoires', name:'RAW SLIM CLASSIC KING SIZE', price:13, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'bic_petit', cat:'Accessoires', name:'BIC BRIQUET PETIT', price:5, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_org_hemp_petite', cat:'Accessoires', name:'OCB ORGANIC HEMP PETITE', price:10, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_premium', cat:'Accessoires', name:'OCB PREMIUM 1 1/4', price:10, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_blanc', cat:'Accessoires', name:'OCB BLANC 1 1/4', price:10, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_xpert', cat:'Accessoires', name:'OCB X-PERT ULTRA-MINCE', price:10, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_riz_rouge', cat:'Accessoires', name:'OCB PAPIER DE RIZ ROUGE', price:10, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_ks_noir', cat:'Accessoires', name:'OCB KING SIZE NOIR', price:13, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_slim_brun', cat:'Accessoires', name:'OCB SLIM BRUN 32 FEUILLES', price:13, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_org_hemp_slim', cat:'Accessoires', name:'OCB ORGANIC HEMP SLIM', price:13, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_ult_slim', cat:'Accessoires', name:'OCB ULTIMATE SLIM', price:13, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_xpert_slim', cat:'Accessoires', name:'OCB X-PERT SLIM', price:13, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_slim_prem', cat:'Accessoires', name:'OCB SLIM PREMIUM ORO', price:15, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_slim_plus', cat:'Accessoires', name:'OCB SLIM PREMIUM + TIPS', price:20, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_rouleau', cat:'Accessoires', name:'OCB ROULEAU 4M', price:25, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'briquet_bic', cat:'Accessoires', name:'BRIQUET BIC', price:7, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'bic_grand', cat:'Accessoires', name:'BIC BRIQUET GRAND', price:9, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'raw_black_ks', cat:'Accessoires', name:'RAW BLACK KING SIZE', price:15, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'raw_cone_x3', cat:'Accessoires', name:'RAW CONE PRE-ROULE X3', price:25, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'raw_org_roll_slim', cat:'Accessoires', name:'RAW ORGANIC ROLL 5M SLIM', price:30, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'smoking_brun', cat:'Accessoires', name:'SMOKING BRUN KING SIZE', price:11, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'smoking_rouge', cat:'Accessoires', name:'SMOKING KING ROUGE', price:11, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'smoking_blue', cat:'Accessoires', name:'SMOKING BLUE KING SIZE', price:11, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'smoking_deluxe', cat:'Accessoires', name:'SMOKING DELUXE', price:11, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'smoking_supreme', cat:'Accessoires', name:'SMOKING SUPREME KING SIZE', price:11, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'zigzag_noir', cat:'Accessoires', name:'ZIGZAG NOIR X5', price:35, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'organic_hemp_14', cat:'Accessoires', name:'ORGANIC HEMP 1 1/4', price:10, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_filtres_std', cat:'Accessoires', name:'OCB FILTRES STANDARD 70MM', price:10, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'briquet_cuisine', cat:'Accessoires', name:'BRIQUET CUISINE', price:13, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'airvape_x', cat:'HerbVape', name:'AIRVAPE X', price:1576, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'angus_yll', cat:'HerbVape', name:'ANGUS - YLLVAPE', price:2880, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'arizer_argo', cat:'HerbVape', name:'ARIZER ARGO', price:2712, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'crafty_plus', cat:'HerbVape', name:'CRAFTY+', price:3900, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'dynavap_m7xl', cat:'HerbVape', name:'DYNAVAP M7 XL', price:1680, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'m_plus_dynavap', cat:'HerbVape', name:'M PLUS - DYNAVAP', price:1380, unit:'DH', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'m7_dynavap', cat:'HerbVape', name:'M7 DE DYNAVAP', price:1380, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'mighty_2021', cat:'HerbVape', name:'MIGHTY 2021', price:4320, unit:'DH', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'mini_dee_2021', cat:'HerbVape', name:'MINI DEE 2021', price:960, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'pax_plus', cat:'HerbVape', name:'PAX PLUS', price:3000, unit:'DH', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'starry_v4', cat:'HerbVape', name:'STARRY V4', price:1632, unit:'DH', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'b2_vapcap', cat:'HerbVape', name:'THE B2 VAPCAP DYNAVAP', price:948, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'m_2021_dynavap', cat:'HerbVape', name:'THE M 2021 DYNAVAP', price:1068, unit:'DH', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'vap_vaporis', cat:'HerbVape', name:'V.A.P. - VAPORISATEUR', price:1560, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'vital_xmax', cat:'HerbVape', name:'VITAL - XMAX', price:1056, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'weha_katalyzer', cat:'HerbVape', name:'WEHA DE KATALYZER', price:2160, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'xmax_ace', cat:'HerbVape', name:'XMAX ACE', price:1860, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'xmax_v2_pro', cat:'HerbVape', name:'XMAX V2 PRO', price:1080, unit:'DH', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'xmax_v3_pro', cat:'HerbVape', name:'XMAX V3 PRO', price:1824, unit:'DH', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ffruit_73u', cat:'Drysift', name:'F.FRUIT. 73U', price:29.92, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
-  {id:'passion_fruit_z', cat:'Drysift', name:'PASSION FRUIT Z', price:28, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'tutti_frutti_73', cat:'Drysift', name:'TUTTI FRUTTI 73', price:25, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
-  {id:'papunch_120u', cat:'Drysift', name:'P.A.PUNCH 120U', price:34.2, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ffruit_120u', cat:'Drysift', name:'F.FRUIT 120U', price:40, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
-  {id:'candy_truffle_120u', cat:'Frozen', name:'CANDY TRUFFLE 120U', price:42, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},:'miami_mami_90u', cat:'Frozen', name:'MIAMI MAMI 90U', price:32, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'alien_og_120u', cat:'Frozen', name:'ALIEN OG 120U', price:38, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'peach_ozz_120u', cat:'Frozen', name:'PEACH OZZ 120U', price:52, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
-  {id:'frost_flakes_90u', cat:'Frozen', name:'FROST FLAKES 90U', price:32, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'cheeta_piss_120u', cat:'Frozen', name:'CHEETAH PISS 120U', price:38, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'sherblato_120u', cat:'Frozen', name:'SHERBLATO 120U', price:42, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'icc_120u', cat:'Frozen', name:'I.C.C 120U', price:40, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
-  {id:'rbelt_120u', cat:'Frozen', name:'R.BELT. 120U', price:40.92, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
-  {id:'lcake_120u', cat:'Frozen', name:'L.CAKE. 120U', price:41.8, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
-  {id:'mtrezz_90u', cat:'Frozen', name:'M.TREZZ. 90U', price:44, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
-  {id:'honey_roasted', cat:'Static', name:'HONEY ROASTED PEANUTT BY ZAKA', price:60, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
-  {id:'dirty_joy', cat:'Static', name:'DIRTY JOY STATIC BY ZKR', price:55, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'honey_nutz', cat:'Static', name:'HONEY NUTZ STATIC BY ZKR', price:55, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'forbidden_joy', cat:'Static', name:'FORBIDDEN JOY BY ZAKA', price:60, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'kinky_pam', cat:'Ice O\'Lator', name:'KINKY PAM 160-73U', price:180, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'tekmache', cat:'Beldia', name:'TEKMACHE', price:24, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'beldiya_issagen', cat:'Beldia', name:'BELDIYA ISSAGEN', price:30, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'beldia_issagen_1', cat:'Beldia', name:'BELDIA ISS price:30, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
-  {id:'mango_haze', cat:'Weed', name:'MANGO HAZE', price:90, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'chemdawg', cat:'Weed', name:'CHEMDAWG', price:80, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true}
+  {id:'p1', cat:'Accessoires', name:'BOL A MIX', price:70, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p2', cat:'Accessoires', name:'RAW ORGANIC KING SIZE', price:13, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p3', cat:'Accessoires', name:'RAW ORGANIC HEMP 1 1/4', price:11, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p4', cat:'Accessoires', name:'GLASS KING SIZE', price:25, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p5', cat:'Accessoires', name:'RAW CLASSIC 1 1/4', price:11, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p6', cat:'Accessoires', name:'RAW TIPS 200', price:130, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p7', cat:'Accessoires', name:'RAW 1 1/4 32 FEUILLES', price:11, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p8', cat:'Accessoires', name:'RAW FILTRES CARTON PERFORE', price:25, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p9', cat:'Accessoires', name:'RAW SLIM CLASSIC KING SIZE', price:13, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p10', cat:'Accessoires', name:'BIC BRIQUET PETIT', price:5, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p11', cat:'Accessoires', name:'OCB ORGANIC HEMP PETITE', price:10, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p12', cat:'Accessoires', name:'OCB PREMIUM 1 1/4', price:10, cat:'HerbVape', name:'WEHA DE KATALYZER', price:2160, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p54', cat:'HerbVape', name:'XMAX ACE', price:1860, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p55', cat:'HerbVape', name:'XMAX V2 PRO', price:1080, unit:'DH', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p56', cat:'HerbVape', name:'XMAX V3 PRO', price:1824, unit:'DH', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p57', cat:'Drysift', name:'F.FRUIT. 73U', price:29.92, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'p58', cat:'Drysift', name:'PASSION FRUIT Z', price:28, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p59', cat:'Drysift', name:'TUTTI FRUTTI 73', price:25, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'p60', cat:'Drysift', name:'P.A.PUNCH 120U', price:34.2, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p61', cat:'Drysift', name:'F.FRUIT 120U', price:40, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'p62', cat:'Frozen', name:'CANDY TRUFFLE 120U', price:42, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p63', cat:'Frozen', name:'MIAMI MAMI 90U', price:32, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p64', cat:'Frozen', name:'ALIEN OG 120U', price:38, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p65', cat:'Frozen', name:'PEACH OZZ 120U', price:52, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'p66', cat:'Frozen', name:'FROST FLAKES 90U', price:32, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p67', cat:'Frozen', name:'CHEETAH PISS 120U', price:38, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p68', cat:'Frozen', name:'SHERBLATO 120U', price:42, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p69', cat:'Frozen', name:'I.C.C 120U', price:40, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'p70', cat:'Frozen', name:'R.BELT. 120U', price:40.92, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'p71', cat:'Frozen', name:'L.CAKE. 120U', price:41.8, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'p72', cat:'Frozen', name:'M.TREZZ. 90U', price:44, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'p73', cat:'Static', name:'HONEY ROASTED PEANUTT BY ZAKA', price:60, unit:'DH/g', stock:'last', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'p74', cat:'Static', name:'DIRTY JOY STATIC BY ZKR', price:55, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p75', cat:'Static', name:'HONEY NUTZ STATIC BY ZKR', price:55, unit:'DH/g', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p76', cat:'Static', name:'FORBIDDEN JOY BY ZAKA', price:60, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p77', cat:'Ice O\'Lator', name:'KINKY PAM 160-73U', price:180, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p78', cat:'Beldia', name:'TEKMACHE', price:24, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p79', cat:'Beldia', name:'BELDIYA ISSAGEN', price:30, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p80', cat:'Beldia', name:'BELDIA ISSAGEN #1', price:30, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true},
+  {id:'p81', cat:'Weed', name:'MANGO HAZE', price:90, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'p82', cat:'Weed', name:'CHEMDAWG', price:80, unit:'DH/g', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', mostWanted:true}
 ];
+
+console.log("Products loaded:", PRODUCTS.length);
 
 let cart = {};
 let currentCat = 'Accessoires';
@@ -680,250 +587,12 @@ let currentTier = 0;
 let trcBalance = 10;
 
 const pickupPoints = {
-  "Rabat": ["Agdal", "Hassan", "Océan", "Hay Riad"],
-  "Casablanca": ["Maarif", "Ain Diab", "Sidi Maarouf", "Derb Ghallef"],
-  "Marrakech": ["Guéliz", "Médina", "Hivernage", "Menara"],
-  "Fès": ["Ville Nouvelle", "Médina", "Zouagha"],
-  "Tanger": ["Centre Ville", "Malabata", "Irada"],
-  "Agadir": ["Marina", "Talborjt", "Founty"],
-  "Meknès": ["Ville Nouvelle", "Médina", "Hamria"],
-  "Oujda": ["Centre Ville", "Lazaret", "Al Qods"],
-  "Kénitra": ["Ville Haute", "Médina", "Mimosas"]
-};
-
-function renderProducts(cat) {
-  const grid = document.getElementById('productsGrid');
-  const title = document.getElementById('sectionTitle');
-  let list;
-  if (cat === 'All') list = PRODUCTS;
-  else if (cat === 'Most Wanted') list = PRODUCTS.filter(p => p.mostWanted);
-  else if (cat === 'Drysift') list = PRODUCTS.filter(p => p.cat === 'Drysift');
-  else if (cat === 'Frozen') list = PRODUCTS.filter(p => p.cat === 'Frozen');
-  else if (cat === 'Beldia') list = PRODUCTS.filter(p => p.cat === 'Beldia');
-  else if (cat === 'Weed') list = PRODUCTS.filter(p => p.cat === 'Weed');
-  else if (cat === 'HerbVape') list = PRODUCTS.filter(p => p.cat === 'HerbVape');
-  else if (cat === 'Static') list = PRODUCTS.filter(p => p.cat === 'Static');
-  else if (cat === 'Ice O\'Lator') list = PRODUCTS.filter(p => p.cat === 'Ice O\'Lator');
-  else list = PRODUCTS.filter(p => p.cat === cat);
-  
-  title.innerHTML = `<span>🛒</span> ${cat.toUpperCase()}`;
-  
-  if (!list.length) {
-    grid.innerHTML = `<div style="grid-column:1/-1;padding:40px;text-align:center;color:#666;">Aucun produit</div>`;
-    return;
-  }
-  
-  grid.innerHTML = list.map(p => {
-    const isOut = p.stock === 'out';
-    const isLast = p.stock === 'last';
-    const inCart = cart[p.id] || 0;
-    return `
-    <div class="product-card${isOut ? ' out-of-stock' : ''}" onclick="openDetail('${p.id}')">
-      <div class="product-img-wrap">
-        <img src="${p.thumb}" alt="${p.name}" loading="lazy"/>
-        <div class="badge-stock${isOut ? ' out' : ''}">
-          <div class="${isOut ? 'dot-red' : isLast ? 'dot-orange' : 'dot-green'}"></div>
-          ${isOut ? 'OUT' : isLast ? 'LAST' : 'IN STOCK'}
-        </div>
-      </div>
-      <div class="product-info">
-        <div class="product-cat">${p.cat}</div>
-        <div class="product-name">${p.name}</div>
-        <div class="product-footer">
-          <div class="product-price">${p.price} <span class="unit">${p.unit}</span></div>
-          <div class="btn-add${inCart ? ' added' : ''}${isOut ? ' disabled' : ''}" id="btn-${p.id}" onclick="event.stopPropagation(); quickAdd('${p.id}')">${inCart || '+'}</div>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function openDetail(id) {
-  const p = PRODUCTS.find(x => x.id === id);
-  if (!p) return;
-  detailProduct = p;
-  detailQty = 1;
-  document.getElementById('detailImg').src = p.detail || p.thumb;
-  document.getElementById('detailName').textContent = p.name;
-  document.getElementById('detailPriceTop').textContent = p.price + ' ' + p.unit;
-  
-  let desc = "Essential smoking accessories — lighters, rolling papers, grinders, and more. Quality gear for the everyday smoker.";
-  let type = p.cat;
-  
-  if (p.cat === 'HerbVape') {
-    desc = "Premium portable herb vaporizers from top brands. Clean, efficient, and flavorful vaporization for dry herbs.";
-    type = "HerbVape";
-  } else if (p.cat === 'Drysift') {
-    desc = "Premium dry-sift, carefully hand-processed through fine mesh screens. Rich terpene profile with complex aromatic layers and exceptional purity.";
-    type = "Dry sift";
-  } else if (p.cat === 'Frozen') {
-    desc = "Fresh-frozen extraction preserving the full spectrum of live terpenes. Intense flavor profile with unmatched aromatic complexity.";
-    type = "Frozen";
-  } else if (p.cat === 'Static') {
-    desc = "Ultra-refined static tech extraction yielding the highest concentration. Pure, potent, and exceptionally smooth for the connoisseur.";
-    type = "Static";
-  } else if (p.cat === 'Ice O\'Lator') {
-    desc = "Kinky Pam 160u-73u WPF";
-    type = "ICE O'LATOR";
-  }
-  
-  document.getElementById('detailTypeLabel').textContent = type.toUpperCase() + ' TYPE';
-  document.getElementById('detailTypeName').textContent = type;
-  document.getElementById('detailDesc').textContent = desc;
-  
-  document.getElementById('detailTags').innerHTML = `
-    <div class="detail-tag">${type} <span class="tag-meta">TYPE</span></div>
-    <div class="detail-tag">${p.stock === 'out' ? 'Out of Stock' : p.stock === 'last' ? 'Limited' : 'In Stock'} <span class="tag-meta">STOCK</span></div>`;
-  updateDetailQty();
-  updateDetailCartBtn();
-  const page = document.getElementById('detailPage');
-  page.classList.add('open');
-  page.scrollTop = 0;
-}
-
-function closeDetail() { document.getElementById('detailPage').classList.remove('open'); }
-function updateDetailQty() {
-  if (!detailProduct) return;
-  document.getElementById('detailQtyX').textContent = 'x' + detailQty;
-  document.getElementById('detailQtyDh').textContent = (detailProduct.price * detailQty).toFixed(2) + ' ' + detailProduct.unit;
-}
-function changeDetailQty() {
-  detailQty = detailQty < 10 ? detailQty + 1 : 1;
-  updateDetailQty();
-}
-function updateDetailCartBtn() {
-  if (!detailProduct) return;
-  const btn = document.getElementById('btnAddToCart');
-  const inCart = cart[detailProduct.id] || 0;
-  if (detailProduct.stock === 'out') {
-    btn.className = 'btn-add-to-cart out';
-    btn.textContent = 'RUPTURE DE STOCK';
-  } else if (inCart > 0) {
-    btn.className = 'btn-add-to-cart added';
-    btn.textContent = 'DANS LE PANIER (' + inCart + ')';
-  } else {
-    btn.className = 'btn-add-to-cart';
-    btn.textContent = 'ADD TO CART - ' + detailProduct.price + ' ' + detailProduct.unit;
-  }
-}
-function addFromDetail() {
-  if (!detailProduct || detailProduct.stock === 'out') return;
-  cart[detailProduct.id] = (cart[detailProduct.id] || 0) + detailQty;
-  updateBadges();
-  updateDetailCartBtn();
-  showToast(detailProduct.name + ' ajoute!');
-  renderProducts(currentCat);
-}
-function quickAdd(id) {
-  const p = PRODUCTS.find(x => x.id === id);
-  if (!p || p.stock === 'out') return;
-  cart[id] = (cart[id] || 0) + 1;
-  updateBadges();
-  showToast(p.name + ' ajoute!');
-  renderProducts(currentCat);
-}
-function updateBadges() {
-  const total = Object.values(cart).reduce((a,b) => a+b, 0);
-  ['headerBadge','floatBadge'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) { if (total > 0) { el.style.display='flex'; el.textContent=total; } else el.style.display='none'; }
-  });
-}
-
-function toggleCart() {
-  const d = document.getElementById('cartDrawer');
-  const o = document.getElementById('overlay');
-  if (d.classList.contains('open')) { 
-    d.classList.remove('open'); 
-    o.classList.remove('open'); 
-  } else { 
-    renderCart(); 
-    d.classList.add('open'); 
-    o.classList.add('open'); 
-  }
-}
-
-function renderCart() {
-  const items = document.getElementById('cartItems');
-  const footer = document.getElementById('cartFooter');
-  const totalEl = document.getElementById('cartTotal');
-  const minWarning = document.getElementById('cartMinWarning');
-  const minText = document.getElementById('cartMinText');
-  const progressBar = document.getElementById('progressBarFill');
-  
-  const keys = Object.keys(cart).filter(k => cart[k] > 0);
-  if (!keys.length) { 
-    items.innerHTML='<div class="cart-empty">🛒 Votre panier est vide</div>'; 
-    footer.style.display='none'; 
-    if(minWarning) minWarning.style.display='none';
-    return; 
-  }
-  
-  let total = 0;
-  items.innerHTML = keys.map(id => {
-    const p = PRODUCTS.find(x => x.id===id);
-    total += p.price * cart[id];
-    return `<div class="cart-item">
-      <img src="${p.thumb}" alt="${p.name}"/>
-      <div class="cart-item-info"><div class="cart-item-name">${p.name}</div><div class="cart-item-price">${(p.price * cart[id]).toFixed(2)} ${p.unit}</div></div>
-      <div class="cart-qty-ctrl">
-        <div class="qty-btn" onclick="changeQty('${id}',-1)">−</div>
-        <div class="qty-num">${cart[id]}</div>
-        <div class="qty-btn" onclick="changeQty('${id}',1)">+</div>
-      </div></div>`;
-  }).join('');
-  
-  totalEl.textContent = total.toFixed(2) + ' DH';
-  footer.style.display = 'block';
-  
-  const minOrder = 1000;
-  const remaining = Math.max(0, minOrder - total);
-  const progress = Math.min(100, (total / minOrder) * 100);
-  
-  if (total < minOrder) {
-    if(minWarning) minWarning.style.display = 'block';
-    if(minText) minText.innerHTML = `Minimum 1,000 DH<br>You need ${remaining.toFixed(2)} DH more`;
-    if(progressBar) progressBar.style.width = progress + '%';
-  } else {
-    if(minWarning) minWarning.style.display = 'none';
-  }
-}
-
-function changeQty(id, d) {
-  cart[id] = (cart[id]||0) + d;
-  if (cart[id] <= 0) delete cart[id];
-  updateBadges(); renderCart(); renderProducts(currentCat);
-  if (detailProduct && detailProduct.id === id) updateDetailCartBtn();
-}
-
-function openPaymentModal() {
-  const keys = Object.keys(cart).filter(k => cart[k] > 0);
-  if (!keys.length) return;
-  const total = keys.reduce((a,id)=>a+PRODUCTS.find(x=>x.id===id).price*cart[id],0);
-  if (total < 1000) {
-    showToast("Minimum 1,000 DH requis pour commander");
-    return;
-  }
-  document.getElementById('paymentModal').classList.add('open');
-}
-function closePaymentModal() { document.getElementById('paymentModal').classList.remove('open'); }
-
-function openCheckoutForm() {
-  closePaymentModal();
-  const keys = Object.keys(cart).filter(k => cart[k] > 0);
-  const total = keys.reduce((a,id)=>a+PRODUCTS.find(x=>x.id===id).price*cart[id],0);
-  document.getElementById('checkoutTotal').textContent = total.toFixed(2) + ' DH';
-  document.getElementById('checkoutModal').classList.add('open');
-}
-function closeCheckoutModal() { 
-  document.getElementById('checkoutModal').classList.remove('open'); 
-  document.getElementById('citySelect').value = "";
-  document.getElementById('pickupSelect').innerHTML = '<option value="">Sélectionner un point de retrait</option>';
+  '<option value="">Sélectionner un point de retrait</option>';
   document.getElementById('availabilityText').classList.remove('show');
   document.getElementById('btnConfirmOrder').className = 'btn-confirm';
 }
 
-function updatePickupPoints() {
+window.updatePickupPoints = function() {
   const city = document.getElementById('citySelect').value;
   const pickupSelect = document.getElementById('pickupSelect');
   pickupSelect.innerHTML = '<option value="">Sélectionner un point de retrait</option>';
@@ -940,7 +609,7 @@ function updatePickupPoints() {
   }
 }
 
-function checkFormValidity() {
+window.checkFormValidity = function() {
   const city = document.getElementById('citySelect').value;
   const pickup = document.getElementById('pickupSelect').value;
   const availText = document.getElementById('availabilityText');
@@ -955,27 +624,27 @@ function checkFormValidity() {
   }
 }
 
-function confirmOrder() {
+window.confirmOrder = function() {
   const city = document.getElementById('citySelect').value;
   const pickup = document.getElementById('pickupSelect').value;
   if (!city || !pickup) return;
   
-  closeCheckoutModal();
+  window.closeCheckoutModal();
   document.getElementById('successModal').classList.add('open');
   cart = {};
-  updateBadges();
-  renderProducts(currentCat);
+  window.updateBadges();
+  window.renderProducts(currentCat);
 }
 
-function showTier(n) {
+window.showTier = function(n) {
   document.querySelectorAll('.tier-card').forEach((c,i) => c.classList.toggle('active', i===n));
   document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i===n));
   currentTier = n;
 }
-setInterval(() => showTier((currentTier+1)%4), 3000);
+setInterval(() => window.showTier((currentTier+1)%4), 3000);
 
-function openMenu() { document.getElementById('sideMenu').classList.add('open'); document.getElementById('overlay').classList.add('open'); }
-function closeAll() {
+window.openMenu = function() { document.getElementById('sideMenu').classList.add('open'); document.getElementById('overlay').classList.add('open'); }
+window.closeAll = function() {
   document.getElementById('sideMenu').classList.remove('open');
   document.getElementById('cartDrawer').classList.remove('open');
   document.getElementById('paymentModal').classList.remove('open');
@@ -983,37 +652,46 @@ function closeAll() {
   document.getElementById('successModal').classList.remove('open');
   document.getElementById('overlay').classList.remove('open');
 }
-function filterCat(cat, el) { 
+window.filterCat = function(cat, el) { 
   currentCat = cat; 
-  renderProducts(cat); 
+  window.renderProducts(cat); 
   document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
   if(el) el.classList.add('active');
 }
 
-function openProfile() { document.getElementById('profilePage').classList.add('open'); setNavActive('nav-profile'); }
-function closeProfile() { document.getElementById('profilePage').classList.remove('open'); setNavActive('nav-home'); }
-function openAvis() { document.getElementById('avisPage').classList.add('open'); }
-function closeAvis() { document.getElementById('avisPage').classList.remove('open'); }
-function showHome() {
+window.openProfile = function() { document.getElementById('profilePage').classList.add('open'); window.setNavActive('nav-profile'); }
+window.closeProfile = function() { document.getElementById('profilePage').classList.remove('open'); window.setNavActive('nav-home'); }
+window.openAvis = function() { document.getElementById('avisPage').classList.add('open'); }
+window.closeAvis = function() { document.getElementById('avisPage').classList.remove('open'); }
+window.showHome = function() {
   document.getElementById('profilePage').classList.remove('open');
   document.getElementById('avisPage').classList.remove('open');
-  setNavActive('nav-home');
+  window.setNavActive('nav-home');
 }
-function setNavActive(id) {
+window.setNavActive = function(id) {
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   const el = document.getElementById(id);
   if (el) el.classList.add('active');
 }
-function claimTRC() {
+window.claimTRC = function() {
   trcBalance += 20;
-  showToast('20 TRC recuperes! Total: ' + trcBalance + ' TRC');
+  window.showToast('20 TRC recuperes! Total: ' + trcBalance + ' TRC');
 }
-function showToast(msg) {
-  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2500);
+window.showToast = function(msg) {
+  const t=document.getElementById('toast'); 
+  if(t) {
+    t.textContent=msg; 
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2500);
+  }
 }
 
-renderProducts('Accessoires');
+// Initialisation sécurisée
+document.addEventListener('DOMContentLoaded', function() {
+  console.log("DOM fully loaded. Initializing site...");
+  window.renderProducts('Accessoires');
+  console.log("Initialization complete. Site is ready.");
+});
 </script>
 </body>
 </html>
