@@ -349,7 +349,7 @@
     <div class="dot" onclick="showTier(3)"></div>
   </div>
   <button class="btn-activate">✨ Activer mon tier</button>
-  <a href="https://t.me/chocolatrichome_bot" target="_blank" class="trc-coin-link">C'est quoi TrichomeCoin ? →</a>
+  <a href="httpsocolatrichome_bot" target="_blank" class="trc-coin-link">C'est quoi TrichomeCoin ? →</a>
 </div>
 
 <!-- TRC GARDEN -->
@@ -379,7 +379,18 @@
 
 <!-- DETAIL PAGE -->
 <div id="detailPage">
-  <div class="detail<div class="detail-type-label" id="detailTypeLabel"></div>
+  <div class="detail-topbar">
+    <div class="detail-back" onclick="closeDetail()">‹</div>
+    <div class="detail-topbar-title">DETAILS</div>
+    <div class="detail-fav">🤍</div>
+  </div>
+  <img class="detail-img" id="detailImg" src="" alt=""/>
+  <div class="detail-body">
+    <div class="detail-name-row">
+      <div class="detail-name" id="detailName"></div>
+      <div class="detail-price-top" id="detailPriceTop"></div>
+    </div>
+    <div class="detail-type-label" id="detailTypeLabel"></div>
     <div class="detail-tags" id="detailTags"></div>
     <div class="detail-desc" id="detailDesc">Essential smoking accessories — lighters, rolling papers, grinders, and more. Quality gear for the everyday smoker.</div>
     <div class="detail-type-row"><div class="detail-type-icon">📦</div><div><div class="detail-type-meta">TYPE</div><div class="detail-type-val" id="detailTypeName">Accessoire</div></div></div>
@@ -393,7 +404,7 @@
     <div class="avis-link">Laisser un commentaire</div>
   </div>
   <div class="detail-bottom">
-    <div class="detail-cart-icon" onclick="toggleCart()">🛍<div class="cart-badge" id="detailBadge" style="position:absolute;top:-5px;right:-5px;background:#c9a84c;color:#111;font-size:0.55rem;font-weight:800;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center;"></div></div>
+    <div class="detail-cart-icon" onclick="toggleCart()">🛍<div class="cart-badge" id="detailBadge" style="position:absolute;top:-5px;right:-5px;background:#c9a84c;color:#111;font-size:0.55rem;font-weight:800;width:16px;height:16px0%;display:none;align-items:center;justify-content:center;"></div></div>
     <button class="btn-add-to-cart" id="btnAddToCart" onclick="addFromDetail()">ADD TO CART</button>
   </div>
 </div>
@@ -525,7 +536,16 @@
     </div>
     <div class="review-card">
       <div class="review-header">
-        <span class="review-verified">CLIENT VERIFspan>
+        <span class="review-verified">CLIENT VERIFIE</span>
+        <span class="review-date">19 avr. 2026</span>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">Best Terps ever tasted for a long time. 🙏 Thank you !</div>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <span class="review-verified">CLIENT VERIFIE</span>
+        <span class="review-date">17 avr. 2026</span>
       </div>
       <div class="review-stars">★★★★★</div>
       <div class="review-text">Best quality for the best price ! Merci ctt</div>
@@ -549,7 +569,7 @@
     <div class="review-card">
       <div class="review-header">
         <span class="review-verified">CLIENT VERIFIE</span>
-        <span class="review-date">16 avr. 2026</span>
+        <span class="6 avr. 2026</span>
       </div>
       <div class="review-stars">★★★★★</div>
       <div class="review-text">1000/10 ✅</div>
@@ -609,7 +629,7 @@ const PRODUCTS = [
   {id:'ocb_xpert_slim', cat:'Accessoires', name:'OCB X-PERT SLIM', price:13, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'ocb_slim_prem', cat:'Accessoires', name:'OCB SLIM PREMIUM ORO', price:15, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'ocb_slim_plus', cat:'Accessoires', name:'OCB SLIM PREMIUM + TIPS', price:20, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'ocb_rouleau', cat:'Accessoires', name:'OCB ROULEAU 4M', price:25, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300a84c?text=CTT'},
+  {id:'ocb_rouleau', cat:'Accessoires', name:'OCB ROULEAU 4M', price:25, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'briquet_bic', cat:'Accessoires', name:'BRIQUET BIC', price:7, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'bic_grand', cat:'Accessoires', name:'BIC BRIQUET GRAND', price:9, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'raw_black_ks', cat:'Accessoires', name:'RAW BLACK KING SIZE', price:15, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
@@ -630,7 +650,8 @@ const PRODUCTS = [
   {id:'angus_yll', cat:'HerbVape', name:'ANGUS - YLLVAPE', price:2880, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'arizer_argo', cat:'HerbVape', name:'ARIZER ARGO', price:2712, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'crafty_plus', cat:'HerbVape', name:'CRAFTY+', price:3900, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
-  {id:'dynavap_m7xl', cat:'HerbVape', name:'DYNAVAP M7 XL', price:1680, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e/1a1e18/c9a84c?text=CTT'},
+  {id:'dynavap_m7xl', cat:'HerbVape', name:'DYNAVAP M7 XL', price:1680, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
+  {id:'m_plus_dynavap', cat:'HerbVape', name:'M PLUS - DYNAVAP', price:1380, unit:'DH', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'m7_dynavap', cat:'HerbVape', name:'M7 DE DYNAVAP', price:1380, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'mighty_2021', cat:'HerbVape', name:'MIGHTY 2021', price:4320, unit:'DH', stock:'out', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
   {id:'mini_dee_2021', cat:'HerbVape', name:'MINI DEE 2021', price:960, unit:'DH', stock:'in_stock', thumb:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT', detail:'https://placehold.co/300x300/1a1e18/c9a84c?text=CTT'},
@@ -695,7 +716,7 @@ function renderProducts(cat) {
         <img src="${p.thumb}" alt="${p.name}" loading="lazy"/>
         <div class="badge-stock${isOut ? ' out' : ''}">
           <div class="${isOut ? 'dot-red' : isLast ? 'dot-orange' : 'dot-green'}"></div>
-          ${isOut ? 'OUT' : isLast ? 'LAST' : 'IN STOCK'}
+          ${isOut ? 'OUT' : isLast ? '' : 'IN STOCK'}
         </div>
       </div>
       <div class="product-info">
@@ -721,6 +742,10 @@ function openDetail(id) {
   document.getElementById('detailPriceTop').textContent = p.price + ' ' + p.unit;
   document.getElementById('detailTypeLabel').textContent = 'SMOKE ACCESSORY';
   document.getElementById('detailTypeName').textContent = p.cat;
+  
+  // CORRECTION : Force l'affichage de la description demandée
+  document.getElementById('detailDesc').textContent = "Essential smoking accessories — lighters, rolling papers, grinders, and more. Quality gear for the everyday smoker.";
+  
   document.getElementById('detailTags').innerHTML = `
     <div class="detail-tag">${p.cat} <span class="tag-meta">TYPE</span></div>
     <div class="detail-tag">${p.stock === 'out' ? 'Out of Stock' : p.stock === 'last' ? 'Last Items' : 'In Stock'} <span class="tag-meta">STOCK</span></div>`;
