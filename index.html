@@ -8,7 +8,8 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
     html{background:#0d0f0b;}
-    body{background:linear-gradient(rgba(3,4,5,.72),rgba(3,4,5,.88)),url('./ctt-background.webp');background-size:cover;background-position:center;background-attachment:fixed;color:#fff;font-family:'Inter',sans-serif;width:100%;max-width:430px;margin:0 auto;min-height:100vh;overflow-x:hidden;}
+    body{background:#0d0f0b;color:#fff;font-family:'Inter',sans-serif;width:100%;max-width:430px;margin:0 auto;min-height:100vh;overflow-x:hidden;position:relative;}
+    body::before{content:'';position:fixed;inset:0;background:linear-gradient(rgba(3,4,5,.72),rgba(3,4,5,.88)),url('./ctt-background.webp');background-size:cover;background-position:center;z-index:-1;pointer-events:none;}
     .header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;z-index:200;background:rgba(10,12,9,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.06);}
     .page-content{padding-top:68px;}
     .header-logo{font-size:1rem;font-weight:700;letter-spacing:.35em;color:#d7bb73;text-transform:uppercase;flex:1;text-align:center;}
