@@ -7,13 +7,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-    html,body{background:linear-gradient(rgba(3,4,5,.72),rgba(3,4,5,.88)),url('./ctt-background.webp');background-size:cover;background-position:center;background-attachment:fixed;color:#fff;font-family:'Inter',sans-serif;max-width:430px;margin:0 auto;min-height:100vh;overflow-x:hidden;}
-    .header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;position:sticky;top:0;z-index:200;background:rgba(0,0,0,.55);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.06);}
+    html{background:#0d0f0b;}
+    body{background:linear-gradient(rgba(3,4,5,.72),rgba(3,4,5,.88)),url('./ctt-background.webp');background-size:cover;background-position:center;background-attachment:fixed;color:#fff;font-family:'Inter',sans-serif;width:100%;max-width:430px;margin:0 auto;min-height:100vh;overflow-x:hidden;}
+    .header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;z-index:200;background:rgba(10,12,9,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.06);}
+    .page-content{padding-top:68px;}
     .header-logo{font-size:1rem;font-weight:700;letter-spacing:.35em;color:#d7bb73;text-transform:uppercase;flex:1;text-align:center;}
     .header-left,.header-right{display:flex;align-items:center;gap:10px;min-width:60px;}
     .header-right{justify-content:flex-end;}
     .btn-rabat{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);color:#d7bb73;font-size:.85rem;font-weight:700;padding:8px 16px;border-radius:20px;backdrop-filter:blur(15px);}
-    .btn-cart-h{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;position:relative;backdrop-filter:blur(15px);}
+    .btn-cart-h{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;position:relative;backdrop-filter:blur(15px);color:#c9a84c;}
     .cart-badge{position:absolute;top:-5px;right:-5px;background:#c9a84c;color:#111;font-size:0.55rem;font-weight:800;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center;}
     .hamburger{font-size:1.2rem;cursor:pointer;color:#c9a84c;}
     .overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(10px);z-index:300;opacity:0;pointer-events:none;transition:.3s;}
@@ -92,24 +94,26 @@
     .promo-title{font-size:0.85rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;position:relative;z-index:1;}
     .promo-sub{font-size:0.7rem;color:#ddd;margin-top:2px;position:relative;z-index:1;}
     .section-hdr{display:flex;align-items:center;gap:8px;padding:18px 12px 10px;font-size:0.78rem;font-weight:700;color:#888;letter-spacing:0.1em;text-transform:uppercase;}
-    .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 12px 120px;}
-    .product-card{background:rgba(20,24,18,0.9);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);cursor:pointer;transition:transform 0.15s;}
+    .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 120px;}
+    .product-card{background:rgba(18,22,16,0.97);border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 20px rgba(0,0,0,0.5);position:relative;}
     .product-card:active{transform:scale(0.97);}
-    .product-card.out-of-stock{opacity:0.6;}
-    .product-img-wrap{position:relative;width:100%;padding-top:80%;background:#1e201c;overflow:hidden;}
+    .product-card.out-of-stock{opacity:0.65;}
+    .product-img-wrap{position:relative;width:100%;padding-top:100%;background:#1a1e18;overflow:hidden;}
     .product-img-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-    .badge-stock{position:absolute;top:8px;left:8px;background:rgba(15,26,13,0.9);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:3px 10px;font-size:0.62rem;font-weight:600;display:flex;align-items:center;gap:5px;backdrop-filter:blur(8px);z-index:2;}
-    .badge-stock.out{background:rgba(30,0,0,0.9);}
-    .dot-green{width:6px;height:6px;border-radius:50%;background:#4CAF50;flex-shrink:0;}
-    .dot-red{width:6px;height:6px;border-radius:50%;background:#f44336;flex-shrink:0;}
-    .dot-orange{width:6px;height:6px;border-radius:50%;background:#ff9800;flex-shrink:0;}
-    .product-info{padding:10px 10px 12px;}
-    .product-cat{font-size:0.6rem;color:#c9a84c;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:3px;}
-    .product-name{font-size:0.82rem;font-weight:700;color:#fff;margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .badge-stock{position:absolute;top:8px;left:8px;background:rgba(8,14,6,0.92);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:4px 10px;font-size:0.6rem;font-weight:700;display:flex;align-items:center;gap:4px;backdrop-filter:blur(12px);z-index:2;letter-spacing:0.02em;}
+    .badge-stock.out{background:rgba(40,0,0,0.92);border-color:rgba(244,67,54,0.3);}
+    .badge-stock.last{background:rgba(40,25,0,0.92);border-color:rgba(255,152,0,0.3);}
+    .dot-green{width:5px;height:5px;border-radius:50%;background:#4CAF50;flex-shrink:0;}
+    .dot-red{width:5px;height:5px;border-radius:50%;background:#f44336;flex-shrink:0;}
+    .dot-orange{width:5px;height:5px;border-radius:50%;background:#ff9800;flex-shrink:0;}
+    .badge-video{position:absolute;top:8px;right:8px;width:26px;height:26px;background:rgba(0,0,0,0.6);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2;backdrop-filter:blur(8px);}
+    .product-info{padding:10px 12px 14px;}
+    .product-cat{font-size:0.58rem;color:#c9a84c;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;}
+    .product-name{font-size:0.88rem;font-weight:700;color:#fff;margin-bottom:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2;}
     .product-footer{display:flex;align-items:center;justify-content:space-between;}
-    .product-price{font-size:1rem;font-weight:800;color:#fff;}
-    .product-price .unit{font-size:0.72rem;font-weight:500;color:#888;margin-left:3px;}
-    .btn-add{width:32px;height:32px;background:rgba(201,168,76,0.2);border:1px solid rgba(201,168,76,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#c9a84c;cursor:pointer;flex-shrink:0;transition:all 0.2s;}
+    .product-price{font-size:1.05rem;font-weight:800;color:#fff;line-height:1;}
+    .product-price .unit{font-size:0.7rem;font-weight:500;color:#777;margin-left:3px;}
+    .btn-add{width:36px;height:36px;background:rgba(215,192,131,0.18);border:1.5px solid rgba(215,192,131,0.45);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#d7c083;cursor:pointer;flex-shrink:0;transition:all 0.2s;font-weight:300;}
     .btn-add:active{transform:scale(0.85);}
     .btn-add.added{background:#c9a84c;color:#111;border-color:#c9a84c;}
     .btn-add.disabled{opacity:0.3;cursor:not-allowed;}
@@ -328,7 +332,19 @@ background:#d7c083;
 border-radius:20px;
 margin-top:1px;
 }
-  </style>
+.nav-svg{color:#999;transition:.25s;}
+.nav-item.active .nav-svg{color:#d7c083;}
+.nav-item.active .nav-lbl{color:#d7c083;font-weight:700;}
+#favPage{position:fixed;inset:0;background:#0d0f0b;z-index:600;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);max-width:430px;margin:0 auto;overflow-y:auto;}
+#favPage.open{transform:translateX(0);}
+.fav-topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.06);background:#0d0f0b;position:sticky;top:0;z-index:2;}
+.fav-back{width:34px;height:34px;background:rgba(255,255,255,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:1.3rem;}
+.fav-title{font-size:0.78rem;font-weight:700;letter-spacing:0.15em;color:#c9a84c;text-transform:uppercase;}
+.fav-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;gap:12px;color:#555;}
+.fav-empty svg{opacity:0.3;}
+.fav-empty-title{font-size:1rem;font-weight:600;color:#666;}
+.fav-empty-sub{font-size:0.82rem;color:#444;text-align:center;max-width:200px;line-height:1.5;}
+  
 </head>
 <body>
 
@@ -359,10 +375,11 @@ margin-top:1px;
   <div class="header-logo">CHOCOLATRICHOMES</div>
   <div class="header-right">
     <div class="btn-rabat">Rabat</div>
-    <div class="btn-cart-h" onclick="toggleCart()">🛍<div class="cart-badge" id="headerBadge"></div></div>
+    <div class="btn-cart-h" onclick="toggleCart()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><div class="cart-badge" id="headerBadge"></div></div>
   </div>
 </div>
 
+<div class="page-content">
 <div class="trc-block">
   <div class="trc-hdr">
     <div class="trc-icon">🌿</div>
@@ -442,7 +459,8 @@ margin-top:1px;
 <div class="section-hdr" id="sectionTitle"><span>🛒</span> ACCESSOIRES</div>
 <div class="products-grid" id="productsGrid"></div>
 
-<div class="float-cart" onclick="toggleCart()">🛍<div class="float-badge" id="floatBadge"></div></div>
+</div>
+<div class="float-cart" onclick="toggleCart()"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><div class="float-badge" id="floatBadge"></div></div>
 <div class="toast" id="toast"></div>
 
 <div id="detailPage">
@@ -484,7 +502,7 @@ margin-top:1px;
   </div>
   <div class="profile-body">
     <div class="profile-avatar">👤</div>
-    <div class="profile-name">ChocolaUser</div>
+    <div class="profile-name" id="profileUsername">ChocolaUser</div>
     <div class="profile-badge-row"><div class="profile-badge">SEED · 10 XP · 10 TRC</div></div>
     <div class="seed-card">
       <div class="seed-label">🌱 SEED <span class="seed-rewards">1x rewards</span></div>
@@ -675,7 +693,21 @@ margin-top:1px;
   </div>
 </div>
 
-<div id="searchPage" style="position:fixed;inset:0;background:#0d0f0b;z-index:600;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);max-width:430px;margin:0 auto;display:flex;flex-direction:column;">
+<div id="favPage">
+  <div class="fav-topbar">
+    <div class="fav-back" onclick="closeFavoris()">‹</div>
+    <div class="fav-title">FAVORIS</div>
+    <div style="width:34px"></div>
+  </div>
+  <div style="padding:12px 12px 100px;">
+    <div class="fav-empty" id="favEmpty">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <div class="fav-empty-title">Aucun favori pour l'instant</div>
+      <div class="fav-empty-sub">Appuie sur le ❤️ d'un produit pour l'ajouter ici</div>
+    </div>
+    <div class="products-grid" id="favGrid" style="display:none;padding:0;"></div>
+  </div>
+</div> style="position:fixed;inset:0;background:#0d0f0b;z-index:600;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);max-width:430px;margin:0 auto;display:flex;flex-direction:column;">
   <div style="padding:12px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.06);background:#0d0f0b;position:sticky;top:0;z-index:2;">
     <div onclick="closeSearch()" style="width:34px;height:34px;background:rgba(255,255,255,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.3rem;flex-shrink:0;color:#fff;">‹</div>
     <input id="searchInput" type="text" placeholder="Rechercher un produit…" oninput="doSearch(this.value)"
@@ -687,16 +719,20 @@ margin-top:1px;
 
 <div class="bottom-nav">
   <div class="nav-item active" id="nav-home" onclick="showHome()">
-    <div class="nav-icon">⊞</div><div class="nav-lbl">Home</div><div class="nav-active-dot"></div>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-svg"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    <div class="nav-lbl">Home</div><div class="nav-active-dot"></div>
   </div>
   <div class="nav-item" id="nav-search" onclick="openSearch()">
-    <div class="nav-icon">🔍</div><div class="nav-lbl">Search</div>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-svg"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <div class="nav-lbl">Search</div>
   </div>
-  <div class="nav-item" id="nav-cart" onclick="toggleCart()">
-    <div class="nav-icon">🤍</div><div class="nav-lbl">Favoris</div>
+  <div class="nav-item" id="nav-fav" onclick="openFavoris()">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-svg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <div class="nav-lbl">Favoris</div>
   </div>
   <div class="nav-item" id="nav-profile" onclick="openProfile()">
-    <div class="nav-icon">👤</div><div class="nav-lbl">Profile</div>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-svg"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <div class="nav-lbl">Profile</div>
   </div>
 </div>
 
@@ -824,12 +860,24 @@ function doSearch(query) {
     const isOut = p.stock === 'out';
     const isLast = p.stock === 'last';
     const inCart = cart[p.id] || 0;
+    const isVideo = p.thumb && p.thumb.includes('streamable.com');
+    const videoId = isVideo ? p.thumb.split('/').pop() : null;
+    const thumbUrl = isVideo ? `https://cdn-cf-east.streamable.com/image/${videoId}.jpg` : p.thumb;
     return `<div class="product-card${isOut?' out-of-stock':''}" onclick="openDetail('${p.id}')">
       <div class="product-img-wrap">
-        <img src="${p.thumb}" alt="${p.name}" loading="lazy"/>
-        <div class="badge-stock${isOut?' out':''}">
+        <img src="${thumbUrl}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/300x300/111/444?text=CTT'"/>
+        <div class="badge-stock${isOut?' out':isLast?' last':''}">
           <div class="${isOut?'dot-red':isLast?'dot-orange':'dot-green'}"></div>
           ${isOut?'OUT':isLast?'LAST':'IN STOCK'}
+        </div>
+        ${isVideo?'<div class="badge-video"><svg width="10" height="10" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>':''}
+        <div class="product-info">
+          <div class="product-cat">${p.cat}</div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-footer">
+            <div class="product-price">${p.price} <span class="unit">${p.unit}</span></div>
+            <div class="btn-add${inCart?' added':''}${isOut?' disabled':''}" onclick="event.stopPropagation();quickAdd('${p.id}')">${inCart||'+'}</div>
+          </div>
         </div>
       </div>
       <div class="product-info">
@@ -870,21 +918,25 @@ function renderProducts(cat) {
     const isOut = p.stock === 'out';
     const isLast = p.stock === 'last';
     const inCart = cart[p.id] || 0;
+    const isVideo = p.thumb && p.thumb.includes('streamable.com');
+    const videoId = isVideo ? p.thumb.split('/').pop() : null;
+    const thumbUrl = isVideo ? `https://cdn-cf-east.streamable.com/image/${videoId}.jpg` : p.thumb;
     return `
     <div class="product-card${isOut ? ' out-of-stock' : ''}" onclick="openDetail('${p.id}')">
       <div class="product-img-wrap">
-        <img src="${p.thumb}" alt="${p.name}" loading="lazy"/>
-        <div class="badge-stock${isOut ? ' out' : ''}">
-          <div class="${isOut ? 'dot-red' : isLast ? 'dot-orange' : 'dot-green'}"></div>
-          ${isOut ? 'OUT' : isLast ? 'LAST' : 'IN STOCK'}
+        <img src="${thumbUrl}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/300x300/111/444?text=CTT'"/>
+        <div class="badge-stock${isOut?' out':isLast?' last':''}">
+          <div class="${isOut?'dot-red':isLast?'dot-orange':'dot-green'}"></div>
+          ${isOut?'OUT':isLast?'LAST':'IN STOCK'}
         </div>
-      </div>
-      <div class="product-info">
-        <div class="product-cat">${p.cat}</div>
-        <div class="product-name">${p.name}</div>
-        <div class="product-footer">
-          <div class="product-price">${p.price} <span class="unit">${p.unit}</span></div>
-          <div class="btn-add${inCart ? ' added' : ''}${isOut ? ' disabled' : ''}" id="btn-${p.id}" onclick="event.stopPropagation(); quickAdd('${p.id}')">${inCart || '+'}</div>
+        ${isVideo?'<div class="badge-video"><svg width="10" height="10" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>':''}
+        <div class="product-info">
+          <div class="product-cat">${p.cat}</div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-footer">
+            <div class="product-price">${p.price} <span class="unit">${p.unit}</span></div>
+            <div class="btn-add${inCart?' added':''}${isOut?' disabled':''}" id="btn-${p.id}" onclick="event.stopPropagation();quickAdd('${p.id}')">${inCart||'+'}</div>
+          </div>
         </div>
       </div>
     </div>`;
@@ -1182,13 +1234,80 @@ function filterCat(cat) {
   }
 }
 
-function openProfile() { document.getElementById('profilePage').classList.add('open'); setNavActive('nav-profile'); }
+let favorites = JSON.parse(localStorage.getItem('ctt_favs') || '[]');
+
+function openFavoris() {
+  renderFavs();
+  document.getElementById('favPage').classList.add('open');
+  setNavActive('nav-fav');
+}
+function closeFavoris() {
+  document.getElementById('favPage').classList.remove('open');
+  setNavActive('nav-home');
+}
+function toggleFav(id) {
+  const idx = favorites.indexOf(id);
+  if (idx === -1) favorites.push(id);
+  else favorites.splice(idx, 1);
+  localStorage.setItem('ctt_favs', JSON.stringify(favorites));
+  renderFavs();
+}
+function renderFavs() {
+  const grid = document.getElementById('favGrid');
+  const empty = document.getElementById('favEmpty');
+  if (!favorites.length) { grid.style.display='none'; empty.style.display='flex'; return; }
+  empty.style.display = 'none';
+  grid.style.display = 'grid';
+  const list = PRODUCTS.filter(p => favorites.includes(p.id));
+  grid.innerHTML = list.map(p => {
+    const isOut = p.stock==='out', isLast = p.stock==='last';
+    const isVideo = p.thumb && p.thumb.includes('streamable.com');
+    const videoId = isVideo ? p.thumb.split('/').pop() : null;
+    const thumbUrl = isVideo ? `https://cdn-cf-east.streamable.com/image/${videoId}.jpg` : p.thumb;
+    return `<div class="product-card${isOut?' out-of-stock':''}" onclick="openDetail('${p.id}')">
+      <div class="product-img-wrap">
+        <img src="${thumbUrl}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'"/>
+        ${isVideo?`<div class="badge-video"><svg width="10" height="10" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>`:''}
+        <div class="badge-stock${isOut?' out':''}"><div class="${isOut?'dot-red':isLast?'dot-orange':'dot-green'}"></div>${isOut?'OUT':isLast?'LAST':'IN STOCK'}</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">${p.cat}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-footer"><div class="product-price">${p.price} <span class="unit">${p.unit}</span></div>
+        <div class="btn-add" onclick="event.stopPropagation();quickAdd('${p.id}')">+</div></div>
+      </div></div>`;
+  }).join('');
+}
+
+function openSearch() {
+  const page = document.getElementById('searchPage');
+  page.style.transform = 'translateX(0)';
+  setNavActive('nav-search');
+  setTimeout(() => document.getElementById('searchInput').focus(), 300);
+  doSearch('');
+}
+function closeSearch() {
+  document.getElementById('searchPage').style.transform = 'translateX(100%)';
+  setNavActive('nav-home');
+}
+
+function openProfile() { 
+  // Afficher le nom Telegram si disponible
+  const tgUser = window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe && window.Telegram.WebApp.initDataUnsafe.user;
+  const username = tgUser ? (tgUser.first_name + (tgUser.last_name ? ' ' + tgUser.last_name : '')) : 'ChocolaUser';
+  const nameEl = document.getElementById('profileUsername');
+  if (nameEl) nameEl.textContent = username;
+  document.getElementById('profilePage').classList.add('open'); 
+  setNavActive('nav-profile'); 
+}
 function closeProfile() { document.getElementById('profilePage').classList.remove('open'); setNavActive('nav-home'); }
 function openAvis() { document.getElementById('avisPage').classList.add('open'); }
 function closeAvis() { document.getElementById('avisPage').classList.remove('open'); }
 function showHome() {
   document.getElementById('profilePage').classList.remove('open');
   document.getElementById('avisPage').classList.remove('open');
+  document.getElementById('favPage').classList.remove('open');
+  document.getElementById('searchPage').style.transform = 'translateX(100%)';
   setNavActive('nav-home');
 }
 function setNavActive(id) {
