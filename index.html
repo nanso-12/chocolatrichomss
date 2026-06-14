@@ -7,13 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-    html,body{background:linear-gradient(rgba(5,6,8,.55),rgba(5,6,8,.75)),url('./ctt-background.webp');background-size:cover;background-position:center;background-attachment:fixed;color:#fff;font-family:'Inter',sans-serif;max-width:430px;margin:0 auto;min-height:100vh;overflow-x:hidden;}
-    .header{display:flex;align-items:center;justify-content:space-between;padding:18px;position:sticky;top:0;z-index:200;background:rgba(0,0,0,.35);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);}
+    html,body{background:linear-gradient(rgba(3,4,5,.72),rgba(3,4,5,.88)),url('./ctt-background.webp');background-size:cover;background-position:center;background-attachment:fixed;color:#fff;font-family:'Inter',sans-serif;max-width:430px;margin:0 auto;min-height:100vh;overflow-x:hidden;}
+    .header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;position:sticky;top:0;z-index:200;background:rgba(0,0,0,.55);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.06);}
     .header-logo{font-size:1rem;font-weight:700;letter-spacing:.35em;color:#d7bb73;text-transform:uppercase;flex:1;text-align:center;}
     .header-left,.header-right{display:flex;align-items:center;gap:10px;min-width:60px;}
     .header-right{justify-content:flex-end;}
-    .btn-rabat{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);color:#d7bb73;font-size:.9rem;font-weight:700;padding:10px 18px;border-radius:18px;backdrop-filter:blur(15px);}
-    .btn-cart-h{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);width:56px;height:56px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;position:relative;backdrop-filter:blur(15px);box-shadow:0 0 20px rgba(201,168,76,.15);}
+    .btn-rabat{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);color:#d7bb73;font-size:.85rem;font-weight:700;padding:8px 16px;border-radius:20px;backdrop-filter:blur(15px);}
+    .btn-cart-h{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;position:relative;backdrop-filter:blur(15px);}
     .cart-badge{position:absolute;top:-5px;right:-5px;background:#c9a84c;color:#111;font-size:0.55rem;font-weight:800;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center;}
     .hamburger{font-size:1.2rem;cursor:pointer;color:#c9a84c;}
     .overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(10px);z-index:300;opacity:0;pointer-events:none;transition:.3s;}
@@ -29,37 +29,38 @@
     .menu-icon{width:32px;height:32px;background:rgba(255,255,255,0.06);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
     .menu-item.active .menu-icon{background:rgba(201,168,76,0.15);}
     .menu-lbl{font-size:0.88rem;font-weight:500;color:#ccc;}
-    .trc-block{margin:12px 12px 0;background:linear-gradient(135deg,#1a2010,#0f1a0d);border:1px solid rgba(201,168,76,0.25);border-radius:16px;padding:14px 16px;position:relative;overflow:hidden;}
+    .trc-block{margin:12px 12px 0;background:rgba(15,20,12,0.85);border:1px solid rgba(201,168,76,0.2);border-radius:18px;padding:14px 16px;position:relative;overflow:hidden;}
     .trc-block::before{content:'CHOCOLATRICHOMES';position:absolute;font-size:4rem;font-weight:900;color:rgba(255,255,255,0.03);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;}
     .trc-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
     .trc-icon{width:36px;height:36px;background:radial-gradient(circle,#3a7a30,#1a4010);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
-    .trc-title{font-size:0.9rem;font-weight:700;color:#c9a84c;}
-    .trc-sub{font-size:0.72rem;color:#888;margin-top:2px;}
-    .trc-act{margin-left:auto;font-size:0.65rem;font-weight:700;color:#888;letter-spacing:0.1em;}
-    .trc-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;}
+    .trc-title{font-size:0.88rem;font-weight:700;color:#fff;}
+    .trc-title span{color:#c9a84c;}
+    .trc-hdr-arrow{margin-left:auto;font-size:0.9rem;color:#888;}
+    .trc-act{font-size:0.65rem;font-weight:700;color:#888;letter-spacing:0.1em;}
+    .trc-sub{font-size:0.7rem;color:#888;margin-top:2px;}
     .trc-stat{background:rgba(0,0,0,0.3);border-radius:10px;padding:10px;text-align:center;}
     .trc-stat-val{font-size:1.1rem;font-weight:800;color:#c9a84c;}
     .trc-stat-lbl{font-size:0.62rem;color:#666;margin-top:2px;}
     .trc-link{font-size:0.78rem;color:#888;text-align:center;cursor:pointer;display:block;}
     .trc-link span{color:#c9a84c;}
-    .checkin-card{margin:10px 12px 0;background:#1a1e18;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:14px 16px;}
+    .checkin-card{margin:10px 12px 0;background:rgba(15,20,12,0.85);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:14px 16px;}
     .checkin-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
     .checkin-title{font-size:0.88rem;font-weight:600;}
     .checkin-streak{font-size:0.78rem;color:#ff6b35;font-weight:600;}
     .checkin-days{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;padding-bottom:2px;}
     .checkin-days::-webkit-scrollbar{display:none;}
-    .day-box{min-width:38px;height:48px;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:0.65rem;font-weight:600;color:#666;background:#0f1a0d;border:1px solid rgba(255,255,255,0.06);flex-shrink:0;gap:2px;}
-    .day-box.done{background:#2d5a27;color:white;border-color:#3a7a30;}
-    .day-box.active{background:#1e3a1c;color:#c9a84c;border-color:#c9a84c;}
-    .day-lbl{font-size:0.55rem;color:#555;}
+    .day-box{min-width:42px;height:56px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:#555;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);flex-shrink:0;gap:3px;}
+    .day-box.done{background:rgba(74,140,63,0.35);color:white;border-color:rgba(74,140,63,0.6);}
+    .day-box.active{background:transparent;color:#c9a84c;border:2px solid #c9a84c;}
+    .day-lbl{font-size:0.6rem;color:#555;font-weight:600;}
     .day-box.done .day-lbl,.day-box.active .day-lbl{color:rgba(255,255,255,0.6);}
-    .btn-claim{width:100%;background:linear-gradient(135deg,#4CAF50,#8BC34A);border:none;border-radius:12px;padding:14px;font-size:0.92rem;font-weight:700;color:white;cursor:pointer;}
-    .tier-section{margin:10px 12px 0;background:#1a1e18;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:14px 16px;}
+    .btn-claim{width:100%;background:linear-gradient(90deg,#4CAF50,#7B52D3);border:none;border-radius:14px;padding:15px;font-size:0.95rem;font-weight:700;color:white;cursor:pointer;letter-spacing:0.02em;}
+    .tier-section{margin:10px 12px 0;background:rgba(15,20,12,0.85);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:14px 16px;}
     .tier-lbl{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:#c9a84c;font-weight:700;margin-bottom:4px;}
     .tier-desc{font-size:0.78rem;color:#888;margin-bottom:14px;}
     .tier-desc span{color:#c9a84c;font-weight:600;}
     .tier-cards-wrap{overflow:hidden;margin-bottom:14px;}
-    .tier-card{background:#0f1a0d;border:1px solid rgba(201,168,76,0.3);border-radius:14px;padding:16px;display:flex;align-items:center;gap:14px;display:none;}
+    .tier-card{background:rgba(0,0,0,0.5);border:1px solid rgba(201,168,76,0.3);border-radius:14px;padding:16px;display:flex;align-items:center;gap:14px;display:none;}
     .tier-card.active{display:flex;}
     .tier-badge{width:52px;height:52px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-size:1.4rem;border:2px solid #cd7f32;box-shadow:0 0 15px rgba(205,127,50,0.3);}
     .tier-badge.silver{border-color:#C0C0C0;box-shadow:0 0 15px rgba(192,192,192,0.3);}
@@ -72,8 +73,8 @@
     .tier-info .tier-perk{font-size:0.72rem;color:#c9a84c;margin-top:3px;}
     .dots{display:flex;justify-content:center;gap:5px;margin-bottom:14px;}
     .dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);cursor:pointer;}
-    .dot.active{background:#c9a84c;}
-    .btn-activate{width:100%;background:linear-gradient(135deg,#6f4fcf,#9b59b6);border:none;border-radius:12px;padding:14px;font-size:0.92rem;font-weight:700;color:white;cursor:pointer;margin-bottom:10px;}
+    .dot.active{background:#c9a84c;width:20px;border-radius:3px;}
+    .btn-activate{width:100%;background:linear-gradient(90deg,#5B7FE8,#9B59B6);border:none;border-radius:14px;padding:15px;font-size:0.95rem;font-weight:700;color:white;cursor:pointer;margin-bottom:10px;letter-spacing:0.02em;}
     .trc-coin-link{font-size:0.78rem;color:#888;text-align:center;display:block;cursor:pointer;text-decoration:none;}
     .garden-block{margin:10px 12px 0;background:linear-gradient(135deg,#0f1a0d,#1a2e18);border:1px solid rgba(74,140,63,0.3);border-radius:16px;padding:20px 16px;}
     .garden-title{font-size:1.1rem;font-weight:700;margin-bottom:6px;}
@@ -85,13 +86,14 @@
     .garden-item-name{font-size:0.85rem;font-weight:600;}
     .promo-banners{margin:14px 12px 0;display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;}
     .promo-banners::-webkit-scrollbar{display:none;}
-    .promo-banner{min-width:260px;height:90px;border-radius:14px;flex-shrink:0;border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;padding:14px 16px;gap:12px;}
-    .promo-icon{font-size:1.4rem;flex-shrink:0;}
-    .promo-title{font-size:0.82rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;}
-    .promo-sub{font-size:0.7rem;color:#ccc;margin-top:3px;}
+    .promo-banner{min-width:260px;height:100px;border-radius:16px;flex-shrink:0;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;padding:16px;gap:12px;position:relative;overflow:hidden;}
+    .promo-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);}
+    .promo-icon{font-size:1.4rem;flex-shrink:0;position:relative;z-index:1;}
+    .promo-title{font-size:0.85rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;position:relative;z-index:1;}
+    .promo-sub{font-size:0.7rem;color:#ddd;margin-top:2px;position:relative;z-index:1;}
     .section-hdr{display:flex;align-items:center;gap:8px;padding:18px 12px 10px;font-size:0.78rem;font-weight:700;color:#888;letter-spacing:0.1em;text-transform:uppercase;}
     .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 12px 120px;}
-    .product-card{background:#1a1e18;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);cursor:pointer;transition:transform 0.15s;}
+    .product-card{background:rgba(20,24,18,0.9);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);cursor:pointer;transition:transform 0.15s;}
     .product-card:active{transform:scale(0.97);}
     .product-card.out-of-stock{opacity:0.6;}
     .product-img-wrap{position:relative;width:100%;padding-top:80%;background:#1e201c;overflow:hidden;}
@@ -222,44 +224,6 @@
     .btn-checkout{width:100%;background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#111;border:none;border-radius:14px;padding:16px;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s;}
     .btn-checkout:active{transform:scale(0.98);}
 
-    /* NOUVEAU : Modales de paiement */
-    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:800;display:none;align-items:flex-end;justify-content:center;}
-    .modal-overlay.open{display:flex;}
-    .modal-content{background:#1a1e18;width:100%;max-width:430px;border-radius:24px 24px 0 0;padding:24px 20px 40px;max-height:90vh;overflow-y:auto;animation:slideUp 0.3s ease;}
-    @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-    .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-    .modal-title{font-size:1.1rem;font-weight:700;}
-    .payment-option{display:flex;align-items:center;gap:16px;background:#111310;border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:16px;margin-bottom:12px;cursor:pointer;transition:border-color 0.2s;}
-    .payment-option:hover{border-color:#c9a84c;}
-    .payment-icon{width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
-    .payment-info{flex:1;}
-    .payment-name{font-size:0.95rem;font-weight:600;display:flex;align-items:center;gap:8px;}
-    .payment-desc{font-size:0.75rem;color:#888;margin-top:2px;}
-    .badge-discount{background:#4CAF50;color:#fff;font-size:0.65rem;font-weight:700;padding:2px 6px;border-radius:4px;}
-    .trc-info-box{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:12px;margin-top:16px;font-size:0.75rem;color:#ccc;line-height:1.5;}
-    .checkout-form{display:flex;flex-direction:column;gap:16px;}
-    .form-group{display:flex;flex-direction:column;gap:6px;}
-    .form-label{font-size:0.75rem;color:#888;text-transform:uppercase;letter-spacing:0.05em;}
-    .form-select{background:#111310;border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px;color:#fff;font-size:0.9rem;font-family:inherit;outline:none;}
-    .form-select:focus{border-color:#c9a84c;}
-    .availability-text{font-size:0.75rem;color:#4CAF50;font-weight:600;display:none;margin-top:4px;}
-    .availability-text.show{display:block;}
-    .btn-confirm{width:100%;background:#333;color:#666;border:none;border-radius:14px;padding:16px;font-size:0.95rem;font-weight:700;cursor:not-allowed;margin-top:8px;transition:all 0.3s;}
-    .btn-confirm.active{background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#111;cursor:pointer;}
-
-    .float-cart{position:fixed;bottom:80px;right:calc(50% - 215px + 10px);width:52px;height:52px;background:#c9a84c;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 20px rgba(201,168,76,0.4);cursor:pointer;z-index:50;transition:transform 0.2s;}
-    .float-cart:active{transform:scale(0.92);}
-    .float-badge{position:absolute;top:-4px;right:-4px;background:#ff4444;color:#fff;font-size:0.55rem;font-weight:800;width:18px;height:18px;border-radius:50%;display:none;align-items:center;justify-content:center;}
-    @media(max-width:430px){.float-cart{right:10px;}}
-    .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#2d5a27;color:#fff;padding:10px 20px;border-radius:100px;font-size:0.82rem;font-weight:600;opacity:0;transition:all 0.3s;pointer-events:none;white-space:nowrap;z-index:800;border:1px solid rgba(74,140,63,0.5);}
-    .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-    .bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#111310;border-top:1px solid rgba(255,255,255,0.08);display:flex;padding:10px 0 20px;z-index:100;}
-    .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;padding:4px 0;}
-    .nav-icon{font-size:1.2rem;}
-    .nav-lbl{font-size:0.62rem;color:#666;font-weight:500;}
-    .nav-item.active .nav-lbl{color:#c9a84c;}
-    .nav-active-dot{width:18px;height:2px;background:#c9a84c;border-radius:2px;margin-top:2px;}
-
     /* Modales de paiement */
     .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:800;display:none;align-items:center;justify-content:center;padding:16px;}
     .modal-overlay.open{display:flex;}
@@ -364,20 +328,9 @@ background:#d7c083;
 border-radius:20px;
 margin-top:1px;
 }
-.nav-svg{color:#999;transition:.25s;}
-.nav-item.active .nav-svg{color:#d7c083;}
-.nav-item.active .nav-lbl{color:#d7c083;font-weight:700;}
-#favPage{position:fixed;inset:0;background:#0d0f0b;z-index:600;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);max-width:430px;margin:0 auto;overflow-y:auto;}
-#favPage.open{transform:translateX(0);}
-.fav-topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.06);background:#0d0f0b;position:sticky;top:0;z-index:2;}
-.fav-back{width:34px;height:34px;background:rgba(255,255,255,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:1.3rem;}
-.fav-title{font-size:0.78rem;font-weight:700;letter-spacing:0.15em;color:#c9a84c;text-transform:uppercase;}
-.fav-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;gap:12px;color:#555;}
-.fav-empty svg{opacity:0.3;}
-.fav-empty-title{font-size:1rem;font-weight:600;color:#666;}
-.fav-empty-sub{font-size:0.82rem;color:#444;text-align:center;max-width:200px;line-height:1.5;}
-  
+  </style>
 </head>
+<body>
 
 <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
@@ -406,11 +359,10 @@ margin-top:1px;
   <div class="header-logo">CHOCOLATRICHOMES</div>
   <div class="header-right">
     <div class="btn-rabat">Rabat</div>
-    <div class="btn-cart-h" onclick="toggleCart()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><div class="cart-badge" id="headerBadge"></div></div>
+    <div class="btn-cart-h" onclick="toggleCart()">🛍<div class="cart-badge" id="headerBadge"></div></div>
   </div>
 </div>
 
-<div class="page-content">
 <div class="trc-block">
   <div class="trc-hdr">
     <div class="trc-icon">🌿</div>
@@ -490,8 +442,7 @@ margin-top:1px;
 <div class="section-hdr" id="sectionTitle"><span>🛒</span> ACCESSOIRES</div>
 <div class="products-grid" id="productsGrid"></div>
 
-</div>
-<div class="float-cart" onclick="toggleCart()"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><div class="float-badge" id="floatBadge"></div></div>
+<div class="float-cart" onclick="toggleCart()">🛍<div class="float-badge" id="floatBadge"></div></div>
 <div class="toast" id="toast"></div>
 
 <div id="detailPage">
@@ -526,39 +477,173 @@ margin-top:1px;
 </div>
 
 <div id="profilePage">
-  <div class="profile-topbar">
+  <div class="profile-topbar" style="position:sticky;top:0;z-index:10;background:#111310;">
     <div class="profile-back" onclick="closeProfile()">‹</div>
     <div class="profile-topbar-title">PROFILE</div>
     <div class="profile-settings">⚙️</div>
   </div>
   <div class="profile-body">
-    <div class="profile-avatar">👤</div>
-    <div class="profile-name" id="profileUsername">ChocolaUser</div>
-    <div class="profile-badge-row"><div class="profile-badge">SEED · 10 XP · 10 TRC</div></div>
+
+    <!-- Avatar + Nom Telegram -->
+    <div style="text-align:center;padding:10px 0 20px;">
+      <div style="width:90px;height:90px;background:rgba(255,255,255,0.08);border:2px solid rgba(201,168,76,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto 10px;position:relative;">
+        👤
+        <div style="position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);background:rgba(30,30,30,0.95);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:3px 10px;font-size:0.6rem;font-weight:700;color:#aaa;white-space:nowrap;">AUCUN TIER</div>
+      </div>
+      <div style="margin-top:16px;font-size:1.4rem;font-weight:700;color:#fff;" id="profileName">ChocolaUser</div>
+      <div style="display:inline-block;margin-top:6px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:5px 16px;font-size:0.72rem;color:#c9a84c;font-weight:600;" id="profileBadge">SEED · 10 XP · 10 TRC</div>
+    </div>
+
+    <!-- Réduction à vie -->
+    <div style="text-align:center;margin-bottom:20px;">
+      <div style="font-size:2.8rem;font-weight:900;color:#fff;line-height:1;">0%</div>
+      <div style="font-size:0.65rem;color:#888;letter-spacing:0.2em;text-transform:uppercase;margin-top:4px;">RÉDUCTION À VIE</div>
+    </div>
+
+    <!-- Stats grid -->
+    <div class="stats-grid">
+      <div class="stat-box"><div class="stat-val streak" id="profileStreak">0 🔥</div><div class="stat-lbl">Streak</div></div>
+      <div class="stat-box"><div class="stat-val" id="profileXP">10</div><div class="stat-lbl">XP Points</div></div>
+      <div class="stat-box"><div class="stat-val" id="profileTRC">10</div><div class="stat-lbl">TRC Jeu</div></div>
+    </div>
+
+    <!-- Progress tier -->
+    <div style="background:#1a1e18;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 16px;margin-bottom:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <div style="font-size:0.78rem;color:#aaa;">Plus que <strong style="color:#c9a84c;">$5 hold</strong> pour passer <strong style="color:#fff;">Bronze -5%</strong></div>
+        <div style="font-size:0.72rem;color:#888;">0%</div>
+      </div>
+      <div style="height:4px;background:rgba(255,255,255,0.08);border-radius:2px;">
+        <div style="height:100%;width:0%;background:#c9a84c;border-radius:2px;"></div>
+      </div>
+    </div>
+
+    <!-- Seed card -->
     <div class="seed-card">
       <div class="seed-label">🌱 SEED <span class="seed-rewards">1x rewards</span></div>
       <div class="seed-dh">0 DH</div>
       <div class="seed-next">2000 DH → Sprout</div>
     </div>
-    <div class="stats-grid">
-      <div class="stat-box"><div class="stat-val">10</div><div class="stat-lbl">XP Points</div></div>
-      <div class="stat-box"><div class="stat-val">10</div><div class="stat-lbl">TRC Balance</div></div>
-      <div class="stat-box"><div class="stat-val streak">0 🔥</div><div class="stat-lbl">Streak</div></div>
-    </div>
+
+    <!-- Telegram ID -->
     <div class="info-row">
-      <div class="info-row-icon">✈️</div>
-      <div><div class="info-row-meta">Telegram ID</div><div class="info-row-val">—</div></div>
+      <div class="info-row-icon" style="background:rgba(100,150,255,0.1);">✈️</div>
+      <div style="flex:1;">
+        <div class="info-row-meta">TELEGRAM ID</div>
+        <div class="info-row-val" id="profileTelegramId">—</div>
+      </div>
+      <div style="color:#4CAF50;font-size:1rem;">✓</div>
     </div>
+
+    <!-- Ville -->
     <div class="info-row">
       <div class="info-row-icon">📍</div>
-      <div><div class="info-row-meta">Ville</div><div class="info-row-val">Rabat</div></div>
+      <div style="flex:1;">
+        <div class="info-row-meta">VILLE</div>
+        <div class="info-row-val">Rabat</div>
+      </div>
+      <div style="color:#888;font-size:0.9rem;">∨</div>
     </div>
-    <div class="section-lbl-small">LANGUE</div>
-    <div class="lang-row">
-      <div class="lang-btn active">🇫🇷 FR</div>
-      <div class="lang-btn">🇬🇧 EN</div>
-      <div class="lang-btn">🇪🇸 ES</div>
+
+    <!-- Langue -->
+    <div class="section-lbl-small">| LANGUE</div>
+    <div style="background:#1a1e18;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 16px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;">
+      <div style="font-size:0.82rem;color:#888;">Choisis ta langue</div>
+      <div class="lang-row" style="margin:0;gap:8px;">
+        <div class="lang-btn active" style="padding:7px 14px;">🇫🇷 FR</div>
+        <div class="lang-btn" style="padding:7px 14px;">🇬🇧 EN</div>
+        <div class="lang-btn" style="padding:7px 14px;">🇪🇸 ES</div>
+      </div>
     </div>
+
+    <!-- Wallet Solana -->
+    <div class="section-lbl-small">| WALLET SOLANA</div>
+    <div style="background:#1a1e18;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:16px;margin-bottom:12px;">
+      <div style="font-size:0.78rem;color:#888;margin-bottom:12px;">🔴 Ton wallet sert à <strong style="color:#fff;">détenir</strong> du TRC pour débloquer ton tier de réduction à vie.</div>
+      <div style="text-align:center;margin-bottom:14px;">
+        <div style="font-size:2rem;font-weight:800;color:#c9a84c;">20.00 TRC</div>
+        <div style="font-size:0.72rem;color:#888;margin-top:4px;">Connecte un wallet pour claim tes TRC</div>
+      </div>
+      <button style="width:100%;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:#c9a84c;font-size:0.88rem;font-weight:700;padding:14px;border-radius:12px;cursor:pointer;">Connecter un wallet Solana</button>
+    </div>
+
+    <!-- TRC Cardholder -->
+    <div class="section-lbl-small">| TRC CARDHOLDER</div>
+    <div style="background:#1a1a10;border:1px solid rgba(201,168,76,0.3);border-radius:14px;padding:18px;margin-bottom:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <div style="font-size:0.6rem;color:#888;letter-spacing:0.15em;">STATUS</div>
+        <div style="font-size:0.6rem;color:#888;">CTT · TRC</div>
+      </div>
+      <div style="font-size:1.3rem;font-weight:900;color:#c9a84c;letter-spacing:0.1em;">AUCUN TIER</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <div style="font-size:0.65rem;color:#888;">AUCUN TIER</div>
+        <div style="font-size:0.65rem;color:#888;">BRONZE →</div>
+      </div>
+      <div style="text-align:right;font-size:0.65rem;color:#888;margin-top:2px;">$0.00 / $5 → BRONZE</div>
+      <div style="background:rgba(180,30,30,0.2);border:1px solid rgba(180,30,30,0.4);border-radius:10px;padding:10px;margin-top:10px;font-size:0.75rem;color:#ff8080;">
+        Ton wallet n'est pas vérifié. Vérifie-le pour activer ton tier et débloquer jusqu'à -20% sur chaque commande.
+      </div>
+    </div>
+
+    <!-- Boutons wallet -->
+    <button style="width:100%;background:linear-gradient(90deg,#c9a84c,#e8c97a);border:none;border-radius:14px;padding:16px;font-size:0.9rem;font-weight:800;color:#111;cursor:pointer;margin-bottom:10px;">✨ Connecter mon wallet · 30 sec</button>
+    <button style="width:100%;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);border-radius:14px;padding:16px;font-size:0.9rem;font-weight:700;color:#c9a84c;cursor:pointer;margin-bottom:10px;">💰 Acheter du TRC</button>
+
+    <!-- Aide -->
+    <div style="background:#1a1e18;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;margin-bottom:20px;cursor:pointer;">
+      <div style="width:36px;height:36px;background:rgba(255,255,255,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;">ℹ️</div>
+      <div style="flex:1;">
+        <div style="font-size:0.88rem;font-weight:600;color:#fff;">Aide & Infos</div>
+        <div style="font-size:0.72rem;color:#888;margin-top:2px;">Toutes les questions sur le shop et TRC</div>
+      </div>
+      <div style="color:#888;">›</div>
+    </div>
+
+    <!-- Rewards TRC -->
+    <div class="section-lbl-small">| REWARDS TRC</div>
+    <div style="background:#1a1e18;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 16px;margin-bottom:10px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div style="font-size:1rem;font-weight:700;color:#4CAF50;">+10.00 TRC</div>
+          <div style="font-size:0.72rem;color:#888;margin-top:2px;">checkin</div>
+        </div>
+        <div style="font-size:0.72rem;color:#666;">05/06/2026</div>
+      </div>
+    </div>
+    <div style="background:#1a1e18;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 16px;margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div style="font-size:1rem;font-weight:700;color:#4CAF50;">+10.00 TRC</div>
+          <div style="font-size:0.72rem;color:#888;margin-top:2px;">checkin</div>
+        </div>
+        <div style="font-size:0.72rem;color:#666;">31/05/2026</div>
+      </div>
+    </div>
+
+    <!-- Referral -->
+    <div class="section-lbl-small">| REFERRAL PROGRAM</div>
+    <div style="background:#1a1e18;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:16px;margin-bottom:12px;">
+      <div style="font-size:0.82rem;color:#888;margin-bottom:12px;">Invite friends and both earn TRC rewards!</div>
+      <button style="width:100%;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);border-radius:12px;padding:14px;font-size:0.88rem;font-weight:700;color:#c9a84c;cursor:pointer;margin-bottom:10px;">Get My Referral Code</button>
+      <div style="display:flex;gap:8px;">
+        <input placeholder="ENTER FRIEND'S CODE" style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px;color:#fff;font-size:0.82rem;font-family:'Inter',sans-serif;outline:none;"/>
+        <button style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:#c9a84c;font-size:0.82rem;font-weight:700;padding:12px 16px;border-radius:10px;cursor:pointer;">Apply</button>
+      </div>
+    </div>
+
+    <!-- App version -->
+    <div style="background:#1a1e18;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+      <div style="width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;">ℹ️</div>
+      <div style="flex:1;">
+        <div style="font-size:0.65rem;color:#888;text-transform:uppercase;letter-spacing:0.1em;">APP VERSION</div>
+        <div style="font-size:0.9rem;font-weight:700;color:#c9a84c;margin-top:2px;">v3.0.0</div>
+      </div>
+      <div style="font-size:0.72rem;color:#4CAF50;">Latest</div>
+    </div>
+
+    <button style="width:100%;background:rgba(180,30,30,0.15);border:1px solid rgba(180,30,30,0.3);border-radius:12px;padding:14px;font-size:0.82rem;font-weight:700;color:#ff5555;cursor:pointer;margin-bottom:10px;letter-spacing:0.1em;">DELETE MY DATA</button>
+    <button style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px;font-size:0.82rem;font-weight:700;color:#c9a84c;cursor:pointer;margin-bottom:40px;letter-spacing:0.1em;">SIGN OUT</button>
+
   </div>
 </div>
 
@@ -724,21 +809,7 @@ margin-top:1px;
   </div>
 </div>
 
-<div id="favPage">
-  <div class="fav-topbar">
-    <div class="fav-back" onclick="closeFavoris()">‹</div>
-    <div class="fav-title">FAVORIS</div>
-    <div style="width:34px"></div>
-  </div>
-  <div style="padding:12px 12px 100px;">
-    <div class="fav-empty" id="favEmpty">
-      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      <div class="fav-empty-title">Aucun favori pour l'instant</div>
-      <div class="fav-empty-sub">Appuie sur le ❤️ d'un produit pour l'ajouter ici</div>
-    </div>
-    <div class="products-grid" id="favGrid" style="display:none;padding:0;"></div>
-  </div>
-</div> style="position:fixed;inset:0;background:#0d0f0b;z-index:600;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);max-width:430px;margin:0 auto;display:flex;flex-direction:column;">
+<div id="searchPage" style="position:fixed;inset:0;background:#0d0f0b;z-index:600;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);max-width:430px;margin:0 auto;display:flex;flex-direction:column;">
   <div style="padding:12px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.06);background:#0d0f0b;position:sticky;top:0;z-index:2;">
     <div onclick="closeSearch()" style="width:34px;height:34px;background:rgba(255,255,255,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.3rem;flex-shrink:0;color:#fff;">‹</div>
     <input id="searchInput" type="text" placeholder="Rechercher un produit…" oninput="doSearch(this.value)"
@@ -750,24 +821,35 @@ margin-top:1px;
 
 <div class="bottom-nav">
   <div class="nav-item active" id="nav-home" onclick="showHome()">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-svg"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-    <div class="nav-lbl">Home</div><div class="nav-active-dot"></div>
+    <div class="nav-icon">⊞</div><div class="nav-lbl">Home</div><div class="nav-active-dot"></div>
   </div>
   <div class="nav-item" id="nav-search" onclick="openSearch()">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-svg"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    <div class="nav-lbl">Search</div>
+    <div class="nav-icon">🔍</div><div class="nav-lbl">Search</div>
   </div>
-  <div class="nav-item" id="nav-fav" onclick="openFavoris()">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-svg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-    <div class="nav-lbl">Favoris</div>
+  <div class="nav-item" id="nav-cart" onclick="toggleCart()">
+    <div class="nav-icon">🤍</div><div class="nav-lbl">Favoris</div>
   </div>
   <div class="nav-item" id="nav-profile" onclick="openProfile()">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-svg"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    <div class="nav-lbl">Profile</div>
+    <div class="nav-icon">👤</div><div class="nav-lbl">Profile</div>
   </div>
 </div>
 
 <script>
+// --- Telegram WebApp user info ---
+(function() {
+  try {
+    const tg = window.Telegram && window.Telegram.WebApp;
+    if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
+      const u = tg.initDataUnsafe.user;
+      const displayName = (u.first_name || '') + (u.last_name ? ' ' + u.last_name : '') || u.username || 'ChocolaUser';
+      const userId = u.id ? String(u.id) : '—';
+      document.getElementById('profileName').textContent = displayName;
+      document.getElementById('profileTelegramId').textContent = userId;
+      document.getElementById('profileBadge').textContent = 'SEED · 10 XP · 10 TRC';
+    }
+  } catch(e) { console.log('TG user:', e); }
+})();
+
 const PRODUCTS = [
   {id:'bol_mix', cat:'Accessoires', name:'BOL A MIX', price:70, unit:'DH', stock:'in_stock', thumb:'https://i.imgur.com/8H9AmC1.jpeg', detail:'https://i.imgur.com/8H9AmC1.jpeg'},
   {id:'raw_organic_ks', cat:'Accessoires', name:'RAW ORGANIC KING SIZE', price:13, unit:'DH', stock:'in_stock', thumb:'https://i.imgur.com/omjJVR3.jpeg', detail:'https://i.imgur.com/omjJVR3.jpeg'},
@@ -891,24 +973,12 @@ function doSearch(query) {
     const isOut = p.stock === 'out';
     const isLast = p.stock === 'last';
     const inCart = cart[p.id] || 0;
-    const isVideo = p.thumb && p.thumb.includes('streamable.com');
-    const videoId = isVideo ? p.thumb.split('/').pop() : null;
-    const thumbUrl = isVideo ? `https://cdn-cf-east.streamable.com/image/${videoId}.jpg` : p.thumb;
     return `<div class="product-card${isOut?' out-of-stock':''}" onclick="openDetail('${p.id}')">
       <div class="product-img-wrap">
-        <img src="${thumbUrl}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/300x300/111/444?text=CTT'"/>
-        <div class="badge-stock${isOut?' out':isLast?' last':''}">
+        <img src="${p.thumb}" alt="${p.name}" loading="lazy"/>
+        <div class="badge-stock${isOut?' out':''}">
           <div class="${isOut?'dot-red':isLast?'dot-orange':'dot-green'}"></div>
           ${isOut?'OUT':isLast?'LAST':'IN STOCK'}
-        </div>
-        ${isVideo?'<div class="badge-video"><svg width="10" height="10" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>':''}
-        <div class="product-info">
-          <div class="product-cat">${p.cat}</div>
-          <div class="product-name">${p.name}</div>
-          <div class="product-footer">
-            <div class="product-price">${p.price} <span class="unit">${p.unit}</span></div>
-            <div class="btn-add${inCart?' added':''}${isOut?' disabled':''}" onclick="event.stopPropagation();quickAdd('${p.id}')">${inCart||'+'}</div>
-          </div>
         </div>
       </div>
       <div class="product-info">
@@ -949,25 +1019,21 @@ function renderProducts(cat) {
     const isOut = p.stock === 'out';
     const isLast = p.stock === 'last';
     const inCart = cart[p.id] || 0;
-    const isVideo = p.thumb && p.thumb.includes('streamable.com');
-    const videoId = isVideo ? p.thumb.split('/').pop() : null;
-    const thumbUrl = isVideo ? `https://cdn-cf-east.streamable.com/image/${videoId}.jpg` : p.thumb;
     return `
     <div class="product-card${isOut ? ' out-of-stock' : ''}" onclick="openDetail('${p.id}')">
       <div class="product-img-wrap">
-        <img src="${thumbUrl}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/300x300/111/444?text=CTT'"/>
-        <div class="badge-stock${isOut?' out':isLast?' last':''}">
-          <div class="${isOut?'dot-red':isLast?'dot-orange':'dot-green'}"></div>
-          ${isOut?'OUT':isLast?'LAST':'IN STOCK'}
+        <img src="${p.thumb}" alt="${p.name}" loading="lazy"/>
+        <div class="badge-stock${isOut ? ' out' : ''}">
+          <div class="${isOut ? 'dot-red' : isLast ? 'dot-orange' : 'dot-green'}"></div>
+          ${isOut ? 'OUT' : isLast ? 'LAST' : 'IN STOCK'}
         </div>
-        ${isVideo?'<div class="badge-video"><svg width="10" height="10" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>':''}
-        <div class="product-info">
-          <div class="product-cat">${p.cat}</div>
-          <div class="product-name">${p.name}</div>
-          <div class="product-footer">
-            <div class="product-price">${p.price} <span class="unit">${p.unit}</span></div>
-            <div class="btn-add${inCart?' added':''}${isOut?' disabled':''}" id="btn-${p.id}" onclick="event.stopPropagation();quickAdd('${p.id}')">${inCart||'+'}</div>
-          </div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">${p.cat}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-footer">
+          <div class="product-price">${p.price} <span class="unit">${p.unit}</span></div>
+          <div class="btn-add${inCart ? ' added' : ''}${isOut ? ' disabled' : ''}" id="btn-${p.id}" onclick="event.stopPropagation(); quickAdd('${p.id}')">${inCart || '+'}</div>
         </div>
       </div>
     </div>`;
@@ -1265,80 +1331,13 @@ function filterCat(cat) {
   }
 }
 
-let favorites = JSON.parse(localStorage.getItem('ctt_favs') || '[]');
-
-function openFavoris() {
-  renderFavs();
-  document.getElementById('favPage').classList.add('open');
-  setNavActive('nav-fav');
-}
-function closeFavoris() {
-  document.getElementById('favPage').classList.remove('open');
-  setNavActive('nav-home');
-}
-function toggleFav(id) {
-  const idx = favorites.indexOf(id);
-  if (idx === -1) favorites.push(id);
-  else favorites.splice(idx, 1);
-  localStorage.setItem('ctt_favs', JSON.stringify(favorites));
-  renderFavs();
-}
-function renderFavs() {
-  const grid = document.getElementById('favGrid');
-  const empty = document.getElementById('favEmpty');
-  if (!favorites.length) { grid.style.display='none'; empty.style.display='flex'; return; }
-  empty.style.display = 'none';
-  grid.style.display = 'grid';
-  const list = PRODUCTS.filter(p => favorites.includes(p.id));
-  grid.innerHTML = list.map(p => {
-    const isOut = p.stock==='out', isLast = p.stock==='last';
-    const isVideo = p.thumb && p.thumb.includes('streamable.com');
-    const videoId = isVideo ? p.thumb.split('/').pop() : null;
-    const thumbUrl = isVideo ? `https://cdn-cf-east.streamable.com/image/${videoId}.jpg` : p.thumb;
-    return `<div class="product-card${isOut?' out-of-stock':''}" onclick="openDetail('${p.id}')">
-      <div class="product-img-wrap">
-        <img src="${thumbUrl}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'"/>
-        ${isVideo?`<div class="badge-video"><svg width="10" height="10" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>`:''}
-        <div class="badge-stock${isOut?' out':''}"><div class="${isOut?'dot-red':isLast?'dot-orange':'dot-green'}"></div>${isOut?'OUT':isLast?'LAST':'IN STOCK'}</div>
-      </div>
-      <div class="product-info">
-        <div class="product-cat">${p.cat}</div>
-        <div class="product-name">${p.name}</div>
-        <div class="product-footer"><div class="product-price">${p.price} <span class="unit">${p.unit}</span></div>
-        <div class="btn-add" onclick="event.stopPropagation();quickAdd('${p.id}')">+</div></div>
-      </div></div>`;
-  }).join('');
-}
-
-function openSearch() {
-  const page = document.getElementById('searchPage');
-  page.style.transform = 'translateX(0)';
-  setNavActive('nav-search');
-  setTimeout(() => document.getElementById('searchInput').focus(), 300);
-  doSearch('');
-}
-function closeSearch() {
-  document.getElementById('searchPage').style.transform = 'translateX(100%)';
-  setNavActive('nav-home');
-}
-
-function openProfile() { 
-  // Afficher le nom Telegram si disponible
-  const tgUser = window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe && window.Telegram.WebApp.initDataUnsafe.user;
-  const username = tgUser ? (tgUser.first_name + (tgUser.last_name ? ' ' + tgUser.last_name : '')) : 'ChocolaUser';
-  const nameEl = document.getElementById('profileUsername');
-  if (nameEl) nameEl.textContent = username;
-  document.getElementById('profilePage').classList.add('open'); 
-  setNavActive('nav-profile'); 
-}
+function openProfile() { document.getElementById('profilePage').classList.add('open'); setNavActive('nav-profile'); }
 function closeProfile() { document.getElementById('profilePage').classList.remove('open'); setNavActive('nav-home'); }
 function openAvis() { document.getElementById('avisPage').classList.add('open'); }
 function closeAvis() { document.getElementById('avisPage').classList.remove('open'); }
 function showHome() {
   document.getElementById('profilePage').classList.remove('open');
   document.getElementById('avisPage').classList.remove('open');
-  document.getElementById('favPage').classList.remove('open');
-  document.getElementById('searchPage').style.transform = 'translateX(100%)';
   setNavActive('nav-home');
 }
 function setNavActive(id) {
@@ -1358,3 +1357,4 @@ function showToast(msg) {
 renderProducts('Accessoires');
 </script>
 </body>
+</html>
