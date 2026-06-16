@@ -12,8 +12,8 @@
     .header-logo{font-size:1rem;font-weight:700;letter-spacing:.35em;color:#d7bb73;text-transform:uppercase;flex:1;text-align:center;}
     .header-left,.header-right{display:flex;align-items:center;gap:10px;min-width:60px;}
     .header-right{justify-content:flex-end;}
-    .btn-rabat{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);color:#d7bb73;font-size:.85rem;font-weight:700;padding:8px 16px;border-radius:20px;backdrop-filter:blur(15px);}
-    .btn-cart-h{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;position:relative;backdrop-filter:blur(15px);}
+    .btn-rabat{background:rgba(217,194,138,.1);border:1px solid rgba(217,194,138,.25);color:#D9C28A;font-size:13px;font-weight:700;padding:7px 14px;border-radius:20px;backdrop-filter:blur(15px);cursor:pointer;}
+    .btn-cart-h{background:rgba(217,194,138,.1);border:1px solid rgba(217,194,138,.2);width:40px;height:40px;border-radius:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;backdrop-filter:blur(15px);}
     .cart-badge{position:absolute;top:-5px;right:-5px;background:#c9a84c;color:#111;font-size:0.55rem;font-weight:800;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center;}
     .hamburger{font-size:1.2rem;cursor:pointer;color:#c9a84c;}
     .overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(10px);z-index:300;opacity:0;pointer-events:none;transition:.3s;}
@@ -29,7 +29,7 @@
     .menu-icon{width:32px;height:32px;background:rgba(255,255,255,0.06);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
     .menu-item.active .menu-icon{background:rgba(201,168,76,0.15);}
     .menu-lbl{font-size:0.88rem;font-weight:500;color:#ccc;}
-    .trc-block{margin:12px 12px 0;background:rgba(15,20,12,0.85);border:1px solid rgba(201,168,76,0.2);border-radius:18px;padding:14px 16px;position:relative;overflow:hidden;}
+    .trc-block{margin:12px 12px 0;background:linear-gradient(145deg,rgba(26,24,18,0.9),rgba(34,31,24,0.85),rgba(26,24,18,0.9));border:1px solid rgba(217,194,138,0.14);border-radius:18px;padding:14px 16px;position:relative;overflow:hidden;box-shadow:0 6px 22px rgba(217,194,138,0.08);}
     .trc-block::before{content:'CHOCOLATRICHOMES';position:absolute;font-size:4rem;font-weight:900;color:rgba(255,255,255,0.03);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;}
     .trc-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
     .trc-icon{width:36px;height:36px;background:radial-gradient(circle,#3a7a30,#1a4010);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
@@ -43,7 +43,7 @@
     .trc-stat-lbl{font-size:0.62rem;color:#666;margin-top:2px;}
     .trc-link{font-size:0.78rem;color:#888;text-align:center;cursor:pointer;display:block;}
     .trc-link span{color:#c9a84c;}
-    .checkin-card{margin:10px 12px 0;background:rgba(15,20,12,0.85);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:14px 16px;}
+    .checkin-card{margin:10px 12px 0;background:linear-gradient(135deg,rgba(20,241,149,0.06),rgba(153,69,255,0.06));border:1.5px solid rgba(20,241,149,0.15);border-radius:18px;padding:14px 16px;}
     .checkin-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
     .checkin-title{font-size:0.88rem;font-weight:600;}
     .checkin-streak{font-size:0.78rem;color:#ff6b35;font-weight:600;}
@@ -91,28 +91,28 @@
     .promo-icon{font-size:1.4rem;flex-shrink:0;position:relative;z-index:1;}
     .promo-title{font-size:0.85rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;position:relative;z-index:1;}
     .promo-sub{font-size:0.7rem;color:#ddd;margin-top:2px;position:relative;z-index:1;}
-    .section-hdr{display:flex;align-items:center;gap:8px;padding:18px 12px 10px;font-size:0.78rem;font-weight:700;color:#888;letter-spacing:0.1em;text-transform:uppercase;}
+    .section-hdr{display:flex;align-items:center;gap:8px;padding:18px 12px 10px;font-size:11px;font-weight:700;color:#8E8E93;letter-spacing:0.1em;text-transform:uppercase;}
     .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 12px 120px;}
-    .product-card{background:rgba(20,24,18,0.9);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);cursor:pointer;transition:transform 0.15s;}
-    .product-card:active{transform:scale(0.97);}
+    .product-card{overflow:hidden;position:relative;cursor:pointer;border-radius:16px;border:1px solid rgba(255,255,255,0.07);background:linear-gradient(145deg,#121212 0%,#0a0a0a 100%);box-shadow:0 4px 16px rgba(0,0,0,0.35);animation:cardEnter 0.4s cubic-bezier(0.4,0,0.2,1) backwards;} @keyframes cardEnter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    .product-card:active{transform:scale(0.97);} .product-card:active .product-img-wrap img{transform:scale(1.05);}
     .product-card.out-of-stock{opacity:0.6;}
-    .product-img-wrap{position:relative;width:100%;padding-top:80%;background:#1e201c;overflow:hidden;}
-    .product-img-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+    .product-img-wrap{position:relative;width:100%;padding-top:95%;background:rgba(18,14,4,0.9);overflow:hidden;}
+    .product-img-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:8px;border-radius:12px;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);}
     .badge-stock{position:absolute;top:8px;left:8px;background:rgba(15,26,13,0.9);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:3px 10px;font-size:0.62rem;font-weight:600;display:flex;align-items:center;gap:5px;backdrop-filter:blur(8px);z-index:2;}
     .badge-stock.out{background:rgba(30,0,0,0.9);}.badge-stock.last{background:rgba(40,25,0,0.9);}
     .dot-green{width:6px;height:6px;border-radius:50%;background:#4CAF50;flex-shrink:0;}
     .dot-red{width:6px;height:6px;border-radius:50%;background:#f44336;flex-shrink:0;}
     .dot-orange{width:6px;height:6px;border-radius:50%;background:#ff9800;flex-shrink:0;}
-    .product-info{padding:10px 10px 12px;}
-    .product-cat{font-size:0.6rem;color:#c9a84c;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:3px;}
-    .product-name{font-size:0.82rem;font-weight:700;color:#fff;margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-    .product-footer{display:flex;align-items:center;justify-content:space-between;}
-    .product-price{font-size:1rem;font-weight:800;color:#fff;}
-    .product-price .unit{font-size:0.72rem;font-weight:500;color:#888;margin-left:3px;}
-    .btn-add{width:32px;height:32px;background:rgba(201,168,76,0.2);border:1px solid rgba(201,168,76,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#c9a84c;cursor:pointer;flex-shrink:0;transition:all 0.2s;}
-    .btn-add:active{transform:scale(0.85);}
-    .btn-add.added{background:#c9a84c;color:#111;border-color:#c9a84c;}
-    .btn-add.disabled{opacity:0.3;cursor:not-allowed;}
+    .product-info{position:absolute;bottom:0;left:0;right:0;padding:48px 14px 14px;background:linear-gradient(0deg,rgba(18,14,4,0.97) 0%,rgba(18,14,4,0.75) 40%,rgba(18,14,4,0.3) 75%,transparent 100%);display:flex;flex-direction:column;gap:3px;}
+    .product-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#D9C28A;text-shadow:0 0 12px rgba(217,194,138,0.4);opacity:0.9;}
+    .product-name{font-size:14px;font-weight:800;color:#F5F5F7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-0.01em;text-transform:uppercase;}
+    .product-footer{display:flex;align-items:center;justify-content:space-between;margin-top:4px;}
+    .product-price{font-size:17px;font-weight:800;color:#F5F5F7;letter-spacing:-0.015em;}
+    .product-price .unit{font-size:10px;font-weight:500;color:#8E8E93;margin-left:2px;}
+    .btn-add{width:36px;height:36px;background:linear-gradient(135deg,#E8D6A8 0%,#D9C28A 50%,#B8A06E 100%);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:all 0.25s;box-shadow:0 4px 16px rgba(217,194,138,0.5),inset 0 1px 0 rgba(255,255,255,0.25);color:#0a0a0a;font-size:1.3rem;font-weight:300;}
+    .btn-add:active{transform:scale(0.88);}
+    .btn-add.added{background:linear-gradient(135deg,#2d5a27,#4a8c3f);color:white;box-shadow:none;}
+    .btn-add.disabled{opacity:0.3;cursor:not-allowed;background:rgba(100,100,100,0.3);box-shadow:none;}
     .avis-section{padding:0 12px 20px;}
     .avis-hero{background:linear-gradient(135deg,#1a1e18,#111310);border:1px solid rgba(201,168,76,0.2);border-radius:16px;padding:24px 20px;text-align:center;margin-bottom:16px;}
     .avis-hero-title{font-size:1.1rem;font-weight:700;margin-bottom:8px;}
@@ -322,9 +322,9 @@ font-weight:700;
 }
 
 .nav-active-dot{width:18px;height:2px;background:#d7c083;border-radius:20px;margin-top:1px;}
-.nav-item svg{color:#999;stroke:#999;transition:.25s;}
-.nav-item.active svg{color:#d7c083;stroke:#d7c083;}
-.nav-item.active .nav-lbl{color:#d7c083;font-weight:700;}
+.nav-item svg{stroke:#8E8E93;fill:none;stroke-width:1.5;transition:.25s;}
+.nav-item.active svg{stroke:#D9C28A;}
+.nav-item.active .nav-lbl{color:#D9C28A;font-weight:700;}
 
     .city-modal{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:900;display:none;align-items:flex-end;justify-content:center;}
     .city-modal.open{display:flex;}
@@ -378,7 +378,7 @@ font-weight:700;
     <div style="flex:1"><div class="trc-title">🪙 <span>Hold TRC, économise jusqu'à -20%</span></div><div class="trc-sub">Dès $5 hold → tier Bronze <span style="color:#c9a84c;font-weight:700">-5%</span> à vie sur chaque commande</div></div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><div class="trc-hdr-arrow">→</div><div class="trc-act">ACTIVER</div></div>
   </div>
-  <div class="trc-stats">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0 10px;">
     <div class="trc-stat"><div class="trc-stat-val">-20%</div><div class="trc-stat-lbl">Max Cardholder</div></div>
     <div class="trc-stat"><div class="trc-stat-val">x5</div><div class="trc-stat-lbl">TRC/DH gagnés</div></div>
     <div class="trc-stat"><div class="trc-stat-val" id="holdersCount">611</div><div class="trc-stat-lbl">Holders</div></div>
