@@ -7,15 +7,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-    html{background:linear-gradient(rgba(3,4,5,.72),rgba(3,4,5,.88)),url('./ctt-background.webp');background-size:cover;background-position:center center;background-attachment:fixed;min-height:100vh;} body{color:#fff;font-family:'Inter',sans-serif;max-width:430px;margin:0 auto;min-height:100vh;overflow-x:hidden;background:transparent;} body{padding-top:58px;}
-    .header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;z-index:200;background:rgba(0,0,0,.75);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.06);}
-    .header-logo{font-size:1rem;font-weight:700;letter-spacing:.35em;color:#d7bb73;text-transform:uppercase;flex:1;text-align:center;}
-    .header-left,.header-right{display:flex;align-items:center;gap:10px;min-width:60px;}
+    html{background:linear-gradient(rgba(3,4,5,.82),rgba(3,4,5,.88)),url('./ctt-background.webp');background-size:cover;background-position:center center;background-attachment:fixed;min-height:100vh;} body{color:#fff;font-family:'Inter',sans-serif;max-width:430px;margin:0 auto;min-height:100vh;overflow-x:hidden;background:transparent;} body{padding-top:50px;}
+    .header{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;z-index:200;background:rgba(0,0,0,.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.06);}
+    .header-logo{font-size:0.78rem;font-weight:700;letter-spacing:.28em;color:#d7bb73;text-transform:uppercase;flex:1;text-align:center;}
+    .header-left,.header-right{display:flex;align-items:center;gap:8px;min-width:54px;}
     .header-right{justify-content:flex-end;}
-    .btn-rabat{background:rgba(217,194,138,.1);border:1px solid rgba(217,194,138,.25);color:#D9C28A;font-size:13px;font-weight:700;padding:7px 14px;border-radius:20px;backdrop-filter:blur(15px);cursor:pointer;}
-    .btn-cart-h{background:rgba(217,194,138,.1);border:1px solid rgba(217,194,138,.2);width:40px;height:40px;border-radius:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;backdrop-filter:blur(15px);}
+    .btn-rabat{background:rgba(217,194,138,.08);border:1px solid rgba(217,194,138,.22);color:#D9C28A;font-size:11px;font-weight:700;padding:5px 11px;border-radius:20px;backdrop-filter:blur(15px);cursor:pointer;}
+    .btn-cart-h{background:rgba(217,194,138,.08);border:1px solid rgba(217,194,138,.18);width:34px;height:34px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;backdrop-filter:blur(15px);}
     .cart-badge{position:absolute;top:-5px;right:-5px;background:#c9a84c;color:#111;font-size:0.55rem;font-weight:800;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center;}
-    .hamburger{font-size:1.2rem;cursor:pointer;color:#c9a84c;}
+    .hamburger{font-size:1rem;cursor:pointer;color:#c9a84c;}
     .overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(10px);z-index:300;opacity:0;pointer-events:none;transition:.3s;}
     .overlay.open{opacity:1;pointer-events:all;}
     .side-menu{position:fixed;top:0;left:-100%;width:72%;max-width:320px;height:100%;background:rgba(12,12,16,.85);backdrop-filter:blur(24px);z-index:400;transition:.35s;border-right:1px solid rgba(255,255,255,.08);}
@@ -146,6 +146,12 @@
     .detail-type-meta{font-size:0.62rem;color:#888;text-transform:uppercase;letter-spacing:0.1em;}
     .detail-type-val{font-size:0.9rem;font-weight:600;color:#fff;margin-top:2px;}
     .qty-label{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#888;margin:20px 0 10px;}
+    .qty-gram-btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:24px;}
+    .qty-gram-btn{background:#1e201c;border:1px solid rgba(201,168,76,0.25);border-radius:14px;padding:16px 8px;text-align:center;cursor:pointer;transition:all 0.2s;}
+    .qty-gram-btn:active{transform:scale(0.97);}
+    .qty-gram-btn.selected{background:rgba(201,168,76,0.12);border-color:#c9a84c;}
+    .qty-gram-val{font-size:1.1rem;font-weight:800;color:#fff;}
+    .qty-gram-price{font-size:0.78rem;color:#888;margin-top:4px;}
     .qty-selector{background:#1e201c;border:1px solid rgba(201,168,76,0.3);border-radius:14px;padding:16px;text-align:center;cursor:pointer;margin-bottom:24px;transition:background 0.2s;}
     .qty-selector:hover{background:rgba(201,168,76,0.08);}
     .qty-x{font-size:1.1rem;font-weight:800;color:#fff;}
@@ -471,10 +477,7 @@ font-weight:700;
     <div class="detail-desc" id="detailDesc">Essential smoking accessories — lighters, rolling papers, grinders, and more. Quality gear for the everyday smoker.</div>
     <div class="detail-type-row"><div class="detail-type-icon">📦</div><div><div class="detail-type-meta">TYPE</div><div class="detail-type-val" id="detailTypeName">Accessoire</div></div></div>
     <div class="qty-label">SELECTIONNER LA QUANTITE</div>
-    <div class="qty-selector" id="qtySelector" onclick="changeDetailQty()">
-      <div class="qty-x" id="detailQtyX">×1</div>
-      <div class="qty-dh" id="detailQtyDh"></div>
-    </div>
+    <div id="qtyContent"></div>
     <div class="avis-title-sm">Avis clients</div>
     <div class="avis-empty">Aucun avis pour ce produit</div>
     <div class="avis-link">Laisser un commentaire</div>
@@ -1065,7 +1068,8 @@ function openDetail(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return;
   detailProduct = p;
-  detailQty = 1;
+  const isGram = p.unit && p.unit.includes('/g');
+  detailQty = isGram ? 25 : 1;
   const mediaWrap = document.getElementById('detailMediaWrap');
   const mediaSrc = p.detail || p.thumb;
   if (mediaSrc && mediaSrc.includes('streamable.com')) {
@@ -1114,8 +1118,30 @@ function openDetail(id) {
 function closeDetail() { document.getElementById('detailPage').classList.remove('open'); }
 function updateDetailQty() {
   if (!detailProduct) return;
-  document.getElementById('detailQtyX').textContent = 'x' + detailQty;
-  document.getElementById('detailQtyDh').textContent = (detailProduct.price * detailQty).toFixed(2) + ' ' + detailProduct.unit;
+  const isGram = detailProduct.unit && detailProduct.unit.includes('/g');
+  const qtyContent = document.getElementById('qtyContent');
+  if (!qtyContent) return;
+  if (isGram) {
+    const gramOptions = [25, 50, 100];
+    qtyContent.innerHTML = `<div class="qty-gram-btns">` +
+      gramOptions.map(g => {
+        const price = (detailProduct.price * g).toFixed(0);
+        const sel = detailQty === g ? ' selected' : '';
+        return `<div class="qty-gram-btn${sel}" onclick="selectGram(${g})">
+          <div class="qty-gram-val">${g}g</div>
+          <div class="qty-gram-price">${price} DH</div>
+        </div>`;
+      }).join('') + `</div>`;
+  } else {
+    qtyContent.innerHTML = `<div class="qty-selector" onclick="changeDetailQty()">
+      <div class="qty-x" id="detailQtyX">×${detailQty}</div>
+      <div class="qty-dh" id="detailQtyDh">${(detailProduct.price * detailQty).toFixed(2)} ${detailProduct.unit}</div>
+    </div>`;
+  }
+}
+function selectGram(g) {
+  detailQty = g;
+  updateDetailQty();
 }
 function changeDetailQty() {
   detailQty = detailQty < 10 ? detailQty + 1 : 1;
@@ -1124,24 +1150,32 @@ function changeDetailQty() {
 function updateDetailCartBtn() {
   if (!detailProduct) return;
   const btn = document.getElementById('btnAddToCart');
+  const isGram = detailProduct.unit && detailProduct.unit.includes('/g');
   const inCart = cart[detailProduct.id] || 0;
+  const qty = detailQty || (isGram ? 25 : 1);
+  const totalPrice = (detailProduct.price * qty).toFixed(0);
   if (detailProduct.stock === 'out') {
     btn.className = 'btn-add-to-cart out';
     btn.textContent = 'RUPTURE DE STOCK';
   } else if (inCart > 0) {
     btn.className = 'btn-add-to-cart added';
-    btn.textContent = 'DANS LE PANIER (' + inCart + ')';
+    btn.textContent = 'DANS LE PANIER (' + (isGram ? inCart + 'g' : inCart) + ')';
   } else {
     btn.className = 'btn-add-to-cart';
-    btn.textContent = 'ADD TO CART - ' + detailProduct.price + ' ' + detailProduct.unit;
+    btn.textContent = isGram ? `ADD ${qty}g — ${totalPrice} DH` : `ADD TO CART — ${detailProduct.price} ${detailProduct.unit}`;
   }
 }
 function addFromDetail() {
   if (!detailProduct || detailProduct.stock === 'out') return;
-  cart[detailProduct.id] = (cart[detailProduct.id] || 0) + detailQty;
+  const isGram = detailProduct.unit && detailProduct.unit.includes('/g');
+  const qty = isGram ? detailQty : detailQty;
+  // Store as {qty, isGram} so cart knows the unit
+  if (!cart[detailProduct.id]) cart[detailProduct.id] = 0;
+  cart[detailProduct.id] += qty;
   updateBadges();
   updateDetailCartBtn();
-  showToast(detailProduct.name + ' ajoute!');
+  const totalPrice = (detailProduct.price * qty).toFixed(0);
+  showToast(detailProduct.name + (isGram ? ' ' + qty + 'g' : '') + ' — ' + totalPrice + ' DH');
   renderProducts(currentCat);
 }
 function quickAdd(id) {
@@ -1369,8 +1403,46 @@ function setNavActive(id) {
   if (el) el.classList.add('active');
 }
 function claimTRC() {
+  const today = new Date().toISOString().split('T')[0];
+  const lastClaim = localStorage.getItem('ctt_last_claim');
+  if (lastClaim === today) {
+    showToast('⏰ Déjà récupéré aujourd\'hui ! Reviens demain.');
+    return;
+  }
   trcBalance += 10;
-  showToast('10 TRC récupérés ! Total: ' + trcBalance + ' TRC');
+  localStorage.setItem('ctt_last_claim', today);
+  localStorage.setItem('ctt_trc_balance', trcBalance);
+  // Update streak
+  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+  let streak = parseInt(localStorage.getItem('ctt_streak') || '0');
+  if (lastClaim === yesterday) {
+    streak += 1;
+  } else if (lastClaim !== today) {
+    streak = 1;
+  }
+  localStorage.setItem('ctt_streak', streak);
+  document.getElementById('streakDisplay').textContent = streak + ' jours 🔥';
+  document.getElementById('profileStreak').textContent = streak + ' 🔥';
+  document.getElementById('profileTRC').textContent = trcBalance;
+  document.getElementById('profileBadge').textContent = 'SEED · 10 XP · ' + trcBalance + ' TRC';
+  const btn = document.querySelector('.btn-claim');
+  if (btn) { btn.style.opacity = '0.5'; btn.style.cursor = 'not-allowed'; btn.textContent = '✅ Récupéré ! Reviens demain'; }
+  showToast('✅ 10 TRC récupérés ! Total: ' + trcBalance + ' TRC');
+  updateCheckinUI();
+}
+function updateCheckinUI() {
+  const today = new Date().toISOString().split('T')[0];
+  const lastClaim = localStorage.getItem('ctt_last_claim');
+  const btn = document.querySelector('.btn-claim');
+  if (btn && lastClaim === today) {
+    btn.style.opacity = '0.5';
+    btn.style.cursor = 'not-allowed';
+    btn.textContent = '✅ Récupéré ! Reviens demain';
+  }
+  const streak = parseInt(localStorage.getItem('ctt_streak') || '0');
+  const streakEl = document.getElementById('streakDisplay');
+  if (streakEl) streakEl.textContent = streak + ' jours 🔥';
+  trcBalance = parseInt(localStorage.getItem('ctt_trc_balance') || '10');
 }
 function showToast(msg) {
   const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
@@ -1455,6 +1527,7 @@ function selectCity(city) {
 }
 
 renderProducts('Accessoires');
+updateCheckinUI();
 </script>
 
 <!-- PAGE SEARCH -->
